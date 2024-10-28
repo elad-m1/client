@@ -1,15 +1,26 @@
 import React from 'react';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
+import NavBar from 'react-native-system-navigation-bar';
 
-import MainNavigator from './src/navigation/MainNavigator';
-import AuthNavigator from './src/navigation/AuthNavigator';
+import Verification from './src/screens/Verification/Verification';
+import {defaultColors} from './src/screens/Verification/context/colors';
+import {ToastAndroid} from 'react-native';
 
 function App(): React.JSX.Element {
-  const loggedIn = false;
+  NavBar.setNavigationColor('#00000000');
+  NavBar.setBarMode('dark', 'both');
   return (
-    <NavigationContainer>
-      {loggedIn ? <MainNavigator /> : <AuthNavigator />}
-    </NavigationContainer>
+    <GestureHandlerRootView>
+      <NavigationContainer>
+        <Verification
+          colors={defaultColors}
+          onSubmit={() => ToastAndroid.show('SUBMITTED', ToastAndroid.SHORT)}
+          sendVerifCode={() => {}}
+          translucent
+        />
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 
