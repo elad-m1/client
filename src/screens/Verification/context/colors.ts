@@ -9,6 +9,7 @@ export const defaultColors = {
   text: '#000',
   subText: '#353535',
   placeholder: '#959595',
+  error: '#FA2945',
 };
 
 const ColorsContext = createContext(defaultColors);

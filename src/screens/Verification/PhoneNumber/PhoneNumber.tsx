@@ -48,13 +48,13 @@ const PhoneNumber: FC<Props> = ({sendVerifCode}) => {
             selectedValue={country}
             onValueChange={value => onCountrySelect(value)}
             style={{width: SCREEN_WIDTH * 0.8}}
-            itemStyle={{backgroundColor: colors.card}}>
+            itemStyle={{backgroundColor: colors.background}}>
             {countryData.map(country => (
               <Picker.Item
                 label={`${country.emoji}  ${country.phone[0]}  ${country.name}`}
                 color={colors.text}
                 key={country.name}
-                style={{backgroundColor: colors.card}}
+                style={{backgroundColor: colors.background}}
                 value={country}
               />
             ))}

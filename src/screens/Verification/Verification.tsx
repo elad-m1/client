@@ -12,14 +12,15 @@ interface Props {
   colors: typeof defaultColors;
   translucent?: boolean;
   sendVerifCode: (phoneNumber: string) => void;
-  onSubmit: () => void;
+  onSubmit: () => Promise<void>;
+  codeError: boolean;
 }
 
 const Stack = createNativeStackNavigator();
 
 export type VerificationStackRootParams = {
   PhoneNumber: undefined;
-  SecurityCode: {phoneNumber: string};
+  SecurityCode: {phoneNumber: string; code: string};
 };
 
 const Verification: FC<Props> = ({
@@ -27,6 +28,7 @@ const Verification: FC<Props> = ({
   translucent,
   sendVerifCode,
   onSubmit,
+  codeError,
 }) => {
   const translucentHook = useTranslucent(translucent);
 
@@ -48,6 +50,7 @@ const Verification: FC<Props> = ({
                 {...props}
                 sendVerifCode={sendVerifCode}
                 onSubmit={onSubmit}
+                codeError={codeError}
               />
             )}
           </Stack.Screen>

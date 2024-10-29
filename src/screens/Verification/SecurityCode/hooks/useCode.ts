@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useBlurOnFulfill} from 'react-native-confirmation-code-field';
 
-const useCode = () => {
+const useCode = (onSubmit: () => Promise<void>) => {
   const [code, setCode] = useState('');
   const [resendThrottle, setResendThrottle] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -20,16 +20,13 @@ const useCode = () => {
 
   const onCodeChange = (value: string) => setCode(value);
 
-  const resendCode = () => {
-    setResendThrottle(true);
-  };
+  const toggleResendThrottle = () => setResendThrottle(value => !value);
 
-  // const submitCode = () => {
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 1500);
-  // };
+  const submitCode = async () => {
+    setLoading(true);
+    await onSubmit();
+    setLoading(false);
+  };
 
   return {
     code,
@@ -37,8 +34,8 @@ const useCode = () => {
     ref,
     loading,
     resendThrottle,
-    resendCode,
-    // submitCode,
+    toggleResendThrottle,
+    submitCode,
   };
 };
 

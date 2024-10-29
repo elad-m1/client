@@ -25,7 +25,8 @@ const useForm = () => {
       return;
     }
     navigation.navigate('SecurityCode', {
-      phoneNumber: country.phone[0] + phoneNumber,
+      phoneNumber: phoneNumber,
+      code: country.phone[0],
     });
   };
 

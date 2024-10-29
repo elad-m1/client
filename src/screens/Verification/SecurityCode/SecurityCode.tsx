@@ -13,14 +13,22 @@ import useCode from './hooks/useCode';
 
 interface Props {
   sendVerifCode: (phoneNumber: string) => void;
-  onSubmit: () => void;
+  onSubmit: () => Promise<void>;
+  codeError: boolean;
 }
 
-const SecurityCode: FC<Props> = ({onSubmit}) => {
-  const {code, onCodeChange, ref, loading, resendThrottle, resendCode} =
-    useCode();
+const SecurityCode: FC<Props> = ({onSubmit, codeError, sendVerifCode}) => {
+  const {
+    code,
+    onCodeChange,
+    ref,
+    loading,
+    resendThrottle,
+    toggleResendThrottle,
+    submitCode,
+  } = useCode(onSubmit);
   const route = useRoute<RouteProp<VerificationStackRootParams>>();
-  const phoneNumber = route.params?.phoneNumber;
+  const phoneData = route.params as {code: string; phoneNumber: string};
   const {styles, colors} = useMisc();
   return (
     <View style={{flex: 1}}>
@@ -30,25 +38,38 @@ const SecurityCode: FC<Props> = ({onSubmit}) => {
         <Text style={styles.subTitle}>
           We've just sent a verification code to
         </Text>
-        <Text style={styles.subTitle}>{phoneNumber}</Text>
+        <Text style={styles.subTitle}>
+          {phoneData.code}-
+          {phoneData.phoneNumber.replace(
+            /^(\d{3})(\d{3})(\d{0,4})$/,
+            (_match, p1, p2, p3) => `${p1}-${p2}-${p3}`,
+          )}
+        </Text>
       </View>
       <CodeField
         ref={ref}
         value={code}
         cellCount={4}
         onChangeText={onCodeChange}
-        onBlur={onSubmit}
+        onBlur={submitCode}
         keyboardType="number-pad"
         textContentType="oneTimeCode"
-        rootStyle={{width: SCREEN_WIDTH * 0.75, alignSelf: 'center'}}
+        rootStyle={{width: SCREEN_WIDTH * 0.65, alignSelf: 'center'}}
         renderCell={({index, symbol, isFocused}) => (
           <Text
             key={index}
-            style={[styles.cell, isFocused && styles.focusCell]}>
+            style={[
+              styles.cell,
+              isFocused && styles.focusCell,
+              codeError && styles.errorCell,
+            ]}>
             {symbol || (isFocused ? <Cursor /> : null)}
           </Text>
         )}
       />
+      {codeError && (
+        <Text style={[styles.subTitle, styles.errorText]}>Incorrect code</Text>
+      )}
       {loading && (
         <ActivityIndicator
           color={colors.primary}
@@ -58,12 +79,19 @@ const SecurityCode: FC<Props> = ({onSubmit}) => {
       )}
       <View style={styles.resendWrapper}>
         {resendThrottle ? (
-          <Text style={styles.subTitle}>
-            Re-sending is possible after a minute
-          </Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            <Text style={styles.subTitle}>Re-sending is possible after</Text>
+            <Text style={[styles.subTitle, {fontWeight: '900'}]}>
+              {' '}
+              a minute
+            </Text>
+          </View>
         ) : (
           <Pressable
-            onPress={resendCode}
+            onPress={() => {
+              sendVerifCode(phoneData.phoneNumber);
+              toggleResendThrottle();
+            }}
             style={({pressed}) => ({
               flexDirection: 'row',
               alignItems: 'center',
