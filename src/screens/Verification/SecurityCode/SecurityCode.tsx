@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import {FC, memo} from 'react';
 import {ActivityIndicator, Pressable, Text, View} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -17,7 +17,7 @@ interface Props {
   codeError: boolean;
 }
 
-const SecurityCode: FC<Props> = ({onSubmit, codeError, sendVerifCode}) => {
+const SecurityCode: FC<Props> = memo(({onSubmit, codeError, sendVerifCode}) => {
   const {
     code,
     onCodeChange,
@@ -108,6 +108,6 @@ const SecurityCode: FC<Props> = ({onSubmit, codeError, sendVerifCode}) => {
       </View>
     </View>
   );
-};
+});
 
 export default SecurityCode;

@@ -1,4 +1,4 @@
-import {FC, useContext} from 'react';
+import {FC, memo, useContext} from 'react';
 import {I18nManager, Pressable, Text, TextInput, View} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -19,7 +19,7 @@ interface Props {
   sendVerifCode: (phoneNumber: string) => void;
 }
 
-const PhoneNumber: FC<Props> = ({sendVerifCode}) => {
+const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
   const {styles} = useMisc();
   const {
     phoneNumber,
@@ -89,6 +89,6 @@ const PhoneNumber: FC<Props> = ({sendVerifCode}) => {
       </View>
     </View>
   );
-};
+});
 
 export default PhoneNumber;
