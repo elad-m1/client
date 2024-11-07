@@ -5,8 +5,8 @@ import {useNavigation} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
-import ColorsContext from '../../context/colors';
-import TranslucentContext from '../../context/translucent';
+import ColorsContext from '../../navigation/Verification/context/colors';
+import TranslucentContext from '../../navigation/Verification/context/translucent';
 import {scale} from '../../utils/sizing';
 import useMisc from './useMisc';
 

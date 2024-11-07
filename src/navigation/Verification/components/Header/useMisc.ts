@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {scale} from '../../utils/sizing';
 import {useContext} from 'react';
-import ColorsContext from '../../context/colors';
+import ColorsContext from '../../navigation/Verification/context/colors';
 
 const useMisc = () => {
   const colors = useContext(ColorsContext);

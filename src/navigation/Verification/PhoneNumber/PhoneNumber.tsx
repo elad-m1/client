@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
 import {scale, SCREEN_HEIGHT, SCREEN_WIDTH} from '../utils/sizing';
-import Header from '../components/Header/Header';
+import Header from '../../../components/Header/Header';
 import useMisc from './hooks/useMisc';
 import useForm from './hooks/useForm';
 import ColorsContext from '../context/colors';
@@ -24,7 +24,7 @@ const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
   const {
     phoneNumber,
     onPhoneNumberChange,
-    country,
+    selectedCountryName,
     onCountrySelect,
     goToSecurityCode,
   } = useForm();
@@ -45,7 +45,7 @@ const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
           <Picker
             selectionColor={colors.text}
             dropdownIconColor={colors.text}
-            selectedValue={country}
+            selectedValue={selectedCountryName}
             onValueChange={value => onCountrySelect(value)}
             style={{width: SCREEN_WIDTH * 0.8}}
             itemStyle={{backgroundColor: colors.background}}>
@@ -55,7 +55,7 @@ const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
                 color={colors.text}
                 key={country.name}
                 style={{backgroundColor: colors.background}}
-                value={country}
+                value={country.name}
               />
             ))}
           </Picker>

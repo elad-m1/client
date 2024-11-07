@@ -1,11 +1,11 @@
 import {useContext} from 'react';
 import {StyleSheet} from 'react-native';
 
-import {scale, SCREEN_HEIGHT, SCREEN_WIDTH} from '../../utils/sizing';
-import ColorsContext from '../../context/colors';
+import {scale, SCREEN_HEIGHT, SCREEN_WIDTH} from '@utils/sizing';
+import ThemeContext from '@context/theme/themeContext';
 
 const useMisc = () => {
-  const colors = useContext(ColorsContext);
+  const {colors} = useContext(ThemeContext);
 
   const styles = StyleSheet.create({
     titleWrapper: {
@@ -20,7 +20,7 @@ const useMisc = () => {
       fontWeight: 'bold',
     },
     subTitle: {
-      color: colors.subText,
+      color: colors.textSecondary,
       fontSize: scale(12),
     },
     phoneNumberWrapper: {
@@ -59,7 +59,7 @@ const useMisc = () => {
     },
   });
 
-  return {styles};
+  return {styles, colors};
 };
 
 export default useMisc;
