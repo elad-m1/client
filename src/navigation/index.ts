@@ -1,4 +1,5 @@
+import NavContainer from './NavigationContainer/NavigationContainer';
 import AuthNavigator from './AuthNavigator';
 import MainNavigator from './MainNavigator';
 
-export {MainNavigator, AuthNavigator};
+export {NavContainer, MainNavigator, AuthNavigator};

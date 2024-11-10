@@ -1,10 +1,9 @@
 import {useState} from 'react';
-import {ToastAndroid} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-import {VerificationStackRootParams} from '@navigation/Verification/Verification';
-import listOfCountries from '@misc/list_of_countries.json';
+import {AuthStackParamList} from '@/navigation/AuthNavigator';
+import listOfCountries from '@/misc/list_of_countries.json';
 
 const useForm = () => {
   const [selectedCountryName, setSelectedCountryName] = useState<string | null>(
@@ -19,7 +18,7 @@ const useForm = () => {
     setSelectedCountryName(newCountryName);
 
   const navigation =
-    useNavigation<NativeStackNavigationProp<VerificationStackRootParams>>();
+    useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
 
   const goToSecurityCode = (phoneNumber: string) => {
     const selectedCountry = listOfCountries.countries.find(
@@ -27,7 +26,6 @@ const useForm = () => {
     );
     if (!selectedCountry) return;
     if (phoneNumber.length !== 10) {
-      ToastAndroid.show('Phone Number Invalid', ToastAndroid.SHORT);
       return;
     }
     navigation.navigate('SecurityCode', {

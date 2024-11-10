@@ -1,12 +1,13 @@
 import {useContext} from 'react';
 import {StyleSheet} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {scale} from '@utils/sizing';
-import ThemeContext from '@context/theme/themeContext';
+import {scale} from '@/utils/sizing';
+import ThemeContext from '@/context/theme/ThemeContext';
 
 const useMisc = () => {
   const {colors} = useContext(ThemeContext);
-
+  const {top} = useSafeAreaInsets();
   const styles = StyleSheet.create({
     mainWrapper: {
       flexDirection: 'row',
@@ -14,6 +15,7 @@ const useMisc = () => {
       width: '100%',
       paddingVertical: scale(12),
       paddingHorizontal: scale(24),
+      paddingTop: top + scale(12),
     },
     title: {
       fontSize: scale(17),

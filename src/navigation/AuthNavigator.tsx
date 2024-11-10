@@ -1,13 +1,31 @@
 import {FC} from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Login from '../screens/Login';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack';
+import {PhoneNumber, SecurityCode, Welcome} from '@/screens';
+import Register from '@/screens/Register/Register';
 
 const Stack = createNativeStackNavigator();
 
+export type AuthStackParamList = {
+  Welcome: undefined;
+  PhoneNumber: undefined;
+  SecurityCode: {phoneNumber: string; code: string};
+  Register: undefined;
+};
+
+export type AuthNavigationProp = NativeStackNavigationProp<AuthStackParamList>;
+
 const AuthNavigator: FC = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="Login" component={Login} />
+    <Stack.Navigator
+      initialRouteName="PhoneNumber"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen name="PhoneNumber" component={PhoneNumber} />
+      <Stack.Screen name="SecurityCode" component={SecurityCode} />
+      <Stack.Screen name="Register" component={Register} />
     </Stack.Navigator>
   );
 };

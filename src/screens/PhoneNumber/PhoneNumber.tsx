@@ -1,22 +1,16 @@
-import {FC, memo, useContext} from 'react';
-import {I18nManager, Pressable, Text, TextInput, View} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {FC} from 'react';
+import {I18nManager, Pressable, View} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
-import {scale, SCREEN_HEIGHT, SCREEN_WIDTH} from '@utils/sizing';
-import {Country} from '@utils/types';
-import listOfCountries from '@misc/list_of_countries.json';
-import {Header, Button} from '@components/index';
+import {scale} from '@/utils/sizing';
+import listOfCountries from '@/misc/list_of_countries.json';
+import {Header, Text} from '@/components/index';
 import CountryAndPhone from './components/CountryAndPhone/CountryAndPhone';
 import useMisc from './hooks/useMisc';
 import useForm from './hooks/useForm';
+import {useTranslation} from 'react-i18next';
 
-interface Props {
-  sendVerifCode: (phoneNumber: string) => void;
-}
-
-const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
+const PhoneNumber: FC = () => {
   const {styles, colors} = useMisc();
   const {
     phoneNumber,
@@ -25,12 +19,15 @@ const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
     onCountrySelect,
     goToSecurityCode,
   } = useForm();
+
+  const {t} = useTranslation();
+
   return (
     <View style={{flex: 1}}>
-      <Header title="Phone Number" />
+      <Header title={t('phone_number.header')} />
       <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Enter your phone number</Text>
-        <Text style={styles.subTitle}>We'll send you a verification code</Text>
+        <Text style={styles.title}>phone_number.title</Text>
+        <Text style={styles.subTitle}>phone_number.subtitle</Text>
       </View>
       <View style={{width: '100%', alignItems: 'center'}}>
         <CountryAndPhone
@@ -40,26 +37,26 @@ const PhoneNumber: FC<Props> = memo(({sendVerifCode}) => {
           onPhoneNumberChange={onPhoneNumberChange}
           phoneNumber={phoneNumber}
         />
-        <Button />
-        {/* <Pressable
+        {/* <Button /> */}
+        <Pressable
           style={({pressed}) => [
             styles.nextButton,
             {opacity: pressed ? 0.5 : 1},
           ]}
           onPress={() => {
-            sendVerifCode(phoneNumber);
+            // sendVerifCode(phoneNumber);
             goToSecurityCode(phoneNumber);
           }}>
-          <Text style={styles.nextButtonText}>Next</Text>
+          <Text style={styles.nextButtonText}>general.next</Text>
           <FontAwesomeIcon
-            icon={I18nManager.isRTL ? faChevronLeft : faChevronRight}
-            color={colors.onPrimary}
+            icon={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'}
+            color={colors.primary}
             size={scale(14)}
           />
-        </Pressable> */}
+        </Pressable>
       </View>
     </View>
   );
-});
+};
 
 export default PhoneNumber;

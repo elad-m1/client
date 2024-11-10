@@ -1,7 +1,7 @@
 import {useContext} from 'react';
 import {StyleSheet} from 'react-native';
 
-import ThemeContext from '@context/theme/themeContext';
+import ThemeContext from '@/context/theme/ThemeContext';
 
 export default function useMisc() {
   const {colors} = useContext(ThemeContext);

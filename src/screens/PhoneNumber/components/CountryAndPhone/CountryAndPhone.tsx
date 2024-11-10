@@ -2,9 +2,10 @@ import {FC} from 'react';
 import {View, TextInput} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-import {SCREEN_HEIGHT, SCREEN_WIDTH} from '@utils/sizing';
-import {Country} from '@utils/types';
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from '@/utils/sizing';
+import {Country} from '@/utils/types';
 import useMisc from './hooks/useMisc';
+import {useTranslation} from 'react-i18next';
 
 interface Props {
   countryData: Array<Country>;
@@ -22,6 +23,7 @@ const CountryAndPhone: FC<Props> = ({
   onPhoneNumberChange,
 }) => {
   const {styles, colors} = useMisc();
+  const {t} = useTranslation();
   return (
     <View
       style={[styles.phoneNumberWrapper, {marginBottom: SCREEN_HEIGHT * 0.15}]}>
@@ -47,7 +49,7 @@ const CountryAndPhone: FC<Props> = ({
         onChangeText={onPhoneNumberChange}
         style={styles.phoneNumberInput}
         keyboardType="numeric"
-        placeholder="Your phone number"
+        placeholder={t('phone_number.input_placeholder')}
         placeholderTextColor={colors.placeholder}
         numberOfLines={1}
         returnKeyType="done"

@@ -1,8 +1,8 @@
 import {useContext} from 'react';
 import {StyleSheet} from 'react-native';
 
-import {scale, SCREEN_HEIGHT, SCREEN_WIDTH} from '@utils/sizing';
-import ThemeContext from '@context/theme/themeContext';
+import {scale, SCREEN_HEIGHT} from '@/utils/sizing';
+import ThemeContext from '@/context/theme/ThemeContext';
 
 const useMisc = () => {
   const {colors} = useContext(ThemeContext);
@@ -23,35 +23,12 @@ const useMisc = () => {
       color: colors.textSecondary,
       fontSize: scale(12),
     },
-    phoneNumberWrapper: {
-      alignItems: 'center',
-      rowGap: scale(16),
-    },
-    phoneNumberCountryCode: {
-      fontSize: scale(16),
-      color: colors.text,
-      marginStart: scale(12),
-    },
-    phoneNumberInput: {
-      width: SCREEN_WIDTH * 0.8,
-      backgroundColor: colors.card,
-      borderRadius: scale(8),
-      borderWidth: scale(1.5),
-      borderColor: colors.border,
-      paddingHorizontal: scale(12),
-      fontSize: scale(16),
-      color: colors.text,
-    },
     nextButton: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: colors.primary,
-      paddingVertical: scale(12),
-      paddingHorizontal: scale(24),
-      borderRadius: scale(8),
     },
     nextButtonText: {
-      color: colors.onPrimary,
+      color: colors.primary,
       fontSize: scale(15),
       fontWeight: 'bold',
       marginEnd: scale(4),

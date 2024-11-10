@@ -1,0 +1,24 @@
+{
+  "general": {
+    "next": "הבא"
+  },
+  "phone_number": {
+    "header": "מספר טלפון",
+    "title": "הכנס את מספר הטלפון שלך",
+    "subtitle": "אנו נשלח לך קוד אישור",
+    "input_placeholder": "מספר טלפונך"
+  },
+  "verification": {
+    "header": "קוד אישור",
+    "title": "הכנס את קוד האישור",
+    "subtitle": "בדיוק שלחנו אל מספר הטלפון המצוין קוד אישור",
+    "resend": "שלח מחדש קוד",
+    "resend_after_minute": "שליחה מחדש אפשרית לאחר",
+    "minute": "דקה",
+    "incorrect": "קוד שגוי"
+  },
+  "register": {
+    "first_name": "שם פרטי",
+    "last_name": "שם משפחה"
+  }
+}

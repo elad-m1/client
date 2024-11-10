@@ -1,8 +1,8 @@
 import {useContext} from 'react';
-import {StyleSheet} from 'react-native';
+import {I18nManager, StyleSheet} from 'react-native';
 
-import {scale, SCREEN_WIDTH} from '@utils/sizing';
-import ThemeContext from '@context/theme/themeContext';
+import {scale, SCREEN_WIDTH} from '@/utils/sizing';
+import ThemeContext from '@/context/theme/ThemeContext';
 
 export default function useMisc() {
   const {colors} = useContext(ThemeContext);
@@ -24,8 +24,12 @@ export default function useMisc() {
       borderWidth: scale(1.5),
       borderColor: colors.border,
       paddingHorizontal: scale(12),
+      paddingVertical: scale(6),
+      includeFontPadding: false,
       fontSize: scale(16),
       color: colors.text,
+      textAlign: 'center',
+      writingDirection: I18nManager.isRTL ? 'rtl' : 'rtl',
     },
   });
 
