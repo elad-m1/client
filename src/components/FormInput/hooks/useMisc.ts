@@ -8,7 +8,7 @@ const useMisc = () => {
   const {colors} = useContext(ThemeContext);
   const styles = StyleSheet.create({
     mainWrapper: {
-      gap: scale(2),
+      gap: scale(3),
     },
     label: {
       fontSize: scale(10),
@@ -17,15 +17,16 @@ const useMisc = () => {
     },
     requiredStar: {
       color: colors.error,
-      fontSize: scale(10),
+      fontSize: scale(11),
     },
     inputWrapper: {
       flex: 1,
+      backgroundColor: colors.card,
       flexDirection: 'row',
       alignItems: 'center',
       borderWidth: scale(1),
       borderColor: colors.border,
-      borderRadius: scale(8),
+      borderRadius: scale(6),
       paddingHorizontal: scale(12),
       paddingVertical: scale(6),
       gap: scale(12),

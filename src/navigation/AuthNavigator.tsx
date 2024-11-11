@@ -20,7 +20,7 @@ export type AuthNavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 const AuthNavigator: FC = () => {
   return (
     <Stack.Navigator
-      initialRouteName="PhoneNumber"
+      initialRouteName="Register"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="PhoneNumber" component={PhoneNumber} />

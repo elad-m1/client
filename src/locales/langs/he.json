@@ -1,6 +1,8 @@
 {
   "general": {
-    "next": "הבא"
+    "next": "הבא",
+    "done": "סיימתי",
+    "submit": "הגש"
   },
   "phone_number": {
     "header": "מספר טלפון",
@@ -18,7 +20,16 @@
     "incorrect": "קוד שגוי"
   },
   "register": {
-    "first_name": "שם פרטי",
-    "last_name": "שם משפחה"
+    "full_name": {
+      "header": "הרשמה",
+      "title": "נשמח להכיר טוב קצת",
+      "first_name": "שם פרטי",
+      "last_name": "שם משפחה",
+      "gender": "מין",
+      "male": "זכר",
+      "female": "נקבה",
+      "hair_color": "צבע שיער",
+      "hair_type": "סוג שיער"
+    }
   }
 }

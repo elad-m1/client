@@ -1,5 +1,12 @@
 import {FC, useContext} from 'react';
-import {Pressable, View, I18nManager, Text} from 'react-native';
+import {
+  Pressable,
+  View,
+  I18nManager,
+  Text,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
@@ -10,9 +17,10 @@ import useMisc from './useMisc';
 
 interface Props {
   title: string;
+  style?: StyleProp<ViewStyle>;
 }
 
-const Header: FC<Props> = ({title}) => {
+const Header: FC<Props> = ({title, style}) => {
   const {styles} = useMisc();
 
   const {colors} = useContext(ThemeContext);
@@ -21,7 +29,7 @@ const Header: FC<Props> = ({title}) => {
   const goBack = () => navigation.goBack();
 
   return (
-    <View style={styles.mainWrapper}>
+    <View style={[styles.mainWrapper, style]}>
       <Pressable
         onPress={goBack}
         style={({pressed}) => ({opacity: pressed ? 0.5 : 1})}>

@@ -1,7 +1,8 @@
 import {useContext} from 'react';
+import {StyleSheet} from 'react-native';
 
 import ThemeContext from '@/context/theme/ThemeContext';
-import {StyleSheet} from 'react-native';
+import {scale} from '@/utils/sizing';
 
 const useMisc = () => {
   const {colors} = useContext(ThemeContext);
@@ -9,6 +10,14 @@ const useMisc = () => {
   const styles = StyleSheet.create({
     mainWrapper: {
       flex: 1,
+    },
+    title: {
+      color: colors.text,
+      fontSize: scale(21),
+      fontWeight: 'bold',
+      textAlign: 'center',
+      marginTop: scale(12),
+      marginBottom: scale(24),
     },
   });
 

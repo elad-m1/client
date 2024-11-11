@@ -1,6 +1,8 @@
 {
   "general": {
-    "next": "Next"
+    "next": "Next",
+    "done": "Done",
+    "submit": "Submit"
   },
   "phone_number": {
     "header": "Phone Number",
@@ -18,7 +20,16 @@
     "incorrect": "Incorrect code"
   },
   "register": {
-    "first_name": "First Name",
-    "last_name": "Last Name"
+    "full_name": {
+      "header": "Registration",
+      "title": "We'd like to know you better",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "hair_color": "Hair Color",
+      "hair_type": "Hair Type"
+    }
   }
 }

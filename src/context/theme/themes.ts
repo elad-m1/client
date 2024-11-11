@@ -1,6 +1,6 @@
 const lightTheme = {
   primary: '#68b46c',
-  onPrimary: '',
+  onPrimary: '#fff',
   accent: '',
   onAccent: '',
   background: '#f5f5f5',
@@ -16,7 +16,7 @@ const lightTheme = {
 
 const darkTheme = {
   primary: '#68b46c',
-  onPrimary: '',
+  onPrimary: '#fff',
   accent: '',
   onAccent: '',
   background: '#202020',

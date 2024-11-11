@@ -17,6 +17,7 @@ import useMisc from './hooks/useMisc';
 interface Props {
   label?: string;
   icon?: IconProp;
+  endIcon?: IconProp;
   required?: boolean;
   inputStyle?: StyleProp<TextStyle>;
   style?: StyleProp<ViewStyle>;
@@ -27,18 +28,31 @@ const FormInput: FC<Props & TextInputProps> = props => {
   return (
     <View style={[styles.mainWrapper, props.style]}>
       {props.label && (
-        <View style={{flexDirection: 'row', gap: scale(3)}}>
+        <View style={{flexDirection: 'row', gap: scale(2)}}>
           <Text style={styles.label}>{props.label}</Text>
-          <Text style={styles.requiredStar}>*</Text>
+          {props.required && <Text style={styles.requiredStar}>*</Text>}
         </View>
       )}
       <View style={styles.inputWrapper}>
-        {props.icon && <FontAwesomeIcon icon={props.icon} />}
+        {props.icon && (
+          <FontAwesomeIcon
+            icon={props.icon}
+            color={colors.placeholder}
+            size={scale(14)}
+          />
+        )}
         <TextInput
           {...props}
           placeholderTextColor={colors.placeholder}
           style={[styles.input, props.inputStyle]}
         />
+        {props.endIcon && (
+          <FontAwesomeIcon
+            icon={props.endIcon}
+            color={colors.text}
+            size={scale(14)}
+          />
+        )}
         {/* {props.secureTextEntry && (
           <IconBu WE NEED TO MAKE AN ICON BUTTON
         )} */}

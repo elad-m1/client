@@ -14,11 +14,11 @@ const resources = {
   },
 };
 
-I18nManager.forceRTL(true);
+I18nManager.forceRTL(false);
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'he',
+  lng: 'en',
   interpolation: {
     escapeValue: false, // react already safes from xss
   },
