@@ -8,7 +8,12 @@ const ImageBackground: FC = () => {
   const {styles} = useMisc();
   return (
     <View style={styles.imageWrapper}>
-      <Image source={{uri: ''}} style={styles.image} />
+      <Image
+        source={{
+          uri: 'https://nationaltoday.com/wp-content/uploads/2022/02/Barbers-Day-1200x834.jpg',
+        }}
+        style={styles.image}
+      />
       <View style={styles.imageForeground}></View>
       <Text style={styles.imageTitle}>register.full_name.title</Text>
     </View>

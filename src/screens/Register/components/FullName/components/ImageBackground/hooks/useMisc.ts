@@ -9,7 +9,7 @@ const useMisc = () => {
 
   const styles = StyleSheet.create({
     imageWrapper: {
-      height: '70%',
+      height: '72.5%',
     },
     image: {
       height: '100%',

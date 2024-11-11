@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {I18nManager, StyleSheet} from 'react-native';
+import {I18nManager, Platform, StyleSheet} from 'react-native';
 
 import ThemeContext from '@/context/theme/ThemeContext';
 import {scale} from '@/utils/sizing';
@@ -28,7 +28,7 @@ const useMisc = () => {
       borderColor: colors.border,
       borderRadius: scale(6),
       paddingHorizontal: scale(12),
-      paddingVertical: scale(6),
+      paddingVertical: Platform.OS === 'ios' ? scale(6) : undefined,
       gap: scale(12),
     },
     input: {

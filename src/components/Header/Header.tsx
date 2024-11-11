@@ -9,18 +9,19 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 
 import ThemeContext from '@/context/theme/ThemeContext';
 import {scale} from '@/utils/sizing';
-import useMisc from './useMisc';
+import useMisc from './hooks/useMisc';
 
 interface Props {
   title: string;
+  translucent?: boolean;
+  backOnPress?: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
-const Header: FC<Props> = ({title, style}) => {
+const Header: FC<Props> = ({title, translucent, backOnPress, style}) => {
   const {styles} = useMisc();
 
   const {colors} = useContext(ThemeContext);
@@ -29,13 +30,14 @@ const Header: FC<Props> = ({title, style}) => {
   const goBack = () => navigation.goBack();
 
   return (
-    <View style={[styles.mainWrapper, style]}>
+    <View
+      style={[styles.mainWrapper, translucent && styles.translucent, style]}>
       <Pressable
-        onPress={goBack}
+        onPress={backOnPress ?? goBack}
         style={({pressed}) => ({opacity: pressed ? 0.5 : 1})}>
         <FontAwesomeIcon
           icon={I18nManager.isRTL ? 'chevron-right' : 'chevron-left'}
-          color={colors.text}
+          color={translucent ? colors.onPrimary : colors.text}
           size={scale(18)}
         />
       </Pressable>

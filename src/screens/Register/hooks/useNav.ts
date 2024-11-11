@@ -1,11 +1,20 @@
 import {SCREEN_WIDTH} from '@/utils/sizing';
 import {useRef, useState} from 'react';
-import {ScrollView} from 'react-native';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+} from 'react-native';
 
 const useNav = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const scrollViewRef = useRef<ScrollView>(null);
+
+  const onScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) =>
+    setCurrentIndex(
+      Math.round(event.nativeEvent.contentOffset.x / SCREEN_WIDTH),
+    );
 
   const goNext = () => {
     setCurrentIndex(value => value + 1);
@@ -25,7 +34,7 @@ const useNav = () => {
     });
   };
 
-  return {scrollViewRef, goNext, goPrevious};
+  return {scrollViewRef, goNext, goPrevious, onScrollEnd};
 };
 
 export default useNav;

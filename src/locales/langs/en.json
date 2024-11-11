@@ -30,6 +30,24 @@
       "female": "Female",
       "hair_color": "Hair Color",
       "hair_type": "Hair Type"
+    },
+    "gender": {
+      "title": "What's your gender?",
+      "male": "Male",
+      "female": "Female"
+    },
+    "hair_color": {
+      "header": "Hair Color",
+      "title": "What's your hair color?",
+      "colors": {
+        "black": "Black",
+        "brown": "Brunette",
+        "blonde": "Blonde",
+        "ginger": "Ginger",
+        "gray": "Gray",
+        "red": "Red",
+        "colorful": "Colorful"
+      }
     }
   }
 }

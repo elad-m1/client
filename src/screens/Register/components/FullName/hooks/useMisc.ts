@@ -16,10 +16,6 @@ const useMisc = () => {
       backgroundColor: colors.card,
       paddingBottom: bottom * 2,
     },
-    header: {
-      position: 'absolute',
-      backgroundColor: 'transparent',
-    },
     scrollView: {
       marginTop: scale(-12),
       backgroundColor: colors.card,

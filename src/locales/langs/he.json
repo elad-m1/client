@@ -22,7 +22,7 @@
   "register": {
     "full_name": {
       "header": "הרשמה",
-      "title": "נשמח להכיר טוב קצת",
+      "title": "נשמח להכיר טוב יותר",
       "first_name": "שם פרטי",
       "last_name": "שם משפחה",
       "gender": "מין",
@@ -30,6 +30,24 @@
       "female": "נקבה",
       "hair_color": "צבע שיער",
       "hair_type": "סוג שיער"
+    },
+    "gender": {
+      "title": "מה המין שלך?",
+      "male": "זכר",
+      "female": "נקבה"
+    },
+    "hair_color": {
+      "header": "צבע שיער",
+      "title": "מה הוא צבע השיער שלך?",
+      "colors": {
+        "black": "שחור",
+        "brown": "חום",
+        "blonde": "בלונדיני",
+        "ginger": "ג׳ינג׳י",
+        "gray": "אפור",
+        "red": "אדום",
+        "colorful": "צבעוני"
+      }
     }
   }
 }

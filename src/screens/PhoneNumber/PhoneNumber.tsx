@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
 import {scale} from '@/utils/sizing';
 import listOfCountries from '@/misc/list_of_countries.json';
-import {Header, Text} from '@/components/index';
+import {Button, Header, Text} from '@/components/index';
 import CountryAndPhone from './components/CountryAndPhone/CountryAndPhone';
 import useMisc from './hooks/useMisc';
 import useForm from './hooks/useForm';
@@ -37,23 +37,11 @@ const PhoneNumber: FC = () => {
           onPhoneNumberChange={onPhoneNumberChange}
           phoneNumber={phoneNumber}
         />
-        {/* <Button /> */}
-        <Pressable
-          style={({pressed}) => [
-            styles.nextButton,
-            {opacity: pressed ? 0.5 : 1},
-          ]}
-          onPress={() => {
-            // sendVerifCode(phoneNumber);
-            goToSecurityCode(phoneNumber);
-          }}>
-          <Text style={styles.nextButtonText}>general.next</Text>
-          <FontAwesomeIcon
-            icon={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'}
-            color={colors.primary}
-            size={scale(14)}
-          />
-        </Pressable>
+        <Button
+          onPress={() => goToSecurityCode(phoneNumber)}
+          text={t('general.next')}
+          icon={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'}
+        />
       </View>
     </View>
   );

@@ -10,6 +10,9 @@ const Inputs: FC<
   FormikProps<{
     firstName: string;
     lastName: string;
+    gender: string;
+    dateOfBirth: string;
+    hairColor: string;
   }>
 > = ({values, handleChange}) => {
   const {styles} = useMisc();
