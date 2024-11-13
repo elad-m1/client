@@ -4,7 +4,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {useTranslation} from 'react-i18next';
 import * as Yup from 'yup';
 
-import {FullName, HairColor} from './components';
+import {BasicInfo, HairColor} from './components';
 import {useMisc, useNav} from './hooks';
 import {Formik} from 'formik';
 
@@ -13,7 +13,7 @@ const RegisterSchema = Yup.object({
   lastName: Yup.string().required(),
   gender: Yup.string().required(),
   dateOfBirth: Yup.date().required(),
-  hairColor: Yup.string().required(),
+  hairColor: Yup.string(),
 });
 
 const Register: FC = () => {
@@ -28,11 +28,14 @@ const Register: FC = () => {
           firstName: '',
           lastName: '',
           gender: '',
-          dateOfBirth: '',
+          dateOfBirth: new Date().toDateString(),
           hairColor: '',
         }}
         validationSchema={RegisterSchema}
-        onSubmit={() => {}}>
+        validateOnMount={false}
+        validateOnChange={false}
+        validateOnBlur={false}
+        onSubmit={goNext}>
         {formikProps => (
           <ScrollView
             ref={scrollViewRef}
@@ -40,16 +43,15 @@ const Register: FC = () => {
             showsHorizontalScrollIndicator={false}
             nestedScrollEnabled
             onScrollEndDrag={onScrollEnd}
-            scrollEnabled={true}
+            scrollEnabled={false}
             pagingEnabled
             horizontal>
-            <FullName goNext={goNext} {...formikProps} />
-            <HairColor
+            <BasicInfo {...formikProps} />
+            {/* <HairColor
               goPrevious={goPrevious}
               goNext={goNext}
               {...formikProps}
-            />
-            <FullName goNext={goNext} {...formikProps} />
+            /> */}
           </ScrollView>
         )}
       </Formik>

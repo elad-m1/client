@@ -1,4 +1,4 @@
-import FullName from './FullName/FullName';
+import BasicInfo from './BasicInfo/BasicInfo';
 import HairColor from './HairColor/HairColor';
 
-export {FullName, HairColor};
+export {BasicInfo, HairColor};

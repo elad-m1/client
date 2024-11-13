@@ -15,7 +15,7 @@ const ImageBackground: FC = () => {
         style={styles.image}
       />
       <View style={styles.imageForeground}></View>
-      <Text style={styles.imageTitle}>register.full_name.title</Text>
+      <Text style={styles.imageTitle}>register.basic_info.title</Text>
     </View>
   );
 };

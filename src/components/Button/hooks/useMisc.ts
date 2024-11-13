@@ -17,6 +17,9 @@ export default function useMisc() {
       borderRadius: scale(6),
       gap: scale(4),
     },
+    disabled: {
+      backgroundColor: colors.placeholder,
+    },
     text: {
       color: colors.onPrimary,
       fontSize: scale(14),

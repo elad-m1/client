@@ -8,19 +8,21 @@ const useMisc = () => {
   const {colors} = useContext(ThemeContext);
 
   const styles = StyleSheet.create({
-    scrollView: {
-      marginTop: scale(-12),
-      backgroundColor: colors.card,
-      borderTopRightRadius: scale(12),
-      borderTopLeftRadius: scale(12),
+    dropdownWrapper: {
+      borderRadius: scale(12),
+      marginTop: scale(2),
     },
-    scrollViewContent: {
-      padding: scale(24),
-      gap: scale(24),
+    dropdownItemWrapper: {
+      paddingHorizontal: scale(12),
+      paddingVertical: scale(12),
+    },
+    dropdownItemText: {
+      color: colors.text,
+      fontSize: scale(14),
+      textAlign: 'left',
     },
   });
-
-  return {styles, colors};
+  return {styles};
 };
 
 export default useMisc;

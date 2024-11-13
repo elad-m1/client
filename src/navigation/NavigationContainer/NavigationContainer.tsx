@@ -4,7 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import ThemeContext from '@/context/theme/ThemeContext';
 import AuthContext from '@/context/auth/AuthContext';
-import AuthNavigator from '../AuthNavigator';
+import {AuthNavigator, MainNavigator} from '@/navigation';
 
 const NavContainer = () => {
   const {isDark, colors} = useContext(ThemeContext);
@@ -12,11 +12,12 @@ const NavContainer = () => {
 
   return (
     <NavigationContainer theme={{dark: isDark, colors: colors}}>
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? (
         <View style={{flex: 1, backgroundColor: 'skyblue'}}>sdfas</View>
       ) : (
         <AuthNavigator />
-      )}
+      )} */}
+      <MainNavigator />
     </NavigationContainer>
   );
 };

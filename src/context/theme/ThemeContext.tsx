@@ -25,7 +25,7 @@ const ThemeContext = createContext({
 });
 
 export const ThemeProvider = ({children}: {children: ReactNode}) => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   // Supposed to be Appearance.getColorScheme() === "dark" but simple boolean for now
 
   const toggleTheme = () => {

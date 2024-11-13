@@ -1,28 +1,28 @@
-import i18n from 'i18next';
-import {initReactI18next} from 'react-i18next';
-import {I18nManager} from 'react-native';
+import i18n from "i18next";
+import {initReactI18next} from "react-i18next";
+import {I18nManager} from "react-native";
 
-import he from './langs/he.json';
-import en from './langs/en.json';
+import en from "./langs/en.json";
+import he from "./langs/he.json";
 
 const resources = {
   he: {
-    translation: he,
+    translation: he
   },
   en: {
-    translation: en,
-  },
+    translation: en
+  }
 };
 
-I18nManager.forceRTL(false);
+I18nManager.forceRTL(true);
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: 'en',
+  lng: "he",
   interpolation: {
-    escapeValue: false, // react already safes from xss
+    escapeValue: false // react already safes from xss
   },
-  compatibilityJSON: 'v3',
+  compatibilityJSON: "v3"
 });
 
 export default i18n;

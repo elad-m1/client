@@ -20,7 +20,7 @@
     "incorrect": "קוד שגוי"
   },
   "register": {
-    "full_name": {
+    "basic_info": {
       "header": "הרשמה",
       "title": "נשמח להכיר טוב יותר",
       "first_name": "שם פרטי",
@@ -29,7 +29,8 @@
       "male": "זכר",
       "female": "נקבה",
       "hair_color": "צבע שיער",
-      "hair_type": "סוג שיער"
+      "hair_type": "סוג שיער",
+      "date_of_birth": "תאריך לידה"
     },
     "gender": {
       "title": "מה המין שלך?",
@@ -49,5 +50,31 @@
         "colorful": "צבעוני"
       }
     }
+  },
+  "home": {
+    "title": "איזה כיף לראות אותך שוב!",
+    "make_appointment": "קבע תור",
+    "next_appointment": "התור הבא שלי",
+    "last_appointments": "התורים האחרונים שלי",
+    "reschedule": "קבע שוב"
+  },
+  "make_appointment": {
+    "header": "קבע תור",
+    "choose_barber": "בחר ספר",
+    "choose_service": "בחר שירות",
+    "services": {
+      "man_haircut": "תספורת לגבר",
+      "female_haircut": "תספורת לאישה",
+      "highlights": "גוונים",
+      "ombre": "אומברה",
+      "balayage": "בליאז׳"
+    },
+    "choose_date": "בחר תאריך",
+    "choose_time": "בחר זמן",
+    "go_back": "חזרה לדף הבית",
+    "booking_success": "תור בוצע בהצלחה",
+    "on_date": "בתאריך {{date}} בשעה {{time}}",
+    "to_barber": "ספר: {{barber}}",
+    "services_included": "שירותים: {{services}}"
   }
 }

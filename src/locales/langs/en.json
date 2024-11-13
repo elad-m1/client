@@ -20,7 +20,7 @@
     "incorrect": "Incorrect code"
   },
   "register": {
-    "full_name": {
+    "basic_info": {
       "header": "Registration",
       "title": "We'd like to know you better",
       "first_name": "First Name",
@@ -29,7 +29,8 @@
       "male": "Male",
       "female": "Female",
       "hair_color": "Hair Color",
-      "hair_type": "Hair Type"
+      "hair_type": "Hair Type",
+      "date_of_birth": "Date Of Birth"
     },
     "gender": {
       "title": "What's your gender?",
@@ -49,5 +50,31 @@
         "colorful": "Colorful"
       }
     }
+  },
+  "home": {
+    "title": "So good to see you again!",
+    "make_appointment": "Make an Appointment",
+    "next_appointment": "Next Appointment",
+    "last_appointments": "Last few Appointments",
+    "reschedule": "Reschedule"
+  },
+  "make_appointment": {
+    "header": "Make an Appointment",
+    "choose_barber": "Choose a Barber",
+    "choose_service": "Choose a Service",
+    "services": {
+      "man_haircut": "Men Haircut",
+      "female_haircut": "Women Haircut",
+      "highlights": "Highlights",
+      "ombre": "Ombre",
+      "balayage": "Balayage"
+    },
+    "choose_date": "Choose Date",
+    "choose_time": "Choose Time",
+    "go_back": "Back To Home Page",
+    "booking_success": "Booked Successfully",
+    "on_date": "On {{date}} at {{time}}",
+    "to_barber": "Barber: {{barber}}",
+    "services_included": "Services: {{services}}"
   }
 }

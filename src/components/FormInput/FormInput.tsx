@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import {
+  Pressable,
   StyleProp,
   Text,
   TextInput,
@@ -20,44 +21,61 @@ interface Props {
   endIcon?: IconProp;
   required?: boolean;
   inputStyle?: StyleProp<TextStyle>;
+  onPress?: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
-const FormInput: FC<Props & TextInputProps> = props => {
+const FormInput: FC<Props & TextInputProps> = ({
+  style,
+  label,
+  required,
+  icon,
+  onPress,
+  inputStyle,
+  endIcon,
+  ...inputProps
+}) => {
   const {styles, colors} = useMisc();
+  const Wrapper = onPress ? Pressable : View;
   return (
-    <View style={[styles.mainWrapper, props.style]}>
-      {props.label && (
-        <View style={{flexDirection: 'row', gap: scale(2)}}>
-          <Text style={styles.label}>{props.label}</Text>
-          {props.required && <Text style={styles.requiredStar}>*</Text>}
-        </View>
-      )}
-      <View style={styles.inputWrapper}>
-        {props.icon && (
-          <FontAwesomeIcon
-            icon={props.icon}
-            color={colors.placeholder}
-            size={scale(14)}
-          />
+    <Wrapper
+      onPress={onPress}
+      style={({pressed}) => [style, {opacity: pressed ? 0.65 : 1}]}>
+      <View
+        style={styles.mainWrapper}
+        pointerEvents={onPress ? 'none' : 'auto'}>
+        {label && (
+          <View style={{flexDirection: 'row', gap: scale(2)}}>
+            <Text style={styles.label}>{label}</Text>
+            {required && <Text style={styles.requiredStar}>*</Text>}
+          </View>
         )}
-        <TextInput
-          {...props}
-          placeholderTextColor={colors.placeholder}
-          style={[styles.input, props.inputStyle]}
-        />
-        {props.endIcon && (
-          <FontAwesomeIcon
-            icon={props.endIcon}
-            color={colors.text}
-            size={scale(14)}
+        <View style={styles.inputWrapper}>
+          {icon && (
+            <FontAwesomeIcon
+              icon={icon}
+              color={colors.placeholder}
+              size={scale(14)}
+            />
+          )}
+          <TextInput
+            {...inputProps}
+            placeholderTextColor={colors.placeholder}
+            style={[styles.input, inputStyle]}
           />
-        )}
-        {/* {props.secureTextEntry && (
+          {endIcon && (
+            <FontAwesomeIcon
+              icon={endIcon}
+              color={colors.text}
+              size={scale(14)}
+            />
+          )}
+          {/* {props.secureTextEntry && (
           <IconBu WE NEED TO MAKE AN ICON BUTTON
         )} */}
+        </View>
       </View>
-    </View>
+    </Wrapper>
   );
 };
 
