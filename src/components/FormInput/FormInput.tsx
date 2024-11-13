@@ -1,4 +1,6 @@
-import {FC} from 'react';
+import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {FC, memo} from "react";
 import {
   Pressable,
   StyleProp,
@@ -7,13 +9,12 @@ import {
   TextInputProps,
   TextStyle,
   View,
-  ViewStyle,
-} from 'react-native';
-import {IconProp} from '@fortawesome/fontawesome-svg-core';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+  ViewStyle
+} from "react-native";
 
-import {scale} from '@/utils/sizing';
-import useMisc from './hooks/useMisc';
+import {scale} from "@/utils/sizing";
+
+import useMisc from "./hooks/useMisc";
 
 interface Props {
   label?: string;
@@ -25,58 +26,60 @@ interface Props {
   style?: StyleProp<ViewStyle>;
 }
 
-const FormInput: FC<Props & TextInputProps> = ({
-  style,
-  label,
-  required,
-  icon,
-  onPress,
-  inputStyle,
-  endIcon,
-  ...inputProps
-}) => {
-  const {styles, colors} = useMisc();
-  const Wrapper = onPress ? Pressable : View;
-  return (
-    <Wrapper
-      onPress={onPress}
-      style={({pressed}) => [style, {opacity: pressed ? 0.65 : 1}]}>
-      <View
-        style={styles.mainWrapper}
-        pointerEvents={onPress ? 'none' : 'auto'}>
-        {label && (
-          <View style={{flexDirection: 'row', gap: scale(2)}}>
-            <Text style={styles.label}>{label}</Text>
-            {required && <Text style={styles.requiredStar}>*</Text>}
-          </View>
-        )}
-        <View style={styles.inputWrapper}>
-          {icon && (
-            <FontAwesomeIcon
-              icon={icon}
-              color={colors.placeholder}
-              size={scale(14)}
-            />
+const FormInput: FC<Props & TextInputProps> = memo(
+  ({
+    style,
+    label,
+    required,
+    icon,
+    onPress,
+    inputStyle,
+    endIcon,
+    ...inputProps
+  }) => {
+    const {styles, colors} = useMisc();
+    const Wrapper = onPress ? Pressable : View;
+    return (
+      <Wrapper
+        onPress={onPress}
+        style={({pressed}) => [style, {opacity: pressed ? 0.65 : 1}]}>
+        <View
+          style={styles.mainWrapper}
+          pointerEvents={onPress ? "none" : "auto"}>
+          {label && (
+            <View style={{flexDirection: "row", gap: scale(2)}}>
+              <Text style={styles.label}>{label}</Text>
+              {required && <Text style={styles.requiredStar}>*</Text>}
+            </View>
           )}
-          <TextInput
-            {...inputProps}
-            placeholderTextColor={colors.placeholder}
-            style={[styles.input, inputStyle]}
-          />
-          {endIcon && (
-            <FontAwesomeIcon
-              icon={endIcon}
-              color={colors.text}
-              size={scale(14)}
+          <View style={styles.inputWrapper}>
+            {icon && (
+              <FontAwesomeIcon
+                icon={icon}
+                color={colors.placeholder}
+                size={scale(14)}
+              />
+            )}
+            <TextInput
+              {...inputProps}
+              placeholderTextColor={colors.placeholder}
+              style={[styles.input, inputStyle]}
             />
-          )}
-          {/* {props.secureTextEntry && (
+            {endIcon && (
+              <FontAwesomeIcon
+                icon={endIcon}
+                color={colors.text}
+                size={scale(14)}
+              />
+            )}
+            {/* {props.secureTextEntry && (
           <IconBu WE NEED TO MAKE AN ICON BUTTON
         )} */}
+          </View>
         </View>
-      </View>
-    </Wrapper>
-  );
-};
+      </Wrapper>
+    );
+  }
+);
 
 export default FormInput;

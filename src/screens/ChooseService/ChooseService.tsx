@@ -36,10 +36,7 @@ const ChooseService: FC = () => {
     handleBarberSelect,
     handleServiceSelect
   } = useData();
-  const {goToChooseDate, barber, services} = useNav(
-    selectedBarber,
-    selectedServices
-  );
+  const {goToChooseDate} = useNav(selectedBarber, selectedServices);
   const {t} = useTranslation();
   const lang = I18nManager.isRTL ? he : en;
 
@@ -64,7 +61,9 @@ const ChooseService: FC = () => {
               }
             ]}
             onPress={() => handleServiceSelect(item)}>
-            <RNText style={{textAlign: "left"}}>{item}</RNText>
+            <RNText style={{textAlign: "left", color: colors.text}}>
+              {item}
+            </RNText>
           </Pressable>
         )}
         ListHeaderComponent={() => (
@@ -75,7 +74,7 @@ const ChooseService: FC = () => {
               statusBarTranslucent
               renderButton={() => (
                 <View style={styles.chooseBarber}>
-                  <RNText style={{textAlign: "left"}}>
+                  <RNText style={{textAlign: "left", color: colors.text}}>
                     {selectedBarber ?? t("make_appointment.choose_barber")}
                   </RNText>
                 </View>
@@ -87,7 +86,7 @@ const ChooseService: FC = () => {
               )}
               dropdownStyle={styles.dropdownWrapper}
             />
-            <Text style={{marginTop: scale(32)}}>
+            <Text style={{marginTop: scale(32), color: colors.text}}>
               make_appointment.choose_service
             </Text>
           </>

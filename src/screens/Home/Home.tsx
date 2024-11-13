@@ -1,30 +1,53 @@
-import {useNavigation} from "@react-navigation/native";
-import {FC, useContext} from "react";
+import {FC} from "react";
 import {useTranslation} from "react-i18next";
-import {Image, ScrollView, View} from "react-native";
+import {ScrollView, Switch, View} from "react-native";
 
 import {Button, Text} from "@/components";
-import ThemeContext from "@/context/theme/ThemeContext";
-import {MainNavigationProp} from "@/navigation/MainNavigator";
 import {scale} from "@/utils/sizing";
 
-import {Appointments, Header} from "./components";
+import {Appointments, Header, RecommendedProducts} from "./components";
+import useMisc from "./hooks/useMisc";
+import useNav from "./hooks/useNav";
 
+/**
+ * The Home screen component.
+ *
+ * This component displays the header, the make appointment button, and the list of appointments and recommended products.
+ *
+ * @returns A JSX element representing the Home screen.
+ */
 const Home: FC = () => {
-  const {colors} = useContext(ThemeContext);
+  const {styles, colors, bottom, isDark, toggleTheme} = useMisc();
+  const {goToChooseDate} = useNav();
   const {t} = useTranslation();
 
-  const navigation = useNavigation<MainNavigationProp>();
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.mainWrapper}>
       <Header />
+      <Switch
+        value={isDark}
+        onValueChange={toggleTheme}
+        trackColor={{false: undefined, true: colors.primary}}
+        thumbColor={colors.onPrimary}
+        style={{
+          position: "absolute",
+          top: scale(52),
+          right: scale(24),
+          transform: [{scale: 0.85}]
+        }}
+      />
       <Button
         text={t("home.make_appointment")}
-        onPress={() => navigation.navigate("ChooseService")}
+        onPress={goToChooseDate}
         style={{width: "65%", marginVertical: scale(42), alignSelf: "center"}}
       />
-      <ScrollView>
+      <ScrollView
+        contentContainerStyle={{
+          paddingBottom: bottom * 1.5
+        }}
+        showsVerticalScrollIndicator={false}>
         <Appointments />
+        <RecommendedProducts />
       </ScrollView>
     </View>
   );

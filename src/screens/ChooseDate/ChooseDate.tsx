@@ -34,6 +34,8 @@ const ChooseDate: FC = () => {
           todayTextColor: colors.primary,
           selectedDayBackgroundColor: colors.primary,
           selectedDayTextColor: colors.onPrimary,
+          dayTextColor: colors.text,
+          monthTextColor: colors.text,
           textDayFontWeight: "bold",
           textMonthFontWeight: "bold",
           arrowColor: colors.primary

@@ -19,7 +19,7 @@ const useNav = () => {
 
   const route = useRoute<RouteProp<MainStackParamList>>();
 
-  const goBackHome = () => navigation.navigate("Home");
+  const goBackHome = () => navigation.popToTop();
 
   const params = route.params;
 

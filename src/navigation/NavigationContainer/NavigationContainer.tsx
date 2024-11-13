@@ -1,17 +1,18 @@
-import {useContext} from 'react';
-import {View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
+import {useContext} from "react";
+import {View} from "react-native";
 
-import ThemeContext from '@/context/theme/ThemeContext';
-import AuthContext from '@/context/auth/AuthContext';
-import {AuthNavigator, MainNavigator} from '@/navigation';
+import AuthContext from "@/context/auth/AuthContext";
+import ThemeContext from "@/context/theme/ThemeContext";
+import {AuthNavigator, MainNavigator} from "@/navigation";
 
 const NavContainer = () => {
   const {isDark, colors} = useContext(ThemeContext);
   const {isAuthenticated} = useContext(AuthContext);
 
   return (
-    <NavigationContainer theme={{dark: isDark, colors: colors}}>
+    <NavigationContainer
+      theme={{dark: isDark, colors: colors, fonts: DefaultTheme.fonts}}>
       {/* {isAuthenticated ? (
         <View style={{flex: 1, backgroundColor: 'skyblue'}}>sdfas</View>
       ) : (

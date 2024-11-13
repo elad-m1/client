@@ -1,13 +1,15 @@
-import {library} from '@fortawesome/fontawesome-svg-core';
+import {library} from "@fortawesome/fontawesome-svg-core";
 import {
+  faChevronDown,
   faChevronLeft,
   faChevronRight,
-  faChevronDown,
-  faRotateRight,
+  faClose,
   faMars,
-  faVenus,
   faQuestion,
-} from '@fortawesome/free-solid-svg-icons';
+  faRotateRight,
+  faStar,
+  faVenus
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faChevronRight,
@@ -17,4 +19,6 @@ library.add(
   faMars,
   faVenus,
   faQuestion,
+  faStar,
+  faClose
 );

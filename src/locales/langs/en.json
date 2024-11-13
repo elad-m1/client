@@ -51,12 +51,18 @@
       }
     }
   },
+  "bottom_nav": {
+    "home": "Make Apt",
+    "shop": "Shop",
+    "profile": "My Account"
+  },
   "home": {
     "title": "So good to see you again!",
     "make_appointment": "Make an Appointment",
     "next_appointment": "Next Appointment",
     "last_appointments": "Last few Appointments",
-    "reschedule": "Reschedule"
+    "reschedule": "Reschedule",
+    "recommended_products": "Products just for you"
   },
   "make_appointment": {
     "header": "Make an Appointment",

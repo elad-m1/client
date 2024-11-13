@@ -51,12 +51,18 @@
       }
     }
   },
+  "bottom_nav": {
+    "home": "קבע תור",
+    "shop": "חנות",
+    "profile": "החשבון שלי"
+  },
   "home": {
     "title": "איזה כיף לראות אותך שוב!",
     "make_appointment": "קבע תור",
     "next_appointment": "התור הבא שלי",
     "last_appointments": "התורים האחרונים שלי",
-    "reschedule": "קבע שוב"
+    "reschedule": "קבע שוב",
+    "recommended_products": "מוצרים במיוחד עבורך"
   },
   "make_appointment": {
     "header": "קבע תור",

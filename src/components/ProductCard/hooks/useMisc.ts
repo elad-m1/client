@@ -4,54 +4,58 @@ import {StyleSheet} from "react-native";
 import ThemeContext from "@/context/theme/ThemeContext";
 import {scale} from "@/utils/sizing";
 
-/**
- * Provides styling and colors for the LastAppointment component.
- *
- * @returns {{styles: Record<string, ViewStyle>, colors: ThemeColors}}
- */
 const useMisc = () => {
   const {colors} = useContext(ThemeContext);
-
   const styles = StyleSheet.create({
     mainWrapper: {
-      flexDirection: "row",
-      alignItems: "center",
       backgroundColor: colors.card,
       borderRadius: scale(6),
-      paddingHorizontal: scale(12),
-      paddingVertical: scale(12),
-      elevation: 4,
       shadowColor: "#000",
       shadowOffset: {
         width: 0,
         height: 0
       },
       shadowOpacity: 0.25,
-      shadowRadius: 2
+      shadowRadius: 2,
+      elevation: 2
     },
-    row: {
+    image: {
+      width: "100%",
+      height: scale(120),
+      borderTopStartRadius: scale(6),
+      borderTopEndRadius: scale(6)
+    },
+    detailsWrapper: {
+      paddingHorizontal: scale(21),
+      paddingVertical: scale(16)
+    },
+    nameRatingWrapper: {
       flexDirection: "row",
       alignItems: "center"
     },
-    barber: {
-      color: colors.text,
+    name: {
       fontSize: scale(14),
+      color: colors.text,
       fontWeight: "bold",
       textAlign: "left"
     },
-    when: {
+    ratingWrapper: {
+      flexDirection: "row",
+      alignItems: "center"
+    },
+    rating: {
+      fontSize: scale(14),
       color: colors.textSecondary,
-      fontSize: scale(12),
       textAlign: "left"
     },
-    where: {
+    price: {
+      fontSize: scale(14),
       color: colors.text,
-      fontSize: scale(12),
       textAlign: "left"
     }
   });
 
-  return {styles, colors};
+  return {styles};
 };
 
 export default useMisc;

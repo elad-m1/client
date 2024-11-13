@@ -18,8 +18,6 @@ import {
 const useNav = (selectedBarber: string | null, selectedServices: string[]) => {
   const navigation = useNavigation<MainNavigationProp>();
 
-  const route = useRoute<RouteProp<MainStackParamList>>();
-
   const goToChooseDate = () =>
     selectedBarber &&
     navigation.navigate("ChooseDate", {
@@ -27,9 +25,7 @@ const useNav = (selectedBarber: string | null, selectedServices: string[]) => {
       services: selectedServices
     });
 
-  const params = route.params;
-
-  return {goToChooseDate, ...params};
+  return {goToChooseDate};
 };
 
 export default useNav;

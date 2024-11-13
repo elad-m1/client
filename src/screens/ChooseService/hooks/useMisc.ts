@@ -29,6 +29,7 @@ const useMisc = () => {
       borderRadius: scale(12)
     },
     dropdownItemWrapper: {
+      backgroundColor: colors.card,
       paddingHorizontal: scale(12),
       paddingVertical: scale(12)
     },

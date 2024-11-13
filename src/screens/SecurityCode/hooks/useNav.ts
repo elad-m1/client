@@ -1,14 +1,17 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from "@react-navigation/native";
 
-import {AuthNavigationProp} from '@/navigation/AuthNavigator';
+import {
+  AuthNavigationProp,
+  AuthStackParamList
+} from "@/navigation/AuthNavigator";
 
 const useNav = () => {
   const navigation = useNavigation<AuthNavigationProp>();
-  const route = useRoute<RouteProp<{}>>();
+  const route = useRoute<RouteProp<AuthStackParamList>>();
 
-  const phoneData = route.params as {code: string; phoneNumber: string};
+  const phoneData = route.params;
 
-  const goToRegister = () => navigation.navigate('Register');
+  const goToRegister = () => navigation.navigate("Register");
 
   return {goToRegister, phoneData};
 };

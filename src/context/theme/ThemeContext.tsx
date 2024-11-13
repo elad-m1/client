@@ -1,36 +1,40 @@
-import {createContext, ReactNode, useState} from 'react';
-import {Appearance} from 'react-native';
-import NavBar from 'react-native-system-navigation-bar';
+import {ReactNode, createContext, useState} from "react";
+import {Appearance} from "react-native";
+import NavBar from "react-native-system-navigation-bar";
 
-import {darkTheme, lightTheme} from './themes';
+import {darkTheme, lightTheme} from "./themes";
 
 const ThemeContext = createContext({
   isDark: false,
   colors: {
-    primary: '',
-    onPrimary: '',
-    accent: '',
-    onAccent: '',
-    background: '',
-    card: '',
-    text: '',
-    textSecondary: '',
-    placeholder: '',
-    border: '',
-    error: '',
-    success: '',
-    notification: '',
+    primary: "",
+    onPrimary: "",
+    accent: "",
+    onAccent: "",
+    background: "",
+    card: "",
+    text: "",
+    textSecondary: "",
+    placeholder: "",
+    border: "",
+    error: "",
+    success: "",
+    notification: ""
   },
-  toggleTheme: () => {},
+  toggleTheme: () => {}
 });
 
 export const ThemeProvider = ({children}: {children: ReactNode}) => {
-  const [isDark, setIsDark] = useState(false);
-  // Supposed to be Appearance.getColorScheme() === "dark" but simple boolean for now
+  const [isDark, setIsDark] = useState(Appearance.getColorScheme() === "dark");
+  NavBar.setNavigationColor(
+    "#00000000",
+    isDark ? "dark" : "light",
+    "navigation"
+  );
 
   const toggleTheme = () => {
     setIsDark(currentValue => {
-      NavBar.setBarMode(currentValue ? 'dark' : 'light');
+      NavBar.setBarMode(currentValue ? "dark" : "light", "both");
       return !currentValue;
     });
   };

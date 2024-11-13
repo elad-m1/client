@@ -26,7 +26,7 @@ interface Props {
 }
 
 const SuccessSheet: FC<Props> = ({selectedDate, selectedTime}) => {
-  const {styles} = useMisc();
+  const {styles, colors} = useMisc();
   const {goBackHome, barber, services} = useNav();
 
   const {t} = useTranslation();
@@ -37,6 +37,7 @@ const SuccessSheet: FC<Props> = ({selectedDate, selectedTime}) => {
       index={0}
       handleComponent={null}
       animateOnMount={true}
+      backgroundStyle={{backgroundColor: colors.card}}
       backdropComponent={props => (
         <BottomSheetBackdrop
           appearsOnIndex={0}
@@ -51,7 +52,7 @@ const SuccessSheet: FC<Props> = ({selectedDate, selectedTime}) => {
         }}
         autoPlay
         loop={false}
-        style={{flex: 1}}
+        style={{height: scale(150), width: "100%"}}
       />
       <View style={styles.labelsWrapper}>
         <Text style={styles.success}>make_appointment.booking_success</Text>
