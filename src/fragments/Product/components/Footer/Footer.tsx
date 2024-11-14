@@ -3,6 +3,7 @@ import {useTranslation} from "react-i18next";
 import {View} from "react-native";
 
 import {Button, IconButton} from "@/components";
+import {scale} from "@/utils/sizing";
 
 import {useData, useMisc, useNav} from "./hooks";
 
@@ -40,10 +41,11 @@ const Footer: FC<Props> = ({
   return (
     <View style={styles.mainWrapper}>
       <IconButton
-        // @ts-ignore
+        mode="contained" // @ts-ignore
         icon={isLiked ? "fa-solid fa-heart" : "fa-regular fa-heart"}
         onPress={toggleLike}
         color={colors.onPrimary}
+        size={scale(18)}
         style={styles.iconButton}
       />
       <Button
@@ -53,10 +55,11 @@ const Footer: FC<Props> = ({
         style={{flex: 1}}
       />
       <IconButton
-        // @ts-ignore
+        mode="contained" // @ts-ignore
         icon={isBookmarked ? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"}
         onPress={toggleBookmark}
         color={colors.onPrimary}
+        size={scale(18)}
         style={styles.iconButton}
       />
     </View>

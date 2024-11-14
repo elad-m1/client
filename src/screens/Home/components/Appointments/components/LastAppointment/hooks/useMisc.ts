@@ -18,16 +18,8 @@ const useMisc = () => {
       alignItems: "center",
       backgroundColor: colors.card,
       borderRadius: scale(6),
-      paddingHorizontal: scale(12),
-      paddingVertical: scale(12),
-      elevation: 4,
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 0
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 2
+      paddingHorizontal: scale(16),
+      paddingVertical: scale(12)
     },
     row: {
       flexDirection: "row",

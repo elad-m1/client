@@ -1,36 +1,44 @@
-import {useContext} from 'react';
-import {StyleSheet} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useContext} from "react";
+import {StyleSheet} from "react-native";
+import {useSafeAreaInsets} from "react-native-safe-area-context";
 
-import {scale} from '@/utils/sizing';
-import ThemeContext from '@/context/theme/ThemeContext';
+import ThemeContext from "@/context/theme/ThemeContext";
+import {SCREEN_WIDTH, scale} from "@/utils/sizing";
 
 const useMisc = () => {
   const {colors} = useContext(ThemeContext);
   const {top} = useSafeAreaInsets();
   const styles = StyleSheet.create({
     mainWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      width: '100%',
-      paddingVertical: scale(12),
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "flex-start",
+      paddingTop: top + scale(6),
+      paddingBottom: scale(12),
       paddingHorizontal: scale(24),
-      paddingTop: top + scale(12),
-      zIndex: 1,
+      zIndex: 1
     },
-    translucent: {
-      position: 'absolute',
-      backgroundColor: 'transparent',
+    buttonSection: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: scale(12)
     },
-    title: {
-      fontSize: scale(17),
-      color: colors.text,
-      fontWeight: '600',
-      marginInline: 'auto',
+    button: {
+      backgroundColor: colors.card
     },
+    logo: {
+      position: "absolute",
+      top: top + scale(6),
+      right: scale(16),
+      width: SCREEN_WIDTH * 0.275,
+      height: SCREEN_WIDTH * 0.275,
+      borderRadius: SCREEN_WIDTH * 0.135,
+      borderWidth: scale(6),
+      borderColor: colors.background
+    }
   });
 
-  return {styles};
+  return {styles, colors};
 };
 
 export default useMisc;

@@ -1,22 +1,25 @@
-import {FC, memo} from 'react';
-import {Pressable, StyleProp, Text, ViewStyle} from 'react-native';
+import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {FC, memo} from "react";
+import {Pressable, StyleProp, Text, TextStyle, ViewStyle} from "react-native";
 
-import useMisc from './hooks/useMisc';
-import {IconProp} from '@fortawesome/fontawesome-svg-core';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {scale} from '@/utils/sizing';
+import {scale} from "@/utils/sizing";
+
+import useMisc from "./hooks/useMisc";
 
 interface Props {
   onPress: () => void;
   icon?: IconProp;
   iconSize?: number;
+  iconColor?: string;
   text: string;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 const Button: FC<Props> = memo(
-  ({onPress, icon, iconSize, text, disabled, style}) => {
+  ({onPress, icon, iconSize, iconColor, text, disabled, style, textStyle}) => {
     const {styles, colors} = useMisc();
     return (
       <Pressable
@@ -25,19 +28,19 @@ const Button: FC<Props> = memo(
           styles.mainWrapper,
           disabled && styles.disabled,
           style,
-          {opacity: pressed ? 0.65 : 1},
+          {opacity: pressed ? 0.65 : 1}
         ]}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={[styles.text, textStyle]}>{text}</Text>
         {icon && (
           <FontAwesomeIcon
             icon={icon}
-            color={colors.onPrimary}
+            color={iconColor ?? colors.onPrimary}
             size={iconSize ?? scale(12)}
           />
         )}
       </Pressable>
     );
-  },
+  }
 );
 
 export default Button;

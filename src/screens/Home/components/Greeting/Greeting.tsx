@@ -2,11 +2,10 @@ import {FC} from "react";
 import {Image, View} from "react-native";
 
 import {Text} from "@/components";
-import {scale} from "@/utils/sizing";
 
 import {useMisc} from "./hooks";
 
-const Header: FC = () => {
+const Greeting: FC = () => {
   const {styles, colors} = useMisc();
 
   return (
@@ -20,4 +19,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default Greeting;

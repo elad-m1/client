@@ -28,6 +28,7 @@ const useMisc = () => {
     },
     iconButton: {
       backgroundColor: colors.primary,
+      borderRadius: scale(8),
       elevation: 0,
       shadowRadius: 0
     }

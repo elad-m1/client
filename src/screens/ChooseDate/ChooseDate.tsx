@@ -5,7 +5,7 @@ import {Pressable, Text as RNText, View} from "react-native";
 import {Calendar} from "react-native-calendars";
 import {FlatList} from "react-native-gesture-handler";
 
-import {Button, Header} from "@/components";
+import {Button, SimpleHeader} from "@/components";
 import {scale} from "@/utils/sizing";
 
 import {SuccessSheet} from "./components";
@@ -25,7 +25,7 @@ const ChooseDate: FC = () => {
 
   return (
     <View style={styles.mainWrapper}>
-      <Header title={t("make_appointment.header")} />
+      <SimpleHeader title={t("make_appointment.header")} />
       <Calendar
         style={styles.calendar}
         theme={{

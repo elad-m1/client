@@ -39,7 +39,11 @@ const LastAppointment: FC<Props> = () => {
         </View>
         <RNText style={styles.where}>רחובות, רחוב בילו 52</RNText>
       </View>
-      {/* <Button onPress={() => {}} text={t("home.reschedule")} /> */}
+      <Button
+        onPress={() => {}}
+        text={t("home.reschedule")}
+        textStyle={{fontSize: scale(10)}}
+      />
     </Pressable>
   );
 };

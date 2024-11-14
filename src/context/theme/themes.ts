@@ -3,7 +3,7 @@ const lightTheme = {
   onPrimary: "#fff",
   accent: "",
   onAccent: "",
-  background: "#f5f5f5",
+  background: "#f0f0f0",
   card: "#fff",
   text: "#000",
   textSecondary: "#757575",

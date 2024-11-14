@@ -6,6 +6,8 @@ import BottomSheet, {
 import {ForwardRefExoticComponent, RefAttributes, forwardRef} from "react";
 import {Text as RNText, View} from "react-native";
 
+import {Loading} from "@/components";
+
 import {Footer, ImageBackground, InfoHeader} from "./components";
 import {useData, useMisc, useNav} from "./hooks";
 
@@ -21,7 +23,7 @@ interface Props {
 const Product: ForwardRefExoticComponent<
   Props & RefAttributes<BottomSheetModal>
 > = forwardRef(({productId}, ref) => {
-  const {styles} = useMisc();
+  const {styles, colors} = useMisc();
   const {goBack} = useNav();
   const {hardcodedData, ...dataProps} = useData(productId);
 
@@ -36,12 +38,21 @@ const Product: ForwardRefExoticComponent<
           disappearsOnIndex={-1}
           {...props}
         />
-      )}>
+      )}
+      backgroundStyle={{backgroundColor: colors.card}}>
       <BottomSheetView style={styles.mainWrapper}>
-        <ImageBackground {...hardcodedData} />
-        <InfoHeader {...hardcodedData} credits={3} />
-        <RNText style={styles.description}>{hardcodedData.description}</RNText>
-        <Footer {...dataProps} />
+        {dataProps.loading ? (
+          <Loading />
+        ) : (
+          <>
+            <ImageBackground {...hardcodedData} />
+            <InfoHeader {...hardcodedData} credits={3} />
+            <RNText style={styles.description}>
+              {hardcodedData.description}
+            </RNText>
+            <Footer {...dataProps} />
+          </>
+        )}
       </BottomSheetView>
     </BottomSheetModal>
   );

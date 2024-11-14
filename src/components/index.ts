@@ -2,8 +2,20 @@ import Button from "./Button/Button";
 import FormInput from "./FormInput/FormInput";
 import Header from "./Header/Header";
 import IconButton from "./IconButton/IconButton";
+import Loading from "./Loading/Loading";
 import ProductCard from "./ProductCard/ProductCard";
 import RegisterCard from "./RegisterCard/RegisterCard";
+import SimpleHeader from "./SimpleHeader/SimpleHeader";
 import Text from "./Text/Text";
 
-export {Header, Button, Text, FormInput, RegisterCard, ProductCard, IconButton};
+export {
+  SimpleHeader,
+  Header,
+  Button,
+  Text,
+  FormInput,
+  RegisterCard,
+  ProductCard,
+  IconButton,
+  Loading
+};

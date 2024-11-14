@@ -13,7 +13,7 @@ const useMisc = () => {
   const styles = StyleSheet.create({
     mainWrapper: {
       alignItems: "center",
-      marginTop: top + scale(42)
+      marginTop: scale(16)
     },
     profileImage: {
       height: scale(120),

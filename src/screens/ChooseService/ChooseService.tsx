@@ -1,3 +1,4 @@
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {FC} from "react";
 import {useTranslation} from "react-i18next";
 import {
@@ -9,7 +10,7 @@ import {
 } from "react-native";
 import SelectDropdown from "react-native-select-dropdown";
 
-import {Button, Header, Text} from "@/components";
+import {Button, SimpleHeader, Text} from "@/components";
 import en from "@/locales/langs/en.json";
 import he from "@/locales/langs/he.json";
 import {scale} from "@/utils/sizing";
@@ -41,12 +42,8 @@ const ChooseService: FC = () => {
   const lang = I18nManager.isRTL ? he : en;
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: colors.background
-      }}>
-      <Header title={t("make_appointment.header")} />
+    <View style={styles.mainWrapper}>
+      <SimpleHeader title={t("make_appointment.header")} />
       <FlatList
         data={Object.values(lang.make_appointment.services)}
         renderItem={({item}) => (
@@ -64,6 +61,9 @@ const ChooseService: FC = () => {
             <RNText style={{textAlign: "left", color: colors.text}}>
               {item}
             </RNText>
+            <RNText style={{textAlign: "left", color: colors.text}}>
+              {35} ₪
+            </RNText>
           </Pressable>
         )}
         ListHeaderComponent={() => (
@@ -77,6 +77,10 @@ const ChooseService: FC = () => {
                   <RNText style={{textAlign: "left", color: colors.text}}>
                     {selectedBarber ?? t("make_appointment.choose_barber")}
                   </RNText>
+                  <FontAwesomeIcon
+                    icon="chevron-down"
+                    color={colors.textSecondary}
+                  />
                 </View>
               )}
               renderItem={item => (
@@ -86,23 +90,27 @@ const ChooseService: FC = () => {
               )}
               dropdownStyle={styles.dropdownWrapper}
             />
-            <Text style={{marginTop: scale(32), color: colors.text}}>
-              make_appointment.choose_service
-            </Text>
+            <View style={styles.servicesHeader}>
+              <Text style={styles.selectServices}>
+                make_appointment.choose_service
+              </Text>
+              <RNText style={styles.servicesSum}>
+                {selectedServices.length * 35} ₪
+              </RNText>
+            </View>
           </>
-        )}
-        ListFooterComponent={() => (
-          <Button
-            text={t("general.next")}
-            disabled={!selectedBarber || !selectedServices.length}
-            onPress={goToChooseDate}
-          />
         )}
         contentContainerStyle={{
           marginTop: scale(32),
-          paddingHorizontal: scale(42),
-          gap: scale(12)
+          gap: scale(12),
+          flex: 1
         }}
+      />
+      <Button
+        text={t("general.next")}
+        disabled={!selectedBarber || !selectedServices.length}
+        onPress={goToChooseDate}
+        style={{width: "80%", alignSelf: "center"}}
       />
     </View>
   );

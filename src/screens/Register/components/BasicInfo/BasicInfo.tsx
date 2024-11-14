@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import {I18nManager, View} from "react-native";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 
-import {Button, Header} from "@/components";
+import {Button, SimpleHeader} from "@/components";
 
 import {Inputs} from "./components";
 import useMisc from "./hooks/useMisc";
@@ -26,7 +26,7 @@ const BasicInfo: FC<
   const {top} = useSafeAreaInsets();
   return (
     <View style={styles.mainWrapper}>
-      <Header title={t("register.basic_info.header")} />
+      <SimpleHeader title={t("register.basic_info.header")} />
       {/* <ImageBackground /> */}
       <Inputs {...formikProps} />
       <Button

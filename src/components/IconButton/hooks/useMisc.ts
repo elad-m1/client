@@ -20,7 +20,34 @@ const useMisc = () => {
       shadowRadius: 2,
       elevation: 2
     },
-    icon: {}
+    disabled: {
+      backgroundColor: colors.placeholder
+    },
+    transparentBackground: {
+      backgroundColor: "transparent"
+    },
+    noElevation: {
+      elevation: 0,
+      shadowRadius: 0
+    },
+    icon: {},
+    badgeWrapper: {
+      direction: "ltr",
+      position: "absolute",
+      top: scale(-4),
+      right: scale(-4),
+      width: scale(16),
+      height: scale(16),
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: colors.primary,
+      borderRadius: scale(8)
+    },
+    badge: {
+      color: colors.onPrimary,
+      fontSize: scale(8),
+      fontWeight: "bold"
+    }
   });
 
   return {styles, colors};

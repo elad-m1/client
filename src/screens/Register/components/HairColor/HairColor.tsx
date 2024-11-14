@@ -1,12 +1,13 @@
-import {FC} from 'react';
-import {View} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {FormikProps} from 'formik';
-import Animated from 'react-native-reanimated';
+import {FormikProps} from "formik";
+import {FC} from "react";
+import {useTranslation} from "react-i18next";
+import {View} from "react-native";
+import Animated from "react-native-reanimated";
 
-import {Button, Header, Text} from '@/components';
-import {useAnim, useMisc} from './hooks';
-import {HairList} from './components';
+import {Button, SimpleHeader, Text} from "@/components";
+
+import {HairList} from "./components";
+import {useAnim, useMisc} from "./hooks";
 
 interface Props {
   goPrevious: () => void;
@@ -29,12 +30,12 @@ const HairColor: FC<
 
   return (
     <View style={styles.mainWrapper}>
-      <Header title="" backOnPress={goPrevious} />
+      <SimpleHeader title="" backOnPress={goPrevious} />
       <Text style={styles.question}>register.hair_color.title</Text>
       <HairList {...formikProps} />
       <Animated.View
         style={[styles.nextButton, {transform: [{translateY: yValue}]}]}>
-        <Button text={t('general.next')} onPress={goNext} />
+        <Button text={t("general.next")} onPress={goNext} />
       </Animated.View>
     </View>
   );

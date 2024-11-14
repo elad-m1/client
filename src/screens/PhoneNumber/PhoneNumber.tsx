@@ -1,14 +1,15 @@
-import {FC} from 'react';
-import {I18nManager, Pressable, View} from 'react-native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {FC} from "react";
+import {useTranslation} from "react-i18next";
+import {I18nManager, Pressable, View} from "react-native";
 
-import {scale} from '@/utils/sizing';
-import listOfCountries from '@/misc/list_of_countries.json';
-import {Button, Header, Text} from '@/components/index';
-import CountryAndPhone from './components/CountryAndPhone/CountryAndPhone';
-import useMisc from './hooks/useMisc';
-import useForm from './hooks/useForm';
-import {useTranslation} from 'react-i18next';
+import {Button, SimpleHeader, Text} from "@/components/index";
+import listOfCountries from "@/misc/list_of_countries.json";
+import {scale} from "@/utils/sizing";
+
+import CountryAndPhone from "./components/CountryAndPhone/CountryAndPhone";
+import useForm from "./hooks/useForm";
+import useMisc from "./hooks/useMisc";
 
 const PhoneNumber: FC = () => {
   const {styles, colors} = useMisc();
@@ -17,19 +18,19 @@ const PhoneNumber: FC = () => {
     onPhoneNumberChange,
     selectedCountryName,
     onCountrySelect,
-    goToSecurityCode,
+    goToSecurityCode
   } = useForm();
 
   const {t} = useTranslation();
 
   return (
     <View style={{flex: 1}}>
-      <Header title={t('phone_number.header')} />
+      <SimpleHeader title={t("phone_number.header")} />
       <View style={styles.titleWrapper}>
         <Text style={styles.title}>phone_number.title</Text>
         <Text style={styles.subTitle}>phone_number.subtitle</Text>
       </View>
-      <View style={{width: '100%', alignItems: 'center'}}>
+      <View style={{width: "100%", alignItems: "center"}}>
         <CountryAndPhone
           countryData={listOfCountries.countries}
           onCountrySelect={onCountrySelect}
@@ -39,8 +40,8 @@ const PhoneNumber: FC = () => {
         />
         <Button
           onPress={() => goToSecurityCode(phoneNumber)}
-          text={t('general.next')}
-          icon={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'}
+          text={t("general.next")}
+          icon={I18nManager.isRTL ? "chevron-left" : "chevron-right"}
         />
       </View>
     </View>

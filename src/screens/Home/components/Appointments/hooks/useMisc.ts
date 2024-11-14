@@ -14,24 +14,41 @@ const useMisc = () => {
 
   const styles = StyleSheet.create({
     mainWrapper: {
-      paddingHorizontal: scale(32)
+      gap: scale(12)
     },
-    nextAppointmentTitle: {
+    sectionTitle: {
       color: colors.text,
       fontSize: scale(18),
-      fontWeight: "bold"
+      fontWeight: "bold",
+      marginHorizontal: scale(16)
     },
+    nextAppointmentWrapper: {},
     nextAppointmentDetailWrapper: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      backgroundColor: colors.card,
+      paddingHorizontal: scale(16),
+      paddingVertical: scale(10),
+      borderRadius: scale(6),
       gap: scale(4),
-      marginTop: scale(8)
+      marginHorizontal: scale(18)
     },
-    nextAppointmentDetail: {
+    nextAppointmentWhen: {
       color: colors.text,
       fontSize: scale(14),
+      fontWeight: "bold",
       textAlign: "left"
     },
-    lastAppointmentsWrapper: {
-      gap: scale(12)
+    nextAppointmentWhere: {
+      color: colors.text,
+      fontSize: scale(12),
+      textAlign: "left"
+    },
+    lastAppointmentsWrapper: {},
+    lastAppointmentsListWrapper: {
+      gap: scale(12),
+      marginHorizontal: scale(18)
     }
   });
 

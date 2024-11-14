@@ -1,5 +1,5 @@
 import Appointments from "./Appointments/Appointments";
-import Header from "./Header/Header";
+import Greeting from "./Greeting/Greeting";
 import RecommendedProducts from "./RecommendedProducts/RecommendedProducts";
 
-export {Header, Appointments, RecommendedProducts};
+export {Greeting, Appointments, RecommendedProducts};

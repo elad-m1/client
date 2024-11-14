@@ -6,11 +6,13 @@ const useData = (productId: string) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log(productId);
+    setLoading(true);
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 1000);
-    return clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [productId]);
 
   const hardcodedData = {
@@ -21,7 +23,6 @@ const useData = (productId: string) => {
     category: "טיפוח שיער",
     imageUrl:
       "https:m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
-    // "https://www.neca7.co.il/wp-content/uploads/2022/04/packshots-neka-74.png",
     sale: 0.4
   };
 
