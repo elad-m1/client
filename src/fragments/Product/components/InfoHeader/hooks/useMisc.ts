@@ -11,39 +11,39 @@ const useMisc = () => {
   const {top} = useSafeAreaInsets();
   const styles = StyleSheet.create({
     mainWrapper: {
-      flex: 1
+      padding: scale(21)
     },
-    image: {
-      width: "100%",
-      height: scale(300),
-      backgroundColor: `${colors.primary}45`
+    row: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center"
     },
-    closeButton: {
-      position: "absolute",
-      top: top + scale(8),
-      left: scale(16)
-    },
-    infoWrapper: {
-      flex: 1,
-      backgroundColor: colors.card,
-      borderTopStartRadius: scale(12),
-      borderTopEndRadius: scale(12),
-      marginTop: scale(-12)
-    },
-    title: {
+    name: {
       color: colors.text,
       fontSize: scale(21),
       fontWeight: "bold",
-      marginTop: scale(16),
-      paddingHorizontal: scale(24),
       textAlign: "left"
+    },
+    priceWrapper: {
+      backgroundColor: `${colors.primary}45`,
+      paddingHorizontal: scale(10),
+      paddingVertical: scale(5),
+      borderRadius: scale(6)
     },
     price: {
       color: colors.text,
-      fontSize: scale(21),
+      fontSize: scale(12),
       fontWeight: "bold",
-      marginTop: scale(8),
-      paddingHorizontal: scale(24),
+      textAlign: "left"
+    },
+    category: {
+      color: colors.text,
+      fontSize: scale(16),
+      textAlign: "left"
+    },
+    credits: {
+      color: colors.text,
+      fontSize: scale(12),
       textAlign: "left"
     }
   });

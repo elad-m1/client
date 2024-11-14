@@ -82,5 +82,8 @@
     "on_date": "On {{date}} at {{time}}",
     "to_barber": "Barber: {{barber}}",
     "services_included": "Services: {{services}}"
+  },
+  "product": {
+    "add_to_cart": "Add to Cart"
   }
 }

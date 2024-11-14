@@ -2,7 +2,7 @@ import moment from "moment";
 import "moment/locale/he";
 import {I18nManager} from "react-native";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
-import NavBar from "react-native-system-navigation-bar";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 import {AuthProvider} from "@/context/auth/AuthContext";
 import {ThemeProvider} from "@/context/theme/ThemeContext";
@@ -14,11 +14,13 @@ function App(): React.JSX.Element {
 
   return (
     <GestureHandlerRootView>
-      <ThemeProvider>
-        <AuthProvider>
-          <NavContainer />
-        </AuthProvider>
-      </ThemeProvider>
+      <SafeAreaProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <NavContainer />
+          </AuthProvider>
+        </ThemeProvider>
+      </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 }

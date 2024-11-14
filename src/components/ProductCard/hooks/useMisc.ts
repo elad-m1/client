@@ -9,15 +9,19 @@ const useMisc = () => {
   const styles = StyleSheet.create({
     mainWrapper: {
       backgroundColor: colors.card,
-      borderRadius: scale(6),
       shadowColor: "#000",
       shadowOffset: {
         width: 0,
         height: 0
       },
+      borderRadius: scale(6),
       shadowOpacity: 0.25,
       shadowRadius: 2,
       elevation: 2
+    },
+    innerWrapper: {
+      borderRadius: scale(6),
+      overflow: "hidden"
     },
     image: {
       width: "100%",

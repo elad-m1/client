@@ -26,18 +26,9 @@ const ThemeContext = createContext({
 
 export const ThemeProvider = ({children}: {children: ReactNode}) => {
   const [isDark, setIsDark] = useState(Appearance.getColorScheme() === "dark");
-  NavBar.setNavigationColor(
-    "#00000000",
-    isDark ? "dark" : "light",
-    "navigation"
-  );
+  NavBar.setNavigationColor("#00000000", isDark ? "light" : "dark", "both");
 
-  const toggleTheme = () => {
-    setIsDark(currentValue => {
-      NavBar.setBarMode(currentValue ? "dark" : "light", "both");
-      return !currentValue;
-    });
-  };
+  const toggleTheme = () => setIsDark(currentValue => !currentValue);
 
   const colors = isDark ? darkTheme : lightTheme;
 

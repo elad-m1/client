@@ -11,7 +11,10 @@ const Header: FC = () => {
 
   return (
     <View style={styles.mainWrapper}>
-      <Image source={{uri: ""}} style={styles.profileImage} />
+      <Image
+        source={{uri: "https://picsum.photos/200"}}
+        style={styles.profileImage}
+      />
       <Text style={styles.title}>home.title</Text>
     </View>
   );

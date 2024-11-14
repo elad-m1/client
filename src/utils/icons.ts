@@ -1,9 +1,16 @@
 import {library} from "@fortawesome/fontawesome-svg-core";
 import {
+  faBookmark as faBookmarkOutline,
+  faHeart as faHeartOutline
+} from "@fortawesome/free-regular-svg-icons";
+import {
+  faBookmark,
+  faCartPlus,
   faChevronDown,
   faChevronLeft,
   faChevronRight,
   faClose,
+  faHeart,
   faMars,
   faQuestion,
   faRotateRight,
@@ -20,5 +27,10 @@ library.add(
   faVenus,
   faQuestion,
   faStar,
-  faClose
+  faClose,
+  faCartPlus,
+  faHeart,
+  faHeartOutline,
+  faBookmark,
+  faBookmarkOutline
 );

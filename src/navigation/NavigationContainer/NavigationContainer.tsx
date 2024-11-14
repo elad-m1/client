@@ -1,3 +1,4 @@
+import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
 import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {useContext} from "react";
 import {View} from "react-native";
@@ -13,12 +14,14 @@ const NavContainer = () => {
   return (
     <NavigationContainer
       theme={{dark: isDark, colors: colors, fonts: DefaultTheme.fonts}}>
-      {/* {isAuthenticated ? (
+      <BottomSheetModalProvider>
+        {/* {isAuthenticated ? (
         <View style={{flex: 1, backgroundColor: 'skyblue'}}>sdfas</View>
       ) : (
         <AuthNavigator />
       )} */}
-      <MainNavigator />
+        <MainNavigator />
+      </BottomSheetModalProvider>
     </NavigationContainer>
   );
 };

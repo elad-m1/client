@@ -82,5 +82,8 @@
     "on_date": "בתאריך {{date}} בשעה {{time}}",
     "to_barber": "ספר: {{barber}}",
     "services_included": "שירותים: {{services}}"
+  },
+  "product": {
+    "add_to_cart": "הוסף לסל"
   }
 }

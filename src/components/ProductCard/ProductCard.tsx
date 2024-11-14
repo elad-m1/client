@@ -46,20 +46,22 @@ const ProductCard: FC<Props> = memo(
           {opacity: pressed ? 0.65 : 1},
           style
         ]}>
-        <Image
-          source={{uri: imageUrl}}
-          resizeMode="cover"
-          style={styles.image}
-        />
-        <View style={styles.detailsWrapper}>
-          <View style={[styles.nameRatingWrapper, {gap: scale(16)}]}>
-            <RNText style={styles.name}>{name}</RNText>
-            <View style={[styles.ratingWrapper, {gap: scale(4)}]}>
-              <FontAwesomeIcon icon="star" color="gold" size={scale(12)} />
-              <RNText style={styles.rating}>{rating.toFixed(1)}</RNText>
+        <View style={styles.innerWrapper}>
+          <Image
+            source={{uri: imageUrl}}
+            resizeMode="cover"
+            style={styles.image}
+          />
+          <View style={styles.detailsWrapper}>
+            <View style={[styles.nameRatingWrapper, {gap: scale(16)}]}>
+              <RNText style={styles.name}>{name}</RNText>
+              <View style={[styles.ratingWrapper, {gap: scale(4)}]}>
+                <FontAwesomeIcon icon="star" color="gold" size={scale(12)} />
+                <RNText style={styles.rating}>{rating.toFixed(1)}</RNText>
+              </View>
             </View>
+            <RNText style={styles.price}>{price} ₪</RNText>
           </View>
-          <RNText style={styles.price}>{price} ₪</RNText>
         </View>
       </Pressable>
     );
