@@ -11,7 +11,7 @@ import {
 
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   name: string;
@@ -37,7 +37,7 @@ interface Props {
  */
 const ProductCard: FC<Props> = memo(
   ({name, imageUrl, rating, price, onPress, style}) => {
-    const {styles} = useMisc();
+    const {styles} = useStyle();
     return (
       <Pressable
         onPress={onPress}

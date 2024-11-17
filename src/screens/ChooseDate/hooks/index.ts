@@ -1,5 +1,5 @@
 import useData from "./useData";
-import useMisc from "./useMisc";
 import useSheet from "./useSheet";
+import useStyle from "./useStyle";
 
-export {useMisc, useSheet, useData};
+export {useStyle, useSheet, useData};

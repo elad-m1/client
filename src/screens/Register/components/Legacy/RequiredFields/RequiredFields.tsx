@@ -1,12 +1,13 @@
-import {FC} from 'react';
-import {Text, View} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {FormikProps} from 'formik';
-import SelectDropdown from 'react-native-select-dropdown';
+import {FormikProps} from "formik";
+import {FC} from "react";
+import {useTranslation} from "react-i18next";
+import {Text, View} from "react-native";
+import SelectDropdown from "react-native-select-dropdown";
 
-import {FormInput} from '@/components';
-import {scale} from '@/utils/sizing';
-import useMisc from './hooks/useMisc';
+import {FormInput} from "@/components";
+import {scale} from "@/utils/sizing";
+
+import useStyle from "./hooks/useStyle";
 
 const RequiredFields: FC<
   FormikProps<{
@@ -17,36 +18,36 @@ const RequiredFields: FC<
     hairType: string;
   }>
 > = ({values, handleChange}) => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
   const {t} = useTranslation();
   return (
     <View style={{gap: scale(12)}}>
       <FormInput
         value={values.firstName}
-        onChangeText={handleChange('firstName')}
-        placeholder={t('register.first_name')}
-        label={t('register.first_name')}
+        onChangeText={handleChange("firstName")}
+        placeholder={t("register.first_name")}
+        label={t("register.first_name")}
         required
       />
       <FormInput
         value={values.lastName}
-        onChangeText={handleChange('lastName')}
-        placeholder={t('register.last_name')}
-        label={t('register.last_name')}
+        onChangeText={handleChange("lastName")}
+        placeholder={t("register.last_name")}
+        label={t("register.last_name")}
         required
       />
       <SelectDropdown
-        data={['male', 'female']}
-        onSelect={value => handleChange('gender')(value)}
+        data={["male", "female"]}
+        onSelect={value => handleChange("gender")(value)}
         renderButton={() => (
           <View>
             <FormInput
               value={t(`register.${values.gender}`)}
-              onChangeText={handleChange('gender')}
+              onChangeText={handleChange("gender")}
               editable={false}
               scrollEnabled={false}
               placeholder={t(`register.${values.gender}`)}
-              label={t('register.gender')}
+              label={t("register.gender")}
               endIcon="chevron-down"
               required
             />

@@ -3,7 +3,7 @@ import {Text as RNText, View} from "react-native";
 
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   name: string;
@@ -22,7 +22,7 @@ interface Props {
  * @returns A React component that renders a header with the product's name, price, and category.
  */
 const InfoHeader: FC<Props> = ({name, price, category}) => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
 
   return (
     <View style={[styles.mainWrapper, {gap: scale(8)}]}>

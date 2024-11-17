@@ -1,10 +1,11 @@
-import {forwardRef, ForwardRefExoticComponent, RefAttributes} from 'react';
-import {ActivityIndicator, Text as RNText, TextInput} from 'react-native';
-import {CodeField, Cursor} from 'react-native-confirmation-code-field';
+import {ForwardRefExoticComponent, RefAttributes, forwardRef} from "react";
+import {ActivityIndicator, Text as RNText, TextInput} from "react-native";
+import {CodeField, Cursor} from "react-native-confirmation-code-field";
 
-import {Text} from '@/components';
-import {SCREEN_WIDTH} from '@/utils/sizing';
-import useMisc from './hooks/useMisc';
+import {Text} from "@/components";
+import {SCREEN_WIDTH} from "@/utils/sizing";
+
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   code: string;
@@ -15,7 +16,7 @@ interface Props {
 
 const CodeInput: ForwardRefExoticComponent<Props & RefAttributes<TextInput>> =
   forwardRef(({code, onCodeChange, submitCode, loading}, ref) => {
-    const {styles, colors} = useMisc();
+    const {styles, colors} = useStyle();
 
     return (
       <>
@@ -29,8 +30,8 @@ const CodeInput: ForwardRefExoticComponent<Props & RefAttributes<TextInput>> =
           textContentType="oneTimeCode"
           rootStyle={{
             width: SCREEN_WIDTH * 0.65,
-            alignSelf: 'center',
-            direction: 'ltr',
+            alignSelf: "center",
+            direction: "ltr"
           }}
           renderCell={({index, symbol, isFocused}) => (
             <RNText
@@ -38,7 +39,7 @@ const CodeInput: ForwardRefExoticComponent<Props & RefAttributes<TextInput>> =
               style={[
                 styles.cell,
                 isFocused && styles.focusCell,
-                false && styles.errorCell,
+                false && styles.errorCell
               ]}>
               {symbol || (isFocused ? <Cursor /> : null)}
             </RNText>

@@ -14,7 +14,7 @@ import {
 
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   label?: string;
@@ -37,7 +37,7 @@ const FormInput: FC<Props & TextInputProps> = memo(
     endIcon,
     ...inputProps
   }) => {
-    const {styles, colors} = useMisc();
+    const {styles, colors} = useStyle();
     const Wrapper = onPress ? Pressable : View;
     return (
       <Wrapper

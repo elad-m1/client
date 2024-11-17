@@ -1,7 +1,7 @@
 import {FC, useContext} from "react";
 import {ActivityIndicator, View} from "react-native";
 
-import ThemeContext from "@/context/theme/ThemeContext";
+import {ThemeContext} from "@/context";
 
 const Loading: FC = () => {
   const {colors} = useContext(ThemeContext);

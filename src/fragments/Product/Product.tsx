@@ -9,7 +9,7 @@ import {Text as RNText, View} from "react-native";
 import {Loading} from "@/components";
 
 import {Footer, ImageBackground, InfoHeader} from "./components";
-import {useData, useMisc, useNav} from "./hooks";
+import {useData, useNav, useStyle} from "./hooks";
 
 interface Props {
   productId: string;
@@ -23,7 +23,7 @@ interface Props {
 const Product: ForwardRefExoticComponent<
   Props & RefAttributes<BottomSheetModal>
 > = forwardRef(({productId}, ref) => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
   const {goBack} = useNav();
   const {hardcodedData, ...dataProps} = useData(productId);
 

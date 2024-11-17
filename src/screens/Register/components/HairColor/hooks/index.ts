@@ -1,4 +1,4 @@
-import useAnim from './useAnim';
-import useMisc from './useMisc';
+import useAnim from "./useAnim";
+import useStyle from "./useStyle";
 
-export {useMisc, useAnim};
+export {useStyle, useAnim};

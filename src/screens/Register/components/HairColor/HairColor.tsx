@@ -7,7 +7,7 @@ import Animated from "react-native-reanimated";
 import {Button, SimpleHeader, Text} from "@/components";
 
 import {HairList} from "./components";
-import {useAnim, useMisc} from "./hooks";
+import {useAnim, useStyle} from "./hooks";
 
 interface Props {
   goPrevious: () => void;
@@ -24,7 +24,7 @@ const HairColor: FC<
       hairColor: string;
     }>
 > = ({goPrevious, goNext, ...formikProps}) => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
   const {yValue} = useAnim(formikProps.values.hairColor);
   const {t} = useTranslation();
 

@@ -3,7 +3,7 @@ import {Image, Text as RNText, View} from "react-native";
 
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   imageUrl: string;
@@ -19,7 +19,7 @@ interface Props {
  * @returns {JSX.Element} A view containing the image, a close button, and the sale percentage.
  */
 const ImageBackground: FC<Props> = ({imageUrl, sale}) => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
   return (
     <View style={[styles.mainWrapper, {gap: scale(8)}]}>
       <Image source={{uri: imageUrl}} resizeMode="cover" style={styles.image} />

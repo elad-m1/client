@@ -8,12 +8,12 @@ import {I18nManager, View} from "react-native";
 import {Button, Text} from "@/components";
 import {scale} from "@/utils/sizing";
 
-import {useMisc, useNav} from "./hooks";
+import {useNav, useStyle} from "./hooks";
 
 /**
  * A BottomSheet component that displays a success animation and a button to go back home when a user successfully makes an appointment.
  *
- * It uses the `useMisc` hook to get the styles and the `useNav` hook to get the navigation functions.
+ * It uses the `useStyle` hook to get the styles and the `useNav` hook to get the navigation functions.
  *
  * The component is a presentational component and does not handle any state or side effects.
  *
@@ -26,7 +26,7 @@ interface Props {
 }
 
 const SuccessSheet: FC<Props> = ({selectedDate, selectedTime}) => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
   const {goBackHome, barber, services} = useNav();
 
   const {t} = useTranslation();

@@ -5,6 +5,7 @@ import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {SafeAreaProvider} from "react-native-safe-area-context";
 
 import {AuthProvider} from "@/context/auth/AuthContext";
+import {ShoppingCartProvider} from "@/context/shoppingCart/ShoppingCartContext";
 import {ThemeProvider} from "@/context/theme/ThemeContext";
 import {NavContainer} from "@/navigation";
 import "@/utils/icons";
@@ -17,7 +18,9 @@ function App(): React.JSX.Element {
       <SafeAreaProvider>
         <ThemeProvider>
           <AuthProvider>
-            <NavContainer />
+            <ShoppingCartProvider>
+              <NavContainer />
+            </ShoppingCartProvider>
           </AuthProvider>
         </ThemeProvider>
       </SafeAreaProvider>

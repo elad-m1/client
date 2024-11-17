@@ -5,7 +5,7 @@ import {Pressable, Text as RNText, View} from "react-native";
 import {Button} from "@/components";
 import {scale} from "@/utils/sizing";
 
-import {useMisc} from "./hooks";
+import {useStyle} from "./hooks";
 
 interface Props {}
 
@@ -24,7 +24,7 @@ interface Props {}
  * @returns A JSX element representing a single last appointment.
  */
 const LastAppointment: FC<Props> = () => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
   const {t} = useTranslation();
   return (
     <Pressable

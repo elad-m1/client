@@ -1,23 +1,23 @@
-import {FC} from 'react';
-import {View} from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
-import {useTranslation} from 'react-i18next';
-import * as Yup from 'yup';
+import {Formik} from "formik";
+import {FC} from "react";
+import {useTranslation} from "react-i18next";
+import {View} from "react-native";
+import {ScrollView} from "react-native-gesture-handler";
+import * as Yup from "yup";
 
-import {BasicInfo, HairColor} from './components';
-import {useMisc, useNav} from './hooks';
-import {Formik} from 'formik';
+import {BasicInfo, HairColor} from "./components";
+import {useNav, useStyle} from "./hooks";
 
 const RegisterSchema = Yup.object({
   firstName: Yup.string().required(),
   lastName: Yup.string().required(),
   gender: Yup.string().required(),
   dateOfBirth: Yup.date().required(),
-  hairColor: Yup.string(),
+  hairColor: Yup.string()
 });
 
 const Register: FC = () => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
   const {scrollViewRef, goNext, goPrevious, onScrollEnd} = useNav();
   const {t} = useTranslation();
 
@@ -25,11 +25,11 @@ const Register: FC = () => {
     <View style={styles.mainWrapper}>
       <Formik
         initialValues={{
-          firstName: '',
-          lastName: '',
-          gender: '',
+          firstName: "",
+          lastName: "",
+          gender: "",
           dateOfBirth: new Date().toDateString(),
-          hairColor: '',
+          hairColor: ""
         }}
         validationSchema={RegisterSchema}
         validateOnMount={false}
@@ -43,15 +43,15 @@ const Register: FC = () => {
             showsHorizontalScrollIndicator={false}
             nestedScrollEnabled
             onScrollEndDrag={onScrollEnd}
-            scrollEnabled={false}
+            // scrollEnabled={false}
             pagingEnabled
             horizontal>
             <BasicInfo {...formikProps} />
-            {/* <HairColor
+            <HairColor
               goPrevious={goPrevious}
               goNext={goNext}
               {...formikProps}
-            /> */}
+            />
           </ScrollView>
         )}
       </Formik>

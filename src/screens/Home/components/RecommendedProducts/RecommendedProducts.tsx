@@ -4,13 +4,13 @@ import {ScrollView, View} from "react-native";
 import {ProductCard, Text} from "@/components";
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   openProduct: (id: string) => void;
 }
 const RecommendedProducts: FC<Props> = ({openProduct}) => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
 
   return (
     <View style={[styles.mainWrapper, {gap: scale(8)}]}>

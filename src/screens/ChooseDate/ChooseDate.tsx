@@ -9,7 +9,7 @@ import {Button, SimpleHeader} from "@/components";
 import {scale} from "@/utils/sizing";
 
 import {SuccessSheet} from "./components";
-import {useData, useMisc, useSheet} from "./hooks";
+import {useData, useSheet, useStyle} from "./hooks";
 
 /**
  * Screen for choosing a date and time for an appointment.
@@ -17,7 +17,7 @@ import {useData, useMisc, useSheet} from "./hooks";
  * @returns A JSX.Element representing the screen.
  */
 const ChooseDate: FC = () => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
   const {isSuccessSheetOpen, openSuccessSheet} = useSheet();
   const {selectedDate, selectedTime, handleDateSelect, handleTimeSelect} =
     useData();

@@ -1,4 +1,4 @@
-import useMisc from "./useMisc";
 import useNav from "./useNav";
+import useStyle from "./useStyle";
 
-export {useNav, useMisc};
+export {useNav, useStyle};

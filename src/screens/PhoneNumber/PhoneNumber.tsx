@@ -9,10 +9,10 @@ import {scale} from "@/utils/sizing";
 
 import CountryAndPhone from "./components/CountryAndPhone/CountryAndPhone";
 import useForm from "./hooks/useForm";
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 const PhoneNumber: FC = () => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
   const {
     phoneNumber,
     onPhoneNumberChange,

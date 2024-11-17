@@ -7,7 +7,7 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {Button, SimpleHeader} from "@/components";
 
 import {Inputs} from "./components";
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {}
 
@@ -21,7 +21,7 @@ const BasicInfo: FC<
       hairColor: string;
     }>
 > = formikProps => {
-  const {styles} = useMisc();
+  const {styles} = useStyle();
   const {t} = useTranslation();
   const {top} = useSafeAreaInsets();
   return (

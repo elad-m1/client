@@ -10,10 +10,10 @@ import {
   ViewStyle
 } from "react-native";
 
-import ThemeContext from "@/context/theme/ThemeContext";
+import {ThemeContext} from "@/context";
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   title: string;
@@ -24,7 +24,7 @@ interface Props {
 
 const SimpleHeader: FC<Props> = memo(
   ({title, translucent, backOnPress, style}) => {
-    const {styles} = useMisc();
+    const {styles} = useStyle();
 
     const {colors} = useContext(ThemeContext);
 
@@ -34,16 +34,18 @@ const SimpleHeader: FC<Props> = memo(
     return (
       <View
         style={[styles.mainWrapper, translucent && styles.translucent, style]}>
-        <Pressable
-          onPress={backOnPress ?? goBack}
-          style={({pressed}) => ({opacity: pressed ? 0.5 : 1})}>
-          <FontAwesomeIcon
-            icon={I18nManager.isRTL ? "chevron-right" : "chevron-left"}
-            color={translucent ? colors.onPrimary : colors.text}
-            size={scale(18)}
-          />
-        </Pressable>
-        <Text style={styles.title}>{title}</Text>
+        <View style={{width: "100%"}}>
+          <Pressable
+            onPress={backOnPress ?? goBack}
+            style={({pressed}) => ({opacity: pressed ? 0.5 : 1})}>
+            <FontAwesomeIcon
+              icon={I18nManager.isRTL ? "chevron-right" : "chevron-left"}
+              color={translucent ? colors.onPrimary : colors.text}
+              size={scale(18)}
+            />
+          </Pressable>
+          <Text style={styles.title}>{title}</Text>
+        </View>
       </View>
     );
   }

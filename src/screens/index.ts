@@ -1,3 +1,4 @@
+import Cart from "./Cart/Cart";
 import ChooseDate from "./ChooseDate/ChooseDate";
 import ChooseService from "./ChooseService/ChooseService";
 import PhoneNumber from "./PhoneNumber/PhoneNumber";
@@ -13,5 +14,6 @@ export {
   ChooseService,
   ChooseDate,
   Shop,
-  Profile
+  Profile,
+  Cart
 };

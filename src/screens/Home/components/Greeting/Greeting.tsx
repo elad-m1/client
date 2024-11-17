@@ -3,10 +3,10 @@ import {Image, View} from "react-native";
 
 import {Text} from "@/components";
 
-import {useMisc} from "./hooks";
+import {useStyle} from "./hooks";
 
 const Greeting: FC = () => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
 
   return (
     <View style={styles.mainWrapper}>

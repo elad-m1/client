@@ -8,8 +8,8 @@ import {scale} from "@/utils/sizing";
 
 import {Appointments, Greeting, RecommendedProducts} from "./components";
 import {useSheet} from "./hooks";
-import useMisc from "./hooks/useMisc";
 import useNav from "./hooks/useNav";
+import useStyle from "./hooks/useStyle";
 
 /**
  * The Home screen component.
@@ -19,7 +19,7 @@ import useNav from "./hooks/useNav";
  * @returns A JSX element representing the Home screen.
  */
 const Home: FC = () => {
-  const {styles, colors, bottom, isDark, toggleTheme} = useMisc();
+  const {styles, colors, bottom, isDark, toggleTheme} = useStyle();
   const {goToChooseDate} = useNav();
   const {productId, productSheetRef, openProduct} = useSheet();
   const {t} = useTranslation();

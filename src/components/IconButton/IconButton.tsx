@@ -11,7 +11,7 @@ import {
 
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   onPress: () => void;
@@ -27,7 +27,7 @@ interface Props {
 
 const IconButton: FC<Props> = memo(
   ({onPress, icon, mode, size, color, badge, elevation, disabled, style}) => {
-    const {styles, colors} = useMisc();
+    const {styles, colors} = useStyle();
     return (
       <Pressable
         style={({pressed}) => [

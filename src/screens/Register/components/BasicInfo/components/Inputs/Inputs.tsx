@@ -1,11 +1,18 @@
-import {FC} from 'react';
-import {KeyboardAvoidingView, ScrollView, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {FormikProps} from 'formik';
+import {FormikProps} from "formik";
+import moment from "moment";
+import {FC} from "react";
+import {useTranslation} from "react-i18next";
+import {
+  I18nManager,
+  KeyboardAvoidingView,
+  ScrollView,
+  Text
+} from "react-native";
+import DatePicker from "react-native-date-picker";
 
-import {FormInput} from '@/components';
-import useMisc from './hooks/useMisc';
-import DatePicker from 'react-native-date-picker';
+import {FormInput} from "@/components";
+
+import useStyle from "./hooks/useStyle";
 
 const Inputs: FC<
   FormikProps<{
@@ -16,38 +23,40 @@ const Inputs: FC<
     hairColor: string;
   }>
 > = ({values, handleChange, errors}) => {
-  const {styles, isDateOpen, toggleIsDateOpen} = useMisc();
+  const {styles, isDateOpen, toggleIsDateOpen} = useStyle();
   const {t} = useTranslation();
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.scrollView}>
+    <KeyboardAvoidingView behavior="padding" style={styles.mainWrapper}>
       <ScrollView
         contentContainerStyle={styles.scrollViewContent}
         automaticallyAdjustKeyboardInsets={false}>
         <FormInput
           value={values.firstName}
-          onChangeText={handleChange('firstName')}
-          placeholder={t('register.basic_info.first_name')}
-          label={t('register.basic_info.first_name')}
+          onChangeText={handleChange("firstName")}
+          placeholder={t("register.basic_info.first_name")}
+          label={t("register.basic_info.first_name")}
           required
         />
         <FormInput
           value={values.lastName}
-          onChangeText={handleChange('lastName')}
-          placeholder={t('register.basic_info.last_name')}
-          label={t('register.basic_info.last_name')}
+          onChangeText={handleChange("lastName")}
+          placeholder={t("register.basic_info.last_name")}
+          label={t("register.basic_info.last_name")}
           required
         />
         <FormInput
           value={values.gender}
-          onChangeText={handleChange('gender')}
-          placeholder={t('register.basic_info.gender')}
-          label={t('register.basic_info.gender')}
+          onChangeText={handleChange("gender")}
+          placeholder={t("register.basic_info.gender")}
+          label={t("register.basic_info.gender")}
           required
         />
         <FormInput
-          value={values.dateOfBirth}
-          placeholder={t('register.basic_info.date_of_birth')}
-          label={t('register.basic_info.date_of_birth')}
+          value={moment(values.dateOfBirth).format(
+            I18nManager.isRTL ? "DD MMM YYYY" : "Do MMM YYYY"
+          )}
+          placeholder={t("register.basic_info.date_of_birth")}
+          label={t("register.basic_info.date_of_birth")}
           onPress={toggleIsDateOpen}
           required
         />
@@ -57,7 +66,7 @@ const Inputs: FC<
           mode="date"
           date={new Date(values.dateOfBirth)}
           onConfirm={date => {
-            handleChange('dateOfBirth')(date.toDateString());
+            handleChange("dateOfBirth")(date.toDateString());
             toggleIsDateOpen();
           }}
           onCancel={toggleIsDateOpen}

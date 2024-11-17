@@ -1,10 +1,11 @@
-import {FC} from 'react';
-import {Pressable, View} from 'react-native';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {FC} from "react";
+import {Pressable, View} from "react-native";
 
-import {Text} from '@/components';
-import {scale} from '@/utils/sizing';
-import useMisc from './hooks/useMisc';
+import {Text} from "@/components";
+import {scale} from "@/utils/sizing";
+
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   resendThrottle: boolean;
@@ -12,15 +13,15 @@ interface Props {
 }
 
 const Resend: FC<Props> = ({resendThrottle, activateResendThrottle}) => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
 
   return (
     <View style={styles.resendWrapper}>
       {resendThrottle ? (
         <View
-          style={{flexDirection: 'row', alignItems: 'center', gap: scale(2)}}>
+          style={{flexDirection: "row", alignItems: "center", gap: scale(2)}}>
           <Text style={styles.subTitle}>verification.resend_after_minute</Text>
-          <Text style={[styles.subTitle, {fontWeight: '900'}]}>
+          <Text style={[styles.subTitle, {fontWeight: "900"}]}>
             verification.minute
           </Text>
         </View>
@@ -31,9 +32,9 @@ const Resend: FC<Props> = ({resendThrottle, activateResendThrottle}) => {
             activateResendThrottle();
           }}
           style={({pressed}) => ({
-            flexDirection: 'row',
-            alignItems: 'center',
-            opacity: pressed ? 0.5 : 1,
+            flexDirection: "row",
+            alignItems: "center",
+            opacity: pressed ? 0.5 : 1
           })}>
           <FontAwesomeIcon
             icon="rotate-right"

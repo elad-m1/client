@@ -5,12 +5,12 @@ import {Text as RNText, View} from "react-native";
 import {SimpleHeader, Text} from "@/components";
 
 import {CodeInput, Resend} from "./components";
-import {useCode, useMisc, useNav} from "./hooks";
+import {useCode, useNav, useStyle} from "./hooks";
 
 const SecurityCode: FC = () => {
   const {goToRegister, phoneData} = useNav();
   const codeHook = useCode(goToRegister);
-  const {styles} = useMisc();
+  const {styles} = useStyle();
 
   const {t} = useTranslation();
 

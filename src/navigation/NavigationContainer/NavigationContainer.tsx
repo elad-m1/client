@@ -3,8 +3,8 @@ import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {useContext} from "react";
 import {View} from "react-native";
 
-import AuthContext from "@/context/auth/AuthContext";
-import ThemeContext from "@/context/theme/ThemeContext";
+import {AuthContext} from "@/context";
+import {ThemeContext} from "@/context";
 import {AuthNavigator, MainNavigator} from "@/navigation";
 
 const NavContainer = () => {
@@ -15,12 +15,7 @@ const NavContainer = () => {
     <NavigationContainer
       theme={{dark: isDark, colors: colors, fonts: DefaultTheme.fonts}}>
       <BottomSheetModalProvider>
-        {/* {isAuthenticated ? (
-        <View style={{flex: 1, backgroundColor: 'skyblue'}}>sdfas</View>
-      ) : (
-        <AuthNavigator />
-      )} */}
-        <MainNavigator />
+        {true ? <MainNavigator /> : <AuthNavigator />}
       </BottomSheetModalProvider>
     </NavigationContainer>
   );

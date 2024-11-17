@@ -1,5 +1,5 @@
-import useCode from './useCode';
-import useNav from './useNav';
-import useMisc from './useMisc';
+import useCode from "./useCode";
+import useNav from "./useNav";
+import useStyle from "./useStyle";
 
-export {useCode, useNav, useMisc};
+export {useCode, useNav, useStyle};

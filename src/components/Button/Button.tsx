@@ -5,7 +5,7 @@ import {Pressable, StyleProp, Text, TextStyle, ViewStyle} from "react-native";
 
 import {scale} from "@/utils/sizing";
 
-import useMisc from "./hooks/useMisc";
+import useStyle from "./hooks/useStyle";
 
 interface Props {
   onPress: () => void;
@@ -20,7 +20,7 @@ interface Props {
 
 const Button: FC<Props> = memo(
   ({onPress, icon, iconSize, iconColor, text, disabled, style, textStyle}) => {
-    const {styles, colors} = useMisc();
+    const {styles, colors} = useStyle();
     return (
       <Pressable
         onPress={onPress}

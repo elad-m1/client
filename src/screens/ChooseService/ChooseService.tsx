@@ -16,8 +16,8 @@ import he from "@/locales/langs/he.json";
 import {scale} from "@/utils/sizing";
 
 import useData from "./hooks/useData";
-import useMisc from "./hooks/useMisc";
 import useNav from "./hooks/useNav";
+import useStyle from "./hooks/useStyle";
 
 /**
  * Screen to make an appointment.
@@ -30,7 +30,7 @@ import useNav from "./hooks/useNav";
  * @returns JSX.Element
  */
 const ChooseService: FC = () => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
   const {
     selectedBarber,
     selectedServices,

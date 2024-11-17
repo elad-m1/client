@@ -5,7 +5,7 @@ import {View} from "react-native";
 import {Button, IconButton} from "@/components";
 import {scale} from "@/utils/sizing";
 
-import {useData, useMisc, useNav} from "./hooks";
+import {useData, useNav, useStyle} from "./hooks";
 
 interface Props {
   isLiked: boolean;
@@ -34,7 +34,7 @@ const Footer: FC<Props> = ({
   toggleBookmark,
   toggleLike
 }) => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
   const {} = useData();
   const {t} = useTranslation();
 

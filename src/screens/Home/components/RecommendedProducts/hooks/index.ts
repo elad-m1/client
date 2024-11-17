@@ -1,3 +1,3 @@
-import useMisc from "./useMisc";
+import useStyle from "./useStyle";
 
-export {useMisc};
+export {useStyle};

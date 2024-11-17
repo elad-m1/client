@@ -6,7 +6,7 @@ import {IconButton, Text} from "@/components";
 import {scale} from "@/utils/sizing";
 
 import {LastAppointment} from "./components";
-import {useMisc} from "./hooks";
+import {useStyle} from "./hooks";
 
 /**
  * A functional component that renders the Appointments screen.
@@ -17,7 +17,7 @@ import {useMisc} from "./hooks";
  * @returns A JSX element representing the Appointments screen.
  */
 const Appointments: FC = () => {
-  const {styles, colors} = useMisc();
+  const {styles, colors} = useStyle();
 
   return (
     <View style={styles.mainWrapper}>
