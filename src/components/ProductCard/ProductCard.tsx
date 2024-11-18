@@ -19,6 +19,7 @@ interface Props {
   rating: number;
   price: number;
   onPress: () => void;
+  elevation?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -36,14 +37,15 @@ interface Props {
  * @returns {JSX.Element} The element representing the card.
  */
 const ProductCard: FC<Props> = memo(
-  ({name, imageUrl, rating, price, onPress, style}) => {
+  ({name, imageUrl, rating, price, onPress, elevation, style}) => {
     const {styles} = useStyle();
     return (
       <Pressable
         onPress={onPress}
         style={({pressed}) => [
           styles.mainWrapper,
-          {opacity: pressed ? 0.65 : 1},
+          elevation === false && styles.noElevation,
+          {opacity: pressed ? 0.5 : 1},
           style
         ]}>
         <View style={styles.innerWrapper}>

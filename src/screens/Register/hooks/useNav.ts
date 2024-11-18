@@ -41,7 +41,7 @@ const useNav = () => {
 
   const onScrollEnd = () => {};
   const goNext = () => {
-    navigation.navigate("ChooseService");
+    navigation.navigate("BottomNav");
   };
   const goPrevious = () => {};
 

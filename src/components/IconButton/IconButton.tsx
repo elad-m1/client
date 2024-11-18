@@ -34,7 +34,7 @@ const IconButton: FC<Props> = memo(
           styles.mainWrapper,
           mode === "text" && styles.transparentBackground,
           elevation === false && styles.noElevation,
-          {opacity: pressed ? 0.65 : 1},
+          {opacity: pressed ? 0.5 : 1},
           style,
           disabled && styles.disabled
         ]}

@@ -28,7 +28,7 @@ const Button: FC<Props> = memo(
           styles.mainWrapper,
           disabled && styles.disabled,
           style,
-          {opacity: pressed ? 0.65 : 1}
+          {opacity: pressed ? 0.5 : 1}
         ]}>
         <Text style={[styles.text, textStyle]}>{text}</Text>
         {icon && (

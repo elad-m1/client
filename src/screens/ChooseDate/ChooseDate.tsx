@@ -76,7 +76,7 @@ const ChooseDate: FC = () => {
               style={({pressed}) => [
                 styles.timeTag,
                 {
-                  opacity: pressed ? 0.65 : 1,
+                  opacity: pressed ? 0.5 : 1,
                   backgroundColor:
                     selectedTime === item ? colors.primary : colors.card,
                   borderColor:

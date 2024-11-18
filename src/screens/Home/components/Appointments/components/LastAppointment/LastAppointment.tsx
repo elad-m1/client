@@ -28,10 +28,7 @@ const LastAppointment: FC<Props> = () => {
   const {t} = useTranslation();
   return (
     <Pressable
-      style={({pressed}) => [
-        styles.mainWrapper,
-        {opacity: pressed ? 0.65 : 1}
-      ]}>
+      style={({pressed}) => [styles.mainWrapper, {opacity: pressed ? 0.5 : 1}]}>
       <View style={{flex: 1, gap: scale(8)}}>
         <View style={[styles.row, {gap: scale(4)}]}>
           <RNText style={styles.barber}>יואב אורלב</RNText>

@@ -1,16 +1,16 @@
-import {FC} from "react";
+import {FC, useContext} from "react";
 import {ScrollView, View} from "react-native";
 
 import {ProductCard, Text} from "@/components";
+import {ProductContext} from "@/context";
 import {scale} from "@/utils/sizing";
 
 import useStyle from "./hooks/useStyle";
 
-interface Props {
-  openProduct: (id: string) => void;
-}
-const RecommendedProducts: FC<Props> = ({openProduct}) => {
+const RecommendedProducts: FC = () => {
   const {styles} = useStyle();
+
+  const {openProduct} = useContext(ProductContext);
 
   return (
     <View style={[styles.mainWrapper, {gap: scale(8)}]}>

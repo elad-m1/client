@@ -9,9 +9,10 @@ export interface Country {
 }
 
 export interface CartItem {
-  key: string;
+  id: string;
   name: string;
   imageUrl: string;
   price: number;
+  rating: number;
   quantity: number;
 }

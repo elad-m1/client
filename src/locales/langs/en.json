@@ -87,6 +87,21 @@
     "add_to_cart": "Add to Cart"
   },
   "cart": {
-    "header": "Shopping Cart"
+    "header": "Shopping Cart",
+    "recommendations": "Recommended Products",
+    "go_to_checkout": "Checkout"
+  },
+  "checkout": {
+    "header": "Checkout",
+    "delivery_method": "Delivery Method",
+    "pickup": "Pick Up",
+    "by_car": "All the way home",
+    "payment": "Payment Method",
+    "add_payment_method": "Add Payment Method",
+    "order_info": "How much for all this?",
+    "sub_total": "Sub Total",
+    "sale": "Sale",
+    "total": "Total",
+    "pay": "Pay"
   }
 }

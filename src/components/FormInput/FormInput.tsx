@@ -42,7 +42,7 @@ const FormInput: FC<Props & TextInputProps> = memo(
     return (
       <Wrapper
         onPress={onPress}
-        style={({pressed}) => [style, {opacity: pressed ? 0.65 : 1}]}>
+        style={({pressed}) => [style, {opacity: pressed ? 0.5 : 1}]}>
         <View
           style={styles.mainWrapper}
           pointerEvents={onPress ? "none" : "auto"}>

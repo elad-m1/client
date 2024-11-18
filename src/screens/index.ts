@@ -1,4 +1,4 @@
-import Cart from "./Cart/Cart";
+import Checkout from "./Checkout/Checkout";
 import ChooseDate from "./ChooseDate/ChooseDate";
 import ChooseService from "./ChooseService/ChooseService";
 import PhoneNumber from "./PhoneNumber/PhoneNumber";
@@ -15,5 +15,5 @@ export {
   ChooseDate,
   Shop,
   Profile,
-  Cart
+  Checkout
 };

@@ -1,8 +1,9 @@
-import {FC} from "react";
+import {FC, useContext} from "react";
 import {useTranslation} from "react-i18next";
 import {View} from "react-native";
 
 import {Button, IconButton} from "@/components";
+import {ShoppingCartContext} from "@/context";
 import {scale} from "@/utils/sizing";
 
 import {useData, useNav, useStyle} from "./hooks";
@@ -34,6 +35,7 @@ const Footer: FC<Props> = ({
   toggleBookmark,
   toggleLike
 }) => {
+  const {addItemToCart} = useContext(ShoppingCartContext);
   const {styles, colors} = useStyle();
   const {} = useData();
   const {t} = useTranslation();
@@ -50,7 +52,17 @@ const Footer: FC<Props> = ({
       />
       <Button
         text={t("product.add_to_cart")}
-        onPress={() => {}}
+        onPress={() =>
+          addItemToCart({
+            id: Math.random().toString(),
+            quantity: 1,
+            imageUrl:
+              "https://static1.srcdn.com/wordpress/wp-content/uploads/peter-griffin-family-guy.jpg",
+            name: "שמפו נקה 7 משהו מטורף",
+            price: 32.2,
+            rating: 4.2
+          })
+        }
         icon="cart-plus"
         style={{flex: 1}}
       />

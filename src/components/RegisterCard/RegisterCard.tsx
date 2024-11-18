@@ -1,5 +1,5 @@
 import {FC, ReactNode} from "react";
-import {Pressable, View} from "react-native";
+import {Pressable} from "react-native";
 
 import {Text} from "@/components";
 
@@ -21,7 +21,7 @@ const RegisterCard: FC<Props> = ({icon, text, active, onPress}) => {
       style={({pressed}) => [
         styles.mainWrapper,
         active && styles.active,
-        {opacity: pressed ? 0.65 : 1}
+        {opacity: pressed ? 0.5 : 1}
       ]}>
       {icon}
       <Text style={styles.text}>{text}</Text>

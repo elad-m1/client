@@ -3,7 +3,7 @@ import {StyleSheet} from "react-native";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 
 import {ThemeContext} from "@/context";
-import {scale} from "@/utils/sizing";
+import {SCREEN_WIDTH, scale} from "@/utils/sizing";
 
 const useStyle = () => {
   const {colors} = useContext(ThemeContext);
@@ -15,18 +15,24 @@ const useStyle = () => {
       width: "100%",
       paddingVertical: scale(12),
       paddingHorizontal: scale(24),
-      paddingTop: top + scale(12),
-      zIndex: 1
+      paddingTop: top + scale(12)
     },
     translucent: {
       position: "absolute",
       backgroundColor: "transparent"
     },
+    smallPaddingTop: {
+      paddingTop: top + scale(6)
+    },
+    backButton: {
+      backgroundColor: colors.card,
+      padding: scale(8),
+      borderRadius: scale(16)
+    },
     title: {
-      width: scale(100),
-      position: "absolute",
-      left: "50%",
-      transform: [{translateX: scale(50)}],
+      width: SCREEN_WIDTH * 0.25,
+      marginStart: "auto",
+      marginEnd: (SCREEN_WIDTH - scale(48)) / 2 - SCREEN_WIDTH * 0.125,
       fontSize: scale(17),
       color: colors.text,
       fontWeight: "600",

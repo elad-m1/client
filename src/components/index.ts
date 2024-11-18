@@ -1,4 +1,5 @@
 import Button from "./Button/Button";
+import CardOption from "./CardOption/CardOption";
 import FormInput from "./FormInput/FormInput";
 import Header from "./Header/Header";
 import IconButton from "./IconButton/IconButton";
@@ -17,5 +18,6 @@ export {
   RegisterCard,
   ProductCard,
   IconButton,
-  Loading
+  Loading,
+  CardOption
 };

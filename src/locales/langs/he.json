@@ -87,6 +87,21 @@
     "add_to_cart": "הוסף לסל"
   },
   "cart": {
-    "header": "עגלת קניות"
+    "header": "עגלת קניות",
+    "recommendations": "מוצרים מומלצים",
+    "go_to_checkout": "המשך לתשלום"
+  },
+  "checkout": {
+    "header": "צ׳קאאוט",
+    "delivery_method": "אמצעי משלוח",
+    "pickup": "איסוף עצמי",
+    "by_car": "עד הבית",
+    "payment": "אמצעי תשלום",
+    "add_payment_method": "הוסף אמצעי תשלום",
+    "order_info": "בוא נדבר תכל׳ס מה הנזק?",
+    "sub_total": "מחיר",
+    "sale": "הנחה",
+    "total": "מחיר סופי",
+    "pay": "שלם"
   }
 }

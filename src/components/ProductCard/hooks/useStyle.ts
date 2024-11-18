@@ -19,6 +19,10 @@ const useStyle = () => {
       shadowRadius: 2,
       elevation: 2
     },
+    noElevation: {
+      shadowRadius: 0,
+      elevation: 0
+    },
     innerWrapper: {
       borderRadius: scale(6),
       overflow: "hidden"
