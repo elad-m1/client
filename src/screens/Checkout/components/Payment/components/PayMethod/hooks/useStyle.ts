@@ -21,6 +21,7 @@ const useStyle = () => {
       gap: scale(12)
     },
     infoWrapper: {
+      flex: 1,
       gap: scale(4)
     },
     title: {
@@ -30,11 +31,13 @@ const useStyle = () => {
       textAlign: "left"
     },
     nameWrapper: {
+      flex: 1,
       flexDirection: "row",
       alignItems: "center",
       gap: scale(8)
     },
     name: {
+      width: "55%",
       color: colors.text,
       fontSize: scale(14),
       fontWeight: "bold",

@@ -6,49 +6,62 @@ import {storage} from "@/storage/mmkv";
 import {CreditCard} from "@/utils/types";
 
 const usePayMethods = () => {
-  const [cardData, setCardData] = useState<CreditCard | null>(null);
+  const [paymentMethods, setPaymentMethods] = useState<CreditCard[]>([]);
+  const [shownCardData, setShownCardData] = useState<CreditCard | null>(null);
+  const [loadingMethods, setLoadingMethods] = useState(true);
+
   const addEditCardSheetRef = useRef<BottomSheet>(null);
 
+  useEffect(() => {
+    loadPaymentMethods();
+    setLoadingMethods(false);
+  }, []);
+
+  const loadPaymentMethods = () => {
+    setLoadingMethods(true);
+    setPaymentMethods(
+      storage.getAllKeys().map(key => {
+        const value = storage.getString(key);
+        return JSON.parse(value ?? "") as CreditCard;
+      })
+    );
+    console.log(paymentMethods);
+    setLoadingMethods(false);
+  };
+
   const openAddEditCardSheet = (id?: string) => {
-    if (id) {
-      const card = storage.getString(id);
-      if (card) setCardData(JSON.parse(card));
-    } else setCardData(null);
+    if (id)
+      setShownCardData(paymentMethods.find(item => item.id === id) ?? null);
+    else setShownCardData(null);
     addEditCardSheetRef.current?.expand();
   };
 
-  const addCard = (values: {
-    ccName: string;
-    ccNumber: string;
-    cvv: string;
-    expDate: string;
-  }) => {
-    storage.set(v4(), JSON.stringify(values));
+  const closeAddEditCardSheet = () => {
+    addEditCardSheetRef.current?.close();
   };
 
-  const editCard = (
-    id: string,
-    values: {
-      ccName: string;
-      ccNumber: string;
-      cvv: string;
-      expDate: string;
-    }
-  ) => {
-    storage.set(id, JSON.stringify(values));
+  const addCard = (values: Partial<CreditCard>) => {
+    const id = v4();
+    storage.set(id, JSON.stringify({id, ...values}));
+    setShownCardData(null);
+    closeAddEditCardSheet();
   };
 
   const removeCard = (id: string) => {
     storage.delete(id);
+    closeAddEditCardSheet();
   };
 
   return {
-    cardData,
+    paymentMethods,
+    loadingMethods,
+    loadPaymentMethods,
+    shownCardData,
     addEditCardSheetRef,
     addCard,
-    editCard,
     removeCard,
-    openAddEditCardSheet
+    openAddEditCardSheet,
+    closeAddEditCardSheet
   };
 };
 

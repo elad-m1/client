@@ -15,25 +15,16 @@ import {useStyle} from "./hooks";
 
 interface Props {
   id?: string;
-  cardData: CreditCard | null;
-  addEditCardSheetRef: RefObject<BottomSheet>;
+  shownCardData: CreditCard | null;
   addCard: (values: {
     ccName: string;
     ccNumber: string;
     cvv: string;
     expDate: string;
   }) => void;
-  editCard: (
-    id: string,
-    values: {
-      ccName: string;
-      ccNumber: string;
-      cvv: string;
-      expDate: string;
-    }
-  ) => void;
   removeCard: (id: string) => void;
   openAddEditCardSheet: (id?: string) => void;
+  closeAddEditCardSheet: () => void;
 }
 
 const CreditCardSchema = Yup.object({
@@ -44,18 +35,7 @@ const CreditCardSchema = Yup.object({
 });
 
 const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
-  (
-    {
-      id,
-      addCard,
-      editCard,
-      removeCard,
-      addEditCardSheetRef,
-      cardData,
-      openAddEditCardSheet
-    },
-    ref
-  ) => {
+  ({id, addCard, removeCard, shownCardData}, ref) => {
     const {styles, colors} = useStyle();
 
     const {t} = useTranslation();
@@ -63,7 +43,7 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
     return (
       <BottomSheet
         ref={ref}
-        snapPoints={["40%"]}
+        snapPoints={["37.5%"]}
         backdropComponent={props => (
           <BottomSheetBackdrop
             appearsOnIndex={0}
@@ -83,15 +63,24 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
               cvv: "",
               expDate: ""
             }}
-            onSubmit={addCard}
-            validationSchema={CreditCardSchema}>
+            validationSchema={shownCardData ? null : CreditCardSchema}
+            onSubmit={values => {
+              shownCardData ? removeCard(shownCardData.id) : addCard(values);
+            }}
+            validateOnMount
+            validateOnChange
+            validateOnBlur>
             {props => (
               <>
-                <Form {...props} cardData={cardData} />
+                <Form {...props} shownCardData={shownCardData} />
                 <Button
                   onPress={props.handleSubmit}
-                  text={t("general.done")}
+                  text={t(shownCardData ? "general.remove" : "general.confirm")}
                   style={styles.submitButton}
+                  disabled={
+                    Object.values(props.errors).length !== 0 && !shownCardData
+                  }
+                  backgroundColor={shownCardData ? colors.error : undefined}
                 />
               </>
             )}

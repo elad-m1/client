@@ -22,8 +22,9 @@ export const ShoppingCartProvider = ({
     {
       id: "1",
       name: "ג׳ל רחצה סופר דופר מגניב ויעיל",
-      imageUrl:
-        "https://m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      imageUrls: [
+        "https://m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      ],
       rating: 4.3,
       price: 32.9,
       quantity: 1
@@ -31,8 +32,9 @@ export const ShoppingCartProvider = ({
     {
       id: "3",
       name: "ג׳ל רחצה סופר דופר מגניב ויעיל",
-      imageUrl:
-        "https://m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      imageUrls: [
+        "https://m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      ],
       rating: 4.3,
       price: 32.9,
       quantity: 1
@@ -40,8 +42,9 @@ export const ShoppingCartProvider = ({
     {
       id: "2",
       name: "ג׳ל רחצה סופר דופר מגניב ויעיל",
-      imageUrl:
-        "https://m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      imageUrls: [
+        "https://m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      ],
       rating: 4.3,
       price: 32.9,
       quantity: 1

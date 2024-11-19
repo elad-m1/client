@@ -17,7 +17,7 @@ import {useStyle} from "./hooks";
 interface Props {
   id: string;
   name: string;
-  imageUrl: string;
+  imageUrls: string[];
   rating: number;
   price: number;
   quantity: number;
@@ -26,7 +26,7 @@ interface Props {
 }
 
 const Product: FC<Props> = memo(
-  ({id, name, imageUrl, rating, price, quantity, onPress, style}) => {
+  ({id, name, imageUrls, rating, price, quantity, onPress, style}) => {
     const {increaseQuantity, decreaseQuantity, removeItemFromCart} =
       useContext(ShoppingCartContext);
     const {openProduct} = useContext(ProductContext);
@@ -39,7 +39,7 @@ const Product: FC<Props> = memo(
           style,
           {opacity: pressed ? 0.5 : 1}
         ]}>
-        <Image source={{uri: imageUrl}} style={styles.image} />
+        <Image source={{uri: imageUrls[0]}} style={styles.image} />
         <View style={styles.infoWrapper}>
           <View style={styles.namePriceWrapper}>
             <RNText style={styles.name} numberOfLines={1}>

@@ -47,7 +47,7 @@ const Button: FC<Props> = memo(
         style={({pressed}) => [style, {opacity: pressed ? 0.5 : 1}]}>
         <LinearGradient
           start={{x: 0, y: 0}}
-          end={{x: 1.25, y: 0}}
+          end={{x: 0.85, y: 0}}
           colors={
             disabled
               ? [colors.placeholder, colors.placeholder]

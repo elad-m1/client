@@ -27,6 +27,12 @@ const useStyle = () => {
       flexDirection: "row",
       justifyContent: "space-evenly",
       alignItems: "center"
+    },
+    emptyListLabel: {
+      color: colors.text,
+      fontSize: scale(14),
+      fontWeight: "bold",
+      textAlign: "center"
     }
   });
 

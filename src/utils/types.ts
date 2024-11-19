@@ -11,7 +11,7 @@ export interface Country {
 export interface CartItem {
   id: string;
   name: string;
-  imageUrl: string;
+  imageUrls: string[];
   price: number;
   rating: number;
   quantity: number;

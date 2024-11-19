@@ -23,7 +23,7 @@ const useStyle = () => {
       borderColor: colors.primary
     },
     disabled: {
-      backgroundColor: `${colors.placeholder}35`,
+      backgroundColor: `${colors.placeholder}50`,
       borderColor: "transparent"
     },
     text: {

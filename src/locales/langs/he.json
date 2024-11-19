@@ -2,7 +2,9 @@
   "general": {
     "next": "הבא",
     "done": "סיימתי",
-    "submit": "הגש"
+    "submit": "הגש",
+    "confirm": "אישור",
+    "remove": "הסר"
   },
   "phone_number": {
     "header": "מספר טלפון",
@@ -107,6 +109,7 @@
     "cc_name": "שם הכרטיס",
     "cc_number": "מספר כרטיס אשראי",
     "cvv": "3 ספרות",
-    "exp_date": "תוקף הכרטיס"
+    "exp_date": "תוקף הכרטיס",
+    "no_payment_methods": "אין אמצעי תשלום"
   }
 }

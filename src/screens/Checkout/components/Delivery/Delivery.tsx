@@ -11,6 +11,12 @@ interface Props {
   chooseMethod: (method: "pickup" | "car") => void;
 }
 
+/**
+ * A component for selecting the delivery method.
+ *
+ * @param deliveryMethod - The currently selected delivery method
+ * @param chooseMethod - A callback to select the delivery method
+ */
 const Delivery: FC<Props> = ({deliveryMethod, chooseMethod}) => {
   const {styles} = useStyle();
   const {t} = useTranslation();

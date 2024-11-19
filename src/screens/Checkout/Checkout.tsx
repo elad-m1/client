@@ -1,6 +1,6 @@
 import {useTranslation} from "react-i18next";
 import {View} from "react-native";
-import {ScrollView} from "react-native-gesture-handler";
+import {RefreshControl, ScrollView} from "react-native-gesture-handler";
 
 import {Button, SimpleHeader} from "@/components";
 
@@ -13,6 +13,13 @@ import {
 } from "./components";
 import {useData, usePay, usePayMethods, useStyle} from "./hooks";
 
+/**
+ * Checkout screen, containing the checkout form, payment methods, order info, and
+ * pay button. Also handles adding and editing payment methods, and displays a
+ * loading screen during payment.
+ *
+ * @returns JSX.Element
+ */
 const Checkout = () => {
   const {styles} = useStyle();
   const dataProps = useData();
@@ -25,7 +32,15 @@ const Checkout = () => {
     <>
       <View style={styles.mainWrapper}>
         <SimpleHeader title={t("checkout.header")} />
-        <ScrollView contentContainerStyle={{flex: 1}}>
+        <ScrollView
+          contentContainerStyle={{flex: 1}}
+          refreshControl={
+            <RefreshControl
+              refreshing={payMethodsProps.loadingMethods}
+              onRefresh={payMethodsProps.loadPaymentMethods}
+            />
+          }
+          nestedScrollEnabled>
           <Delivery {...dataProps} />
           <Payment {...payMethodsProps} />
           <OrderInfo />

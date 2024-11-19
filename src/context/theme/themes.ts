@@ -1,32 +1,32 @@
 const lightTheme = {
   primary: "#419471",
-  onPrimary: "#fff",
+  onPrimary: "#ffffff",
   accent: "#2d6e5a",
-  onAccent: "#fff",
+  onAccent: "#ffffff",
   background: "#efefef",
-  card: "#fff",
+  card: "#ffffff",
   text: "#000",
   textSecondary: "#757575",
   placeholder: "#606060",
   border: "#b0b0b0",
-  error: "#ff7575",
-  success: "#a0ffa0",
+  error: "#d02525",
+  success: "#25d025",
   notification: ""
 };
 
 const darkTheme = {
   primary: "#419471",
-  onPrimary: "#fff",
+  onPrimary: "#ffffff",
   accent: "#2d6e5a",
-  onAccent: "#fff",
+  onAccent: "#ffffff",
   background: "#202020",
   card: "#303030",
-  text: "#fff",
+  text: "#ffffff",
   textSecondary: "#c0c0c0",
   placeholder: "#a0a0a0",
   border: "#454545",
-  error: "#ffa0a0",
-  success: "#a0ffa0",
+  error: "#d02525",
+  success: "#25d025",
   notification: ""
 };
 

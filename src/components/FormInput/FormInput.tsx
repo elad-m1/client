@@ -35,13 +35,14 @@ const FormInput: FC<Props & TextInputProps> = memo(
     onPress,
     inputStyle,
     endIcon,
+    editable,
     ...inputProps
   }) => {
     const {styles, colors} = useStyle();
     return (
       <Pressable
         onPress={onPress}
-        disabled={!onPress}
+        disabled={!onPress || !editable}
         style={({pressed}) => [style, {opacity: pressed ? 0.5 : 1}]}>
         <View
           style={styles.mainWrapper}
@@ -52,7 +53,15 @@ const FormInput: FC<Props & TextInputProps> = memo(
               {required && <Text style={styles.requiredStar}>*</Text>}
             </View>
           )}
-          <View style={styles.inputWrapper}>
+          <View
+            style={[
+              styles.inputWrapper,
+              {
+                backgroundColor: !editable
+                  ? `${colors.placeholder}35`
+                  : colors.card
+              }
+            ]}>
             {icon && (
               <FontAwesomeIcon
                 icon={icon}
@@ -63,7 +72,12 @@ const FormInput: FC<Props & TextInputProps> = memo(
             <TextInput
               {...inputProps}
               placeholderTextColor={colors.placeholder}
-              style={[styles.input, inputStyle]}
+              editable={editable}
+              style={[
+                styles.input,
+                inputStyle,
+                {color: !editable ? colors.placeholder : colors.text}
+              ]}
             />
             {endIcon && (
               <FontAwesomeIcon

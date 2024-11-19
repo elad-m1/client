@@ -2,7 +2,9 @@
   "general": {
     "next": "Next",
     "done": "Done",
-    "submit": "Submit"
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "remove": "Remove"
   },
   "phone_number": {
     "header": "Phone Number",
@@ -107,6 +109,7 @@
     "cc_name": "Card Name",
     "cc_number": "Credit Card Number",
     "cvv": "CVV",
-    "exp_date": "Expiration Date"
+    "exp_date": "Expiration Date",
+    "no_payment_methods": "אין אמצעי תשלום"
   }
 }

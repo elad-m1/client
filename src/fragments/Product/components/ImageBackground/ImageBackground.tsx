@@ -1,12 +1,14 @@
 import {FC} from "react";
 import {Image, Text as RNText, View} from "react-native";
+import {ScrollView} from "react-native-gesture-handler";
 
 import {scale} from "@/utils/sizing";
 
+import {useGallery} from "./hooks";
 import useStyle from "./hooks/useStyle";
 
 interface Props {
-  imageUrl: string;
+  imageUrls: string[];
   sale: number;
 }
 
@@ -18,11 +20,34 @@ interface Props {
  *
  * @returns {JSX.Element} A view containing the image, a close button, and the sale percentage.
  */
-const ImageBackground: FC<Props> = ({imageUrl, sale}) => {
+const ImageBackground: FC<Props> = ({imageUrls, sale}) => {
   const {styles} = useStyle();
+  const {galleryIndex, onScroll} = useGallery();
   return (
-    <View style={[styles.mainWrapper, {gap: scale(8)}]}>
-      <Image source={{uri: imageUrl}} resizeMode="cover" style={styles.image} />
+    <View style={styles.mainWrapper}>
+      <ScrollView
+        onScroll={onScroll}
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled
+        horizontal>
+        {imageUrls.map((imageUrl, index) => (
+          <Image
+            key={index}
+            source={{uri: imageUrl}}
+            resizeMode="cover"
+            style={styles.image}
+          />
+        ))}
+      </ScrollView>
+      <View style={styles.dotsWrapper}>
+        {Array.from({length: imageUrls.length}).map((_, index) => (
+          <View
+            style={[
+              styles.dot,
+              {opacity: index === galleryIndex ? 1 : 0.5}
+            ]}></View>
+        ))}
+      </View>
       <View style={styles.sheetHandle}></View>
       <View style={styles.saleWrapper}>
         <RNText style={styles.sale}>{sale * 100}%</RNText>

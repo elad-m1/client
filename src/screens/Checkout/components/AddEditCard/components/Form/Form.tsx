@@ -9,7 +9,7 @@ import {FormInput} from "@/components";
 import {useStyle} from "./hooks";
 
 interface Props {
-  cardData: {
+  shownCardData: {
     ccName: string;
     ccNumber: string;
     cvv: string;
@@ -25,15 +25,15 @@ const Form: FC<
       cvv: string;
       expDate: string;
     }>
-> = ({cardData, values, handleChange}) => {
+> = ({shownCardData, values, handleChange}) => {
   const {styles} = useStyle();
   const {t} = useTranslation();
 
   return (
     <View style={styles.mainWrapper}>
       <FormInput
-        value={cardData ? cardData.ccName : values.ccName}
-        editable={!cardData}
+        value={shownCardData ? shownCardData.ccName : values.ccName}
+        editable={shownCardData === null}
         onChangeText={handleChange("ccName")}
         placeholder={t("checkout.cc_name")}
         label={t("checkout.cc_name")}
@@ -41,8 +41,8 @@ const Form: FC<
       />
       <View style={styles.ccNumberWrapper}>
         <FormInput
-          value={cardData ? cardData.ccNumber : values.ccNumber}
-          editable={!cardData}
+          value={shownCardData ? shownCardData.ccNumber : values.ccNumber}
+          editable={shownCardData === null}
           onChangeText={handleChange("ccNumber")}
           placeholder="**** **** **** 1234"
           label={t("checkout.cc_number")}
@@ -50,8 +50,8 @@ const Form: FC<
           required
         />
         <FormInput
-          value={cardData ? cardData.cvv : values.cvv}
-          editable={!cardData}
+          value={shownCardData ? shownCardData.cvv : values.cvv}
+          editable={shownCardData === null}
           onChangeText={handleChange("cvv")}
           placeholder="123"
           label={t("checkout.cvv")}
@@ -60,8 +60,8 @@ const Form: FC<
         />
       </View>
       <FormInput
-        value={cardData ? cardData.expDate : values.expDate}
-        editable={!cardData}
+        value={shownCardData ? shownCardData.expDate : values.expDate}
+        editable={shownCardData === null}
         onChangeText={handleChange("expDate")}
         placeholder="01/27"
         label={t("checkout.exp_date")}

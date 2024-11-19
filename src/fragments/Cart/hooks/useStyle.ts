@@ -14,6 +14,9 @@ const useStyle = () => {
       flex: 1,
       backgroundColor: colors.background
     },
+    scrollView: {
+      paddingBottom: bottom * 1.5
+    },
     checkoutButton: {
       position: "absolute",
       width: "90%",

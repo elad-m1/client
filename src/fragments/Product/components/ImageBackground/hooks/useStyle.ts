@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {StyleSheet} from "react-native";
 
 import {ThemeContext} from "@/context";
-import {scale} from "@/utils/sizing";
+import {SCREEN_WIDTH, scale} from "@/utils/sizing";
 
 /**
  * Provides styles and colors for the ImageBackground component.
@@ -15,10 +15,27 @@ const useStyle = () => {
   const styles = StyleSheet.create({
     mainWrapper: {},
     image: {
-      width: "100%",
+      width: SCREEN_WIDTH,
       height: scale(250),
       backgroundColor: colors.background
-      // paddingTop: scale(16)
+    },
+    dotsWrapper: {
+      backgroundColor: `${colors.onPrimary}45`,
+      position: "absolute",
+      bottom: scale(8),
+      alignSelf: "center",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: scale(8),
+      paddingHorizontal: scale(10),
+      paddingVertical: scale(5),
+      borderRadius: scale(16)
+    },
+    dot: {
+      height: scale(6),
+      width: scale(6),
+      borderRadius: scale(3),
+      backgroundColor: "#fff"
     },
     sheetHandle: {
       backgroundColor: "#fff",

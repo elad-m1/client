@@ -48,7 +48,7 @@ const Cart: ForwardRefExoticComponent<{} & RefAttributes<BottomSheetModal>> =
         )}
         backgroundStyle={{backgroundColor: colors.background}}>
         <BottomSheetView style={styles.mainWrapper}>
-          <ScrollView>
+          <ScrollView contentContainerStyle={styles.scrollView}>
             <ProductsList />
             <Recommendations />
           </ScrollView>

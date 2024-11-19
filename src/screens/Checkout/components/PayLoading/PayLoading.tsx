@@ -10,6 +10,13 @@ interface Props {
   loading: boolean;
 }
 
+/**
+ * A component that displays a loading state or a "Payment Complete" message, depending on the
+ * value of the `loading` prop.
+ *
+ * @param {boolean} loading - If true, the component will display a loading animation. If false,
+ * the component will display a "Payment Complete" message.
+ */
 const PayLoading: FC<Props> = ({loading}) => {
   const {styles, colors} = useStyle();
   const {opacityVal} = useAnim(loading);

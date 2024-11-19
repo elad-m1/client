@@ -11,6 +11,7 @@ const useStyle = () => {
       height: scale(50),
       gap: scale(3)
     },
+    disabled: {},
     label: {
       fontSize: scale(10),
       color: colors.text,

@@ -21,8 +21,11 @@ const useData = (productId: string) => {
       "השמפו והמרכך האהובים באריזה חדשה ונוסחא משופרת, מועשרים בתמציות צמחים לטיפוח השיער בכל חפיפה",
     price: 24.9,
     category: "טיפוח שיער",
-    imageUrl:
-      "https:m.media-amazon.com/images/M/MV5BNTZlMGQ1YjEtMzVlNC00ZmMxLTk0MzgtZjdkYTU1NmUxNTQ0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    imageUrls: [
+      "https://www.andrewbarbershop.it/images/large/p174_hard-matt.jpg",
+      "https://www.andrewbarbershop.it/images/large/p174_hard-matt.jpg",
+      "https://www.andrewbarbershop.it/images/large/p174_hard-matt.jpg"
+    ],
     sale: 0.4
   };
 
