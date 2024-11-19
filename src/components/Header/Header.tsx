@@ -28,7 +28,7 @@ const Header: FC = () => {
           text={(1224).toLocaleString()}
           onPress={() => {}}
           iconColor={colors.text}
-          style={styles.button}
+          backgroundColor={colors.card}
           textStyle={{color: colors.text}}
         />
         <IconButton

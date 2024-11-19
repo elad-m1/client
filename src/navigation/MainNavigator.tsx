@@ -25,7 +25,7 @@ const MainNavigator: FC = () => {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="Auth"
+        initialRouteName="BottomNav"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="Auth" component={AuthNavigator} />
         <Stack.Screen name="BottomNav" component={BottomNavigator} />

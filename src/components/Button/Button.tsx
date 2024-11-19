@@ -1,7 +1,15 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {FC, memo} from "react";
-import {Pressable, StyleProp, Text, TextStyle, ViewStyle} from "react-native";
+import {
+  Pressable,
+  StyleProp,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle
+} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
 
 import {scale} from "@/utils/sizing";
 
@@ -9,6 +17,7 @@ import useStyle from "./hooks/useStyle";
 
 interface Props {
   onPress: () => void;
+  backgroundColor?: string;
   icon?: IconProp;
   iconSize?: number;
   iconColor?: string;
@@ -19,25 +28,45 @@ interface Props {
 }
 
 const Button: FC<Props> = memo(
-  ({onPress, icon, iconSize, iconColor, text, disabled, style, textStyle}) => {
+  ({
+    onPress,
+    backgroundColor,
+    icon,
+    iconSize,
+    iconColor,
+    text,
+    disabled,
+    style,
+    textStyle
+  }) => {
     const {styles, colors} = useStyle();
     return (
       <Pressable
         onPress={onPress}
-        style={({pressed}) => [
-          styles.mainWrapper,
-          disabled && styles.disabled,
-          style,
-          {opacity: pressed ? 0.5 : 1}
-        ]}>
-        <Text style={[styles.text, textStyle]}>{text}</Text>
-        {icon && (
-          <FontAwesomeIcon
-            icon={icon}
-            color={iconColor ?? colors.onPrimary}
-            size={iconSize ?? scale(12)}
-          />
-        )}
+        disabled={disabled}
+        style={({pressed}) => [style, {opacity: pressed ? 0.5 : 1}]}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1.25, y: 0}}
+          colors={
+            disabled
+              ? [colors.placeholder, colors.placeholder]
+              : backgroundColor
+              ? [backgroundColor, backgroundColor]
+              : [colors.primary, colors.accent]
+          }
+          style={styles.mainWrapper}>
+          <View style={styles.contentWrapper}>
+            <Text style={[styles.text, textStyle]}>{text}</Text>
+            {icon && (
+              <FontAwesomeIcon
+                icon={icon}
+                color={iconColor ?? colors.onPrimary}
+                size={iconSize ?? scale(12)}
+              />
+            )}
+          </View>
+        </LinearGradient>
       </Pressable>
     );
   }

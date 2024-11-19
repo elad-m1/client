@@ -8,13 +8,14 @@ export default function useStyle() {
   const {colors} = useContext(ThemeContext);
   const styles = StyleSheet.create({
     mainWrapper: {
+      borderRadius: scale(6)
+    },
+    contentWrapper: {
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: colors.primary,
       paddingHorizontal: scale(10),
       paddingVertical: scale(6),
-      borderRadius: scale(6),
       gap: scale(4)
     },
     disabled: {

@@ -1,16 +1,14 @@
+import {useEffect} from "react";
+
+import {storage} from "@/storage/mmkv";
+import {CreditCard} from "@/utils/types";
+
 const useData = () => {
-  const paymentMethods = [
-    {
-      name: "הכרטיס הראשי שלי",
-      methodType: "VISA Classic",
-      ccNumber: "1243221245729257"
-    },
-    {
-      name: "כרטיס התפערויות",
-      methodType: "VISA Classic",
-      ccNumber: "1243221245722033"
-    }
-  ];
+  const paymentMethods = storage.getAllKeys().map(key => {
+    const value = storage.getString(key);
+    if (!value) return null;
+    return {...JSON.parse(value), id: key} as CreditCard;
+  });
 
   return {paymentMethods};
 };

@@ -38,10 +38,10 @@ const FormInput: FC<Props & TextInputProps> = memo(
     ...inputProps
   }) => {
     const {styles, colors} = useStyle();
-    const Wrapper = onPress ? Pressable : View;
     return (
-      <Wrapper
+      <Pressable
         onPress={onPress}
+        disabled={!onPress}
         style={({pressed}) => [style, {opacity: pressed ? 0.5 : 1}]}>
         <View
           style={styles.mainWrapper}
@@ -77,7 +77,7 @@ const FormInput: FC<Props & TextInputProps> = memo(
         )} */}
           </View>
         </View>
-      </Wrapper>
+      </Pressable>
     );
   }
 );

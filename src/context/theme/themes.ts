@@ -1,9 +1,9 @@
 const lightTheme = {
-  primary: "#68b46c",
+  primary: "#419471",
   onPrimary: "#fff",
-  accent: "",
-  onAccent: "",
-  background: "#f0f0f0",
+  accent: "#2d6e5a",
+  onAccent: "#fff",
+  background: "#efefef",
   card: "#fff",
   text: "#000",
   textSecondary: "#757575",
@@ -15,10 +15,10 @@ const lightTheme = {
 };
 
 const darkTheme = {
-  primary: "#68b46c",
+  primary: "#419471",
   onPrimary: "#fff",
-  accent: "",
-  onAccent: "",
+  accent: "#2d6e5a",
+  onAccent: "#fff",
   background: "#202020",
   card: "#303030",
   text: "#fff",

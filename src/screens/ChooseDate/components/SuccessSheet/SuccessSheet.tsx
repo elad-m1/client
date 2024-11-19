@@ -37,7 +37,7 @@ const SuccessSheet: FC<Props> = ({selectedDate, selectedTime}) => {
       index={0}
       handleComponent={null}
       animateOnMount={true}
-      backgroundStyle={{backgroundColor: colors.card}}
+      backgroundStyle={{backgroundColor: colors.background}}
       backdropComponent={props => (
         <BottomSheetBackdrop
           appearsOnIndex={0}

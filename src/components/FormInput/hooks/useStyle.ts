@@ -8,6 +8,7 @@ const useStyle = () => {
   const {colors} = useContext(ThemeContext);
   const styles = StyleSheet.create({
     mainWrapper: {
+      height: scale(50),
       gap: scale(3)
     },
     label: {

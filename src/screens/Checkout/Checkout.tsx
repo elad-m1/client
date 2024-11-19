@@ -4,28 +4,44 @@ import {ScrollView} from "react-native-gesture-handler";
 
 import {Button, SimpleHeader} from "@/components";
 
-import {Delivery, OrderInfo, Payment} from "./components";
-import {useData, useStyle} from "./hooks";
+import {
+  AddEditCard,
+  Delivery,
+  OrderInfo,
+  PayLoading,
+  Payment
+} from "./components";
+import {useData, usePay, usePayMethods, useStyle} from "./hooks";
 
 const Checkout = () => {
   const {styles} = useStyle();
   const dataProps = useData();
+  const {submitPay, showPayLoading, loading} = usePay();
+  const payMethodsProps = usePayMethods();
 
   const {t} = useTranslation();
+
   return (
-    <View style={styles.mainWrapper}>
-      <SimpleHeader title={t("checkout.header")} />
-      <ScrollView contentContainerStyle={{flex: 1}}>
-        <Delivery {...dataProps} />
-        <Payment />
-        <OrderInfo />
-      </ScrollView>
-      <Button
-        onPress={() => {}}
-        text={t("checkout.pay")}
-        style={styles.payButton}
+    <>
+      <View style={styles.mainWrapper}>
+        <SimpleHeader title={t("checkout.header")} />
+        <ScrollView contentContainerStyle={{flex: 1}}>
+          <Delivery {...dataProps} />
+          <Payment {...payMethodsProps} />
+          <OrderInfo />
+        </ScrollView>
+        <Button
+          onPress={submitPay}
+          text={t("checkout.pay")}
+          style={styles.payButton}
+        />
+      </View>
+      <AddEditCard
+        ref={payMethodsProps.addEditCardSheetRef}
+        {...payMethodsProps}
       />
-    </View>
+      {showPayLoading && <PayLoading loading={loading} />}
+    </>
   );
 };
 

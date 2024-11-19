@@ -16,3 +16,11 @@ export interface CartItem {
   rating: number;
   quantity: number;
 }
+
+export interface CreditCard {
+  id: string;
+  ccName: string;
+  ccNumber: string;
+  cvv: string;
+  expDate: string;
+}
