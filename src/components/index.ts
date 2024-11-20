@@ -5,8 +5,10 @@ import Header from "./Header/Header";
 import IconButton from "./IconButton/IconButton";
 import Loading from "./Loading/Loading";
 import ProductCard from "./ProductCard/ProductCard";
+import ProductHList from "./ProductsHList/ProductHList";
 import RegisterCard from "./RegisterCard/RegisterCard";
 import SimpleHeader from "./SimpleHeader/SimpleHeader";
+import Tag from "./Tag/Tag";
 import Text from "./Text/Text";
 
 export {
@@ -19,5 +21,7 @@ export {
   ProductCard,
   IconButton,
   Loading,
-  CardOption
+  CardOption,
+  Tag,
+  ProductHList
 };

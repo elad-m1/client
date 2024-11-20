@@ -25,6 +25,7 @@ import {
   faPlus,
   faQuestion,
   faRotateRight,
+  faSearch,
   faStar,
   faTrash,
   faTruck,
@@ -61,5 +62,6 @@ library.add(
   faTrash,
   faTruck,
   faPersonWalking,
-  faCcVisa
+  faCcVisa,
+  faSearch
 );

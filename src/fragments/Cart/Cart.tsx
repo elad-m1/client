@@ -43,10 +43,12 @@ const Cart: ForwardRefExoticComponent<{} & RefAttributes<BottomSheetModal>> =
             // @ts-ignore
             backOnPress={() => ref.current.dismiss()}
             backButtonBackground
-            style={{backgroundColor: colors.background}}
+            style={styles.header}
           />
         )}
-        backgroundStyle={{backgroundColor: colors.background}}>
+        backgroundStyle={{
+          backgroundColor: colors.background
+        }}>
         <BottomSheetView style={styles.mainWrapper}>
           <ScrollView contentContainerStyle={styles.scrollView}>
             <ProductsList />

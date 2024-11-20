@@ -4,7 +4,7 @@ import {
 } from "@react-navigation/native-stack";
 import {FC} from "react";
 
-import {Checkout, ChooseDate, ChooseService} from "@/screens";
+import {Badge, Checkout, ChooseDate, ChooseService} from "@/screens";
 
 import AuthNavigator from "./AuthNavigator";
 import BottomNavigator from "./BottomNavigator/BottomNavigator";
@@ -17,6 +17,7 @@ export type MainStackParamList = {
   ChooseService: undefined;
   ChooseDate: {barber: string; services: string[]};
   Checkout: undefined;
+  Badge: undefined;
 };
 
 export type MainNavigationProp = NativeStackNavigationProp<MainStackParamList>;
@@ -32,6 +33,14 @@ const MainNavigator: FC = () => {
         <Stack.Screen name="ChooseDate" component={ChooseDate} />
         <Stack.Screen name="ChooseService" component={ChooseService} />
         <Stack.Screen name="Checkout" component={Checkout} />
+        <Stack.Screen
+          name="Badge"
+          component={Badge}
+          options={{
+            animation: "slide_from_bottom",
+            gestureDirection: "vertical"
+          }}
+        />
       </Stack.Navigator>
     </>
   );

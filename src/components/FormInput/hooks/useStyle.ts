@@ -22,7 +22,6 @@ const useStyle = () => {
       fontSize: scale(11)
     },
     inputWrapper: {
-      flex: 1,
       backgroundColor: colors.card,
       flexDirection: "row",
       alignItems: "center",

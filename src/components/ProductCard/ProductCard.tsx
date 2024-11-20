@@ -62,7 +62,7 @@ const ProductCard: FC<Props> = memo(
                 <RNText style={styles.rating}>{rating.toFixed(1)}</RNText>
               </View>
             </View>
-            <RNText style={styles.price}>{price} ₪</RNText>
+            <RNText style={styles.price}>{price.toFixed(2)} ₪</RNText>
           </View>
         </View>
       </Pressable>

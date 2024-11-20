@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Image, Text as RNText, View} from "react-native";
-import {ScrollView} from "react-native-gesture-handler";
+import {FlatList, ScrollView} from "react-native-gesture-handler";
 
 import {scale} from "@/utils/sizing";
 
@@ -22,23 +22,29 @@ interface Props {
  */
 const ImageBackground: FC<Props> = ({imageUrls, sale}) => {
   const {styles} = useStyle();
-  const {galleryIndex, onScroll} = useGallery();
+  const {galleryIndex, onViewableItemsChanged} = useGallery();
   return (
     <View style={styles.mainWrapper}>
-      <ScrollView
-        onScroll={onScroll}
-        showsHorizontalScrollIndicator={false}
-        pagingEnabled
-        horizontal>
-        {imageUrls.map((imageUrl, index) => (
+      <FlatList
+        data={imageUrls}
+        renderItem={({item, index}) => (
           <Image
             key={index}
-            source={{uri: imageUrl}}
+            source={{uri: item}}
             resizeMode="cover"
             style={styles.image}
           />
-        ))}
-      </ScrollView>
+        )}
+        keyExtractor={(_item, index) => index.toString()}
+        showsHorizontalScrollIndicator={false}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={{
+          waitForInteraction: true,
+          viewAreaCoveragePercentThreshold: 50
+        }}
+        pagingEnabled
+        horizontal
+      />
       <View style={styles.dotsWrapper}>
         {Array.from({length: imageUrls.length}).map((_, index) => (
           <View

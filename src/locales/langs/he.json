@@ -111,5 +111,12 @@
     "cvv": "3 ספרות",
     "exp_date": "תוקף הכרטיס",
     "no_payment_methods": "אין אמצעי תשלום"
+  },
+  "shop": {
+    "search": "חפש מוצר",
+    "trending_products": "מוצרים חמים",
+    "recommended_products": "מוצרים במיוחד עבורך",
+    "new_products": "מוצרים חדשים על המדף",
+    "top_rated_products": "מדורגים מאוד גבוה"
   }
 }

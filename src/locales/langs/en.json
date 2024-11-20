@@ -111,5 +111,12 @@
     "cvv": "CVV",
     "exp_date": "Expiration Date",
     "no_payment_methods": "אין אמצעי תשלום"
+  },
+  "shop": {
+    "search": "Search a product",
+    "trending_products": "Trending Products",
+    "recommended_products": "Recommended Products",
+    "new_products": "New Products On The Shelf",
+    "top_rated_products": "Top Rated Products"
   }
 }

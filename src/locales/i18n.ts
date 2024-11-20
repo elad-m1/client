@@ -20,7 +20,7 @@ i18n.use(initReactI18next).init({
   resources,
   lng: "he",
   interpolation: {
-    escapeValue: false // react already safes from xss
+    escapeValue: false
   },
   compatibilityJSON: "v3"
 });

@@ -21,7 +21,7 @@ const useStyle = () => {
       elevation: 2
     },
     disabled: {
-      backgroundColor: colors.placeholder
+      opacity: 0.4
     },
     transparentBackground: {
       backgroundColor: "transparent"

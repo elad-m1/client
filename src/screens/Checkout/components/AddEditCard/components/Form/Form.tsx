@@ -37,6 +37,7 @@ const Form: FC<
         onChangeText={handleChange("ccName")}
         placeholder={t("checkout.cc_name")}
         label={t("checkout.cc_name")}
+        bottomSheet
         required
       />
       <View style={styles.ccNumberWrapper}>
@@ -47,6 +48,7 @@ const Form: FC<
           placeholder="**** **** **** 1234"
           label={t("checkout.cc_number")}
           style={{flex: 3}}
+          bottomSheet
           required
         />
         <FormInput
@@ -56,6 +58,7 @@ const Form: FC<
           placeholder="123"
           label={t("checkout.cvv")}
           style={{flex: 1}}
+          bottomSheet
           required
         />
       </View>
@@ -65,6 +68,7 @@ const Form: FC<
         onChangeText={handleChange("expDate")}
         placeholder="01/27"
         label={t("checkout.exp_date")}
+        bottomSheet
         required
       />
     </View>

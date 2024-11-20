@@ -5,7 +5,9 @@ import {MainNavigationProp} from "@/navigation/MainNavigator";
 const useNav = () => {
   const navigation = useNavigation<MainNavigationProp>();
 
-  return {};
+  const goToBadge = () => navigation.navigate("Badge");
+
+  return {goToBadge};
 };
 
 export default useNav;

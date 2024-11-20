@@ -1,20 +1,20 @@
 import {useState} from "react";
-import {NativeScrollEvent, NativeSyntheticEvent} from "react-native";
-
-import {SCREEN_WIDTH} from "@/utils/sizing";
+import {ViewToken} from "react-native";
 
 const useGallery = () => {
   const [galleryIndex, setGalleryIndex] = useState(0);
 
-  const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    setGalleryIndex(
-      Math.round(event.nativeEvent.contentOffset.x / SCREEN_WIDTH)
-    );
+  const onViewableItemsChanged = ({
+    changed
+  }: {
+    viewableItems: ViewToken<string>[];
+    changed: ViewToken<string>[];
+  }) => {
+    if (changed[0].isViewable) setGalleryIndex(changed[0].index ?? 0);
   };
-
   return {
     galleryIndex,
-    onScroll
+    onViewableItemsChanged
   };
 };
 

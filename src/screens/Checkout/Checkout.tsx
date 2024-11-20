@@ -1,5 +1,5 @@
 import {useTranslation} from "react-i18next";
-import {View} from "react-native";
+import {Platform, View} from "react-native";
 import {RefreshControl, ScrollView} from "react-native-gesture-handler";
 
 import {Button, SimpleHeader} from "@/components";
@@ -21,7 +21,7 @@ import {useData, usePay, usePayMethods, useStyle} from "./hooks";
  * @returns JSX.Element
  */
 const Checkout = () => {
-  const {styles} = useStyle();
+  const {styles, colors} = useStyle();
   const dataProps = useData();
   const {submitPay, showPayLoading, loading} = usePay();
   const payMethodsProps = usePayMethods();
@@ -38,6 +38,10 @@ const Checkout = () => {
             <RefreshControl
               refreshing={payMethodsProps.loadingMethods}
               onRefresh={payMethodsProps.loadPaymentMethods}
+              colors={[colors.primary]}
+              progressBackgroundColor={
+                Platform.OS === "ios" ? colors.background : colors.card
+              }
             />
           }
           nestedScrollEnabled>

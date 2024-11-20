@@ -9,9 +9,9 @@ import useStyle from "./hooks/useStyle";
 
 const Header: FC = () => {
   const {toggleTheme} = useContext(ThemeContext);
-  const {openShoppingCart} = useContext(ShoppingCartContext);
+  const {cartItems, openShoppingCart} = useContext(ShoppingCartContext);
   const {styles, colors} = useStyle();
-  const {} = useNav();
+  const {goToBadge} = useNav();
   return (
     <View style={[styles.mainWrapper, {direction: "ltr"}]}>
       <View style={styles.buttonSection}>
@@ -21,7 +21,8 @@ const Header: FC = () => {
           onPress={openShoppingCart}
           style={styles.button}
           elevation={false}
-          badge={2}
+          badge={cartItems.length}
+          disabled={!cartItems.length}
         />
         <Button
           icon="coins"
@@ -41,15 +42,12 @@ const Header: FC = () => {
         <IconButton
           mode="contained"
           icon="medal"
-          onPress={() => {}}
+          onPress={goToBadge}
           elevation={false}
           style={styles.button}
         />
       </View>
-      <Image
-        source={require("@/assets/images/logo.jpeg")}
-        style={styles.logo}
-      />
+      <Image source={require("@/assets/images/logo.png")} style={styles.logo} />
     </View>
   );
 };

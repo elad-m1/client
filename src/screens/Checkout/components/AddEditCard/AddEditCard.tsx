@@ -43,7 +43,7 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
     return (
       <BottomSheet
         ref={ref}
-        snapPoints={["37.5%"]}
+        snapPoints={["38.5%"]}
         backdropComponent={props => (
           <BottomSheetBackdrop
             appearsOnIndex={0}
@@ -54,6 +54,8 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
         index={-1}
         handleComponent={null}
         enablePanDownToClose
+        keyboardBehavior="interactive"
+        keyboardBlurBehavior="restore"
         backgroundStyle={{backgroundColor: colors.background}}>
         <BottomSheetView style={styles.mainWrapper}>
           <Formik

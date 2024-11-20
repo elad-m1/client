@@ -1,3 +1,4 @@
+import Badge from "./Badge/Badge";
 import Checkout from "./Checkout/Checkout";
 import ChooseDate from "./ChooseDate/ChooseDate";
 import ChooseService from "./ChooseService/ChooseService";
@@ -15,5 +16,6 @@ export {
   ChooseDate,
   Shop,
   Profile,
-  Checkout
+  Checkout,
+  Badge
 };

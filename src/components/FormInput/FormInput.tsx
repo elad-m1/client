@@ -1,5 +1,6 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
+import {BottomSheetTextInput} from "@gorhom/bottom-sheet";
 import {FC, memo} from "react";
 import {
   Pressable,
@@ -22,6 +23,7 @@ interface Props {
   endIcon?: IconProp;
   required?: boolean;
   inputStyle?: StyleProp<TextStyle>;
+  bottomSheet?: boolean;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
 }
@@ -32,13 +34,15 @@ const FormInput: FC<Props & TextInputProps> = memo(
     label,
     required,
     icon,
+    endIcon,
+    bottomSheet,
     onPress,
     inputStyle,
-    endIcon,
     editable,
     ...inputProps
   }) => {
     const {styles, colors} = useStyle();
+    const Input = bottomSheet ? BottomSheetTextInput : TextInput;
     return (
       <Pressable
         onPress={onPress}
@@ -62,14 +66,7 @@ const FormInput: FC<Props & TextInputProps> = memo(
                   : colors.card
               }
             ]}>
-            {icon && (
-              <FontAwesomeIcon
-                icon={icon}
-                color={colors.placeholder}
-                size={scale(14)}
-              />
-            )}
-            <TextInput
+            <Input
               {...inputProps}
               placeholderTextColor={colors.placeholder}
               editable={editable}
