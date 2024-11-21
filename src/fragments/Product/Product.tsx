@@ -32,7 +32,7 @@ const Product: ForwardRefExoticComponent<{} & RefAttributes<BottomSheetModal>> =
     return (
       <BottomSheetModal
         ref={ref}
-        snapPoints={["65%"]}
+        snapPoints={["80%"]}
         stackBehavior="push"
         handleComponent={null}
         backdropComponent={props => (

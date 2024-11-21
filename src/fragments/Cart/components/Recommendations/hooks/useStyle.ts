@@ -23,7 +23,7 @@ const useStyle = () => {
       flexDirection: "row",
       backgroundColor: colors.background,
       gap: scale(12),
-      paddingBottom: bottom
+      paddingBottom: bottom * 1.5 || scale(40)
     },
     column: {
       flex: 1,

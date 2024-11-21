@@ -16,6 +16,8 @@ const useStyle = () => {
   const {bottom} = useSafeAreaInsets();
   const styles = StyleSheet.create({
     mainWrapper: {
+      position: "absolute",
+      bottom: 0,
       backgroundColor: colors.card,
       flexDirection: "row",
       justifyContent: "space-around",

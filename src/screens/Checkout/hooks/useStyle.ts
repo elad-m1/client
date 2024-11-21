@@ -22,7 +22,7 @@ const useStyle = () => {
     },
     payButton: {
       position: "absolute",
-      bottom: bottom * 1.25,
+      bottom: bottom * 1.25 || scale(25),
       width: "85%",
       alignSelf: "center"
     }

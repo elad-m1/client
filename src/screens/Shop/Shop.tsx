@@ -24,11 +24,11 @@ const Shop = () => {
           title={t("shop.recommended_products")}
           products={products}
         />
-        <ProductHList title={t("shop.new_products")} products={products} />
+        {/* <ProductHList title={t("shop.new_products")} products={products} />
         <ProductHList
           title={t("shop.top_rated_products")}
           products={products}
-        />
+        /> */}
       </ScrollView>
     </View>
   );

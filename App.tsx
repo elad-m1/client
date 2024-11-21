@@ -8,11 +8,12 @@ import {AuthProvider} from "@/context/auth/AuthContext";
 import ProductProvider from "@/context/product/ProductContext";
 import {ShoppingCartProvider} from "@/context/shoppingCart/ShoppingCartContext";
 import {ThemeProvider} from "@/context/theme/ThemeContext";
+import i18n from "@/locales/i18n";
 import {NavContainer} from "@/navigation";
 import "@/utils/icons";
 
 function App(): React.JSX.Element {
-  moment.locale(I18nManager.isRTL ? "he" : "en");
+  moment.locale(i18n.language);
 
   return (
     <GestureHandlerRootView>

@@ -3,11 +3,12 @@ import BottomSheet, {
   BottomSheetView
 } from "@gorhom/bottom-sheet";
 import {Formik} from "formik";
-import React, {FC, RefAttributes, RefObject, forwardRef} from "react";
+import React, {FC, RefAttributes, forwardRef} from "react";
 import {useTranslation} from "react-i18next";
 import * as Yup from "yup";
 
 import {Button} from "@/components";
+import {SCREEN_HEIGHT, scale} from "@/utils/sizing";
 import {CreditCard} from "@/utils/types";
 
 import {Form} from "./components";
@@ -36,14 +37,14 @@ const CreditCardSchema = Yup.object({
 
 const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
   ({id, addCard, removeCard, shownCardData}, ref) => {
-    const {styles, colors} = useStyle();
+    const {styles, colors, bottom} = useStyle();
 
     const {t} = useTranslation();
 
     return (
       <BottomSheet
         ref={ref}
-        snapPoints={["38.5%"]}
+        snapPoints={[bottom ? scale(275) : scale(265)]}
         backdropComponent={props => (
           <BottomSheetBackdrop
             appearsOnIndex={0}

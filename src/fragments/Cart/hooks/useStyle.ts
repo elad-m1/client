@@ -19,12 +19,12 @@ const useStyle = () => {
       borderRadius: scale(16)
     },
     scrollView: {
-      paddingBottom: bottom * 1.5
+      paddingBottom: bottom * 1.5 || scale(40)
     },
     checkoutButton: {
       position: "absolute",
       width: "90%",
-      bottom: bottom * 1.25,
+      bottom: bottom * 1.25 || scale(10),
       alignSelf: "center",
       shadowColor: "#000",
       shadowOffset: {

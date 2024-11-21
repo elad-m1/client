@@ -2,7 +2,7 @@ import {useContext} from "react";
 import {StyleSheet} from "react-native";
 
 import {ThemeContext} from "@/context";
-import {SCREEN_WIDTH, scale} from "@/utils/sizing";
+import {SCREEN_HEIGHT, SCREEN_WIDTH, scale} from "@/utils/sizing";
 
 /**
  * Provides styles and colors for the ImageBackground component.
@@ -16,7 +16,7 @@ const useStyle = () => {
     mainWrapper: {},
     image: {
       width: SCREEN_WIDTH,
-      height: scale(250),
+      height: SCREEN_HEIGHT * 0.35,
       backgroundColor: colors.background
     },
     dotsWrapper: {

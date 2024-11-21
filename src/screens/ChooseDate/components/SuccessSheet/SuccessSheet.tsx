@@ -26,14 +26,14 @@ interface Props {
 }
 
 const SuccessSheet: FC<Props> = ({selectedDate, selectedTime}) => {
-  const {styles, colors} = useStyle();
+  const {styles, colors, bottom} = useStyle();
   const {goBackHome, barber, services} = useNav();
 
   const {t} = useTranslation();
 
   return (
     <BottomSheet
-      snapPoints={["40%"]}
+      snapPoints={[scale(290) + (bottom || scale(10))]}
       index={0}
       handleComponent={null}
       animateOnMount={true}

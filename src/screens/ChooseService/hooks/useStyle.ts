@@ -18,7 +18,7 @@ const useStyle = () => {
     mainWrapper: {
       flex: 1,
       backgroundColor: colors.background,
-      paddingBottom: bottom * 1.5
+      paddingBottom: bottom * 1.5 || scale(25)
     },
     chooseBarber: {
       flexDirection: "row",

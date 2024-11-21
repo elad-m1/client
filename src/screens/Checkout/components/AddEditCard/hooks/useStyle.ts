@@ -21,7 +21,7 @@ const useStyle = () => {
       backgroundColor: colors.background,
       borderTopLeftRadius: scale(12),
       borderTopRightRadius: scale(12),
-      paddingBottom: bottom * 1.25
+      paddingBottom: bottom * 1.25 || scale(25)
     },
     submitButton: {
       width: "85%",
@@ -29,7 +29,7 @@ const useStyle = () => {
     }
   });
 
-  return {styles, colors};
+  return {styles, colors, bottom};
 };
 
 export default useStyle;

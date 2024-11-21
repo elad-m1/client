@@ -19,7 +19,7 @@ const useStyle = () => {
     mainWrapper: {
       flex: 1,
       backgroundColor: colors.background,
-      paddingBottom: bottom
+      paddingBottom: bottom * 1.25 || scale(20)
     },
     calendar: {
       backgroundColor: colors.background,
