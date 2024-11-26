@@ -4,7 +4,15 @@
     "done": "Done",
     "submit": "Submit",
     "confirm": "Confirm",
-    "remove": "Remove"
+    "remove": "Remove",
+    "rank": {
+      "1": "Junior 🌱",
+      "2": "Rising Star ⭐️",
+      "3": "Stylist 💇‍♂️",
+      "4": "Professional ✂️",
+      "5": "Kali King 👑",
+      "6": "Kali Master 🔥"
+    }
   },
   "phone_number": {
     "header": "Phone Number",
@@ -118,5 +126,17 @@
     "recommended_products": "Recommended Products",
     "new_products": "New Products On The Shelf",
     "top_rated_products": "Top Rated Products"
+  },
+  "profile": {
+    "header": "My Account",
+    "account": {
+      "title": "Account",
+      "account_details": "Account Details",
+      "edit_profile": "Edit Profile"
+    },
+    "appearance": {
+      "title": "Appearance",
+      "dark_theme": "Dark Theme"
+    }
   }
 }

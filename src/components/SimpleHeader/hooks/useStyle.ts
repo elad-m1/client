@@ -30,9 +30,9 @@ const useStyle = () => {
       borderRadius: scale(16)
     },
     title: {
-      width: SCREEN_WIDTH * 0.25,
+      width: SCREEN_WIDTH * 0.35,
       marginStart: "auto",
-      marginEnd: (SCREEN_WIDTH - scale(48)) / 2 - SCREEN_WIDTH * 0.125,
+      marginEnd: (SCREEN_WIDTH - scale(48)) / 2 - SCREEN_WIDTH * 0.175,
       fontSize: scale(17),
       color: colors.text,
       fontWeight: "600",

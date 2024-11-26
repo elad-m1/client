@@ -32,19 +32,7 @@ const Checkout = () => {
     <>
       <View style={styles.mainWrapper}>
         <SimpleHeader title={t("checkout.header")} />
-        <ScrollView
-          contentContainerStyle={{flex: 1}}
-          refreshControl={
-            <RefreshControl
-              refreshing={payMethodsProps.loadingMethods}
-              onRefresh={payMethodsProps.loadPaymentMethods}
-              colors={[colors.primary]}
-              progressBackgroundColor={
-                Platform.OS === "ios" ? colors.background : colors.card
-              }
-            />
-          }
-          nestedScrollEnabled>
+        <ScrollView contentContainerStyle={{flex: 1}} nestedScrollEnabled>
           <Delivery {...dataProps} />
           <Payment {...payMethodsProps} />
           <OrderInfo />

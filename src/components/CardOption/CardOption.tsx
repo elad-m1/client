@@ -1,6 +1,6 @@
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
-import {FC, memo} from "react";
+import {FC} from "react";
 import {Pressable, Text as RNText, StyleProp, ViewStyle} from "react-native";
 
 import {scale} from "@/utils/sizing";

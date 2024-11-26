@@ -1,10 +1,12 @@
 import BottomSheet, {
   BottomSheetBackdrop,
+  BottomSheetScrollView,
   BottomSheetView
 } from "@gorhom/bottom-sheet";
 import {Formik} from "formik";
 import React, {FC, RefAttributes, forwardRef} from "react";
 import {useTranslation} from "react-i18next";
+import {Keyboard} from "react-native";
 import * as Yup from "yup";
 
 import {Button} from "@/components";
@@ -44,7 +46,6 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
     return (
       <BottomSheet
         ref={ref}
-        snapPoints={[bottom ? scale(275) : scale(265)]}
         backdropComponent={props => (
           <BottomSheetBackdrop
             appearsOnIndex={0}
@@ -55,10 +56,14 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
         index={-1}
         handleComponent={null}
         enablePanDownToClose
+        enableDynamicSizing
+        onClose={() => Keyboard.dismiss()}
         keyboardBehavior="interactive"
         keyboardBlurBehavior="restore"
         backgroundStyle={{backgroundColor: colors.background}}>
-        <BottomSheetView style={styles.mainWrapper}>
+        <BottomSheetScrollView
+          scrollEnabled={false}
+          contentContainerStyle={styles.mainWrapper}>
           <Formik
             initialValues={{
               ccName: "",
@@ -67,8 +72,9 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
               expDate: ""
             }}
             validationSchema={shownCardData ? null : CreditCardSchema}
-            onSubmit={values => {
+            onSubmit={(values, {resetForm}) => {
               shownCardData ? removeCard(shownCardData.id) : addCard(values);
+              resetForm();
             }}
             validateOnMount
             validateOnChange
@@ -88,7 +94,7 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
               </>
             )}
           </Formik>
-        </BottomSheetView>
+        </BottomSheetScrollView>
       </BottomSheet>
     );
   }

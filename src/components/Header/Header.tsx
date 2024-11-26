@@ -2,16 +2,16 @@ import {FC, useContext} from "react";
 import {Image, View} from "react-native";
 
 import {Button, IconButton} from "@/components";
-import {ShoppingCartContext, ThemeContext} from "@/context";
+import {ShoppingCartContext} from "@/context";
 
 import useNav from "./hooks/useNav";
 import useStyle from "./hooks/useStyle";
 
 const Header: FC = () => {
-  const {toggleTheme} = useContext(ThemeContext);
   const {cartItems, openShoppingCart} = useContext(ShoppingCartContext);
   const {styles, colors} = useStyle();
   const {goToBadge} = useNav();
+
   return (
     <View style={[styles.mainWrapper, {direction: "ltr"}]}>
       <View style={styles.buttonSection}>
@@ -35,7 +35,7 @@ const Header: FC = () => {
         <IconButton
           mode="contained"
           icon="user"
-          onPress={toggleTheme}
+          onPress={() => {}}
           elevation={false}
           style={styles.button}
         />

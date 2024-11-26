@@ -1,8 +1,7 @@
 import {FormikProps} from "formik";
-import moment from "moment";
-import React, {FC} from "react";
+import {FC} from "react";
 import {useTranslation} from "react-i18next";
-import {I18nManager, View} from "react-native";
+import {View} from "react-native";
 
 import {FormInput} from "@/components";
 

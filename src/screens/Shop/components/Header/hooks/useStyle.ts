@@ -22,7 +22,7 @@ const useStyle = () => {
       alignItems: "center",
       backgroundColor: colors.card,
       paddingHorizontal: scale(16),
-      paddingVertical: Platform.OS === "ios" ? scale(8) : scale(4),
+      paddingVertical: Platform.OS === "ios" ? scale(8) : 0,
       borderRadius: scale(6),
       gap: scale(12),
       shadowColor: "#000",

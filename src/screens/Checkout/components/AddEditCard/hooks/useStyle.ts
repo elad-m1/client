@@ -17,7 +17,6 @@ const useStyle = () => {
 
   const styles = StyleSheet.create({
     mainWrapper: {
-      flex: 1,
       backgroundColor: colors.background,
       borderTopLeftRadius: scale(12),
       borderTopRightRadius: scale(12),

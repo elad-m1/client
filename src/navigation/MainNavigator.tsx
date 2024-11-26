@@ -3,6 +3,7 @@ import {
   createNativeStackNavigator
 } from "@react-navigation/native-stack";
 import {FC} from "react";
+import {useSafeAreaInsets} from "react-native-safe-area-context";
 
 import {Badge, Checkout, ChooseDate, ChooseService} from "@/screens";
 
@@ -23,6 +24,8 @@ export type MainStackParamList = {
 export type MainNavigationProp = NativeStackNavigationProp<MainStackParamList>;
 
 const MainNavigator: FC = () => {
+  const {top} = useSafeAreaInsets();
+
   return (
     <>
       <Stack.Navigator
@@ -38,7 +41,9 @@ const MainNavigator: FC = () => {
           component={Badge}
           options={{
             animation: "slide_from_bottom",
-            gestureDirection: "vertical"
+            gestureDirection: "vertical",
+            gestureEnabled: true,
+            animationMatchesGesture: true
           }}
         />
       </Stack.Navigator>

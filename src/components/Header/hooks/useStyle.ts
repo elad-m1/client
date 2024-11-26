@@ -31,10 +31,7 @@ const useStyle = () => {
       top: top || scale(16),
       right: scale(12),
       width: SCREEN_WIDTH * 0.25,
-      height: SCREEN_WIDTH * 0.25,
-      // borderRadius: SCREEN_WIDTH * 0.125,
-      borderWidth: scale(6),
-      borderColor: colors.background
+      height: SCREEN_WIDTH * 0.25
     }
   });
 

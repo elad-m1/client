@@ -18,9 +18,11 @@ import {
   faCoins,
   faGear,
   faHeart,
+  faInfo,
   faMars,
   faMedal,
   faMinus,
+  faPalette,
   faPersonWalking,
   faPlus,
   faQuestion,
@@ -63,5 +65,7 @@ library.add(
   faTruck,
   faPersonWalking,
   faCcVisa,
-  faSearch
+  faSearch,
+  faInfo,
+  faPalette
 );
