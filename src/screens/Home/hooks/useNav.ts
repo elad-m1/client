@@ -1,6 +1,6 @@
 import {useNavigation} from "@react-navigation/native";
 
-import {MainNavigationProp} from "@/navigation/MainNavigator";
+import {BottomTabsNavProp} from "@/navigation/BottomNavigator/BottomNavigator";
 
 /**
  * A hook that provides navigation functions for the Home screen.
@@ -10,7 +10,7 @@ import {MainNavigationProp} from "@/navigation/MainNavigator";
  * @returns An object containing the goToChooseDate function.
  */
 const useNav = () => {
-  const navigation = useNavigation<MainNavigationProp>();
+  const navigation = useNavigation<BottomTabsNavProp>();
 
   const goToChooseDate = () => navigation.navigate("ChooseService");
 

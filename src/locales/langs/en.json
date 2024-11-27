@@ -62,7 +62,8 @@
     }
   },
   "bottom_nav": {
-    "home": "Make Apt",
+    "home": "Home",
+    "make_apt": "Make Apt",
     "shop": "Shop",
     "profile": "My Account"
   },
@@ -99,7 +100,8 @@
   "cart": {
     "header": "Shopping Cart",
     "recommendations": "Recommended Products",
-    "go_to_checkout": "Checkout"
+    "go_to_checkout": "Checkout",
+    "empty": "Your cart is empty"
   },
   "checkout": {
     "header": "Checkout",
@@ -118,7 +120,8 @@
     "cc_number": "Credit Card Number",
     "cvv": "CVV",
     "exp_date": "Expiration Date",
-    "no_payment_methods": "אין אמצעי תשלום"
+    "no_payment_methods": "אין אמצעי תשלום",
+    "back_to_home": "Back to Home"
   },
   "shop": {
     "search": "Search a product",
@@ -137,6 +140,18 @@
     "appearance": {
       "title": "Appearance",
       "dark_theme": "Dark Theme"
+    },
+    "payment": {
+      "title": "Payment",
+      "manage_payments": "Manage Payment Methods"
+    },
+    "other": {
+      "title": "Other",
+      "terms_conditions": "Terms & Conditions"
     }
+  },
+  "pick_picture": {
+    "pick_picture": "Pick a Profile Picture",
+    "remove_picture": "Remove a Profile Picture"
   }
 }

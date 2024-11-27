@@ -62,7 +62,8 @@
     }
   },
   "bottom_nav": {
-    "home": "קבע תור",
+    "home": "בית",
+    "make_apt": "קבע תור",
     "shop": "חנות",
     "profile": "החשבון שלי"
   },
@@ -99,7 +100,8 @@
   "cart": {
     "header": "עגלת קניות",
     "recommendations": "מוצרים מומלצים",
-    "go_to_checkout": "המשך לתשלום"
+    "go_to_checkout": "המשך לתשלום",
+    "empty": "עגלת הקניות ריקה"
   },
   "checkout": {
     "header": "צ׳קאאוט",
@@ -118,7 +120,8 @@
     "cc_number": "מספר כרטיס אשראי",
     "cvv": "3 ספרות",
     "exp_date": "תוקף הכרטיס",
-    "no_payment_methods": "אין אמצעי תשלום"
+    "no_payment_methods": "אין אמצעי תשלום",
+    "back_to_home": "חזרה לדף הבית"
   },
   "shop": {
     "search": "חפש מוצר",
@@ -137,6 +140,18 @@
     "appearance": {
       "title": "מראה",
       "dark_theme": "מראה כהה"
+    },
+    "payment": {
+      "title": "תשלום",
+      "manage_payments": "ניהול אמצעי תשלום"
+    },
+    "other": {
+      "title": "אחר",
+      "terms_conditions": "תנאי שימוש"
     }
+  },
+  "pick_picture": {
+    "pick_picture": "שנה תמונת פרופיל",
+    "remove_picture": "הסר תמונה"
   }
 }

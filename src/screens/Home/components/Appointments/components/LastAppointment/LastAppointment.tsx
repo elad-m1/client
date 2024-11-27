@@ -1,11 +1,11 @@
 import {FC} from "react";
 import {useTranslation} from "react-i18next";
-import {Pressable, Text as RNText, View} from "react-native";
+import {Text as RNText, View} from "react-native";
 
 import {Button} from "@/components";
 import {scale} from "@/utils/sizing";
 
-import {useStyle} from "./hooks";
+import {useNav, useStyle} from "./hooks";
 
 interface Props {}
 
@@ -25,10 +25,11 @@ interface Props {}
  */
 const LastAppointment: FC<Props> = () => {
   const {styles} = useStyle();
+  const {goToChooseDate} = useNav();
   const {t} = useTranslation();
+
   return (
-    <Pressable
-      style={({pressed}) => [styles.mainWrapper, {opacity: pressed ? 0.5 : 1}]}>
+    <View style={styles.mainWrapper}>
       <View style={{flex: 1, gap: scale(8)}}>
         <View style={[styles.row, {gap: scale(4)}]}>
           <RNText style={styles.barber}>יואב אורלב</RNText>
@@ -37,11 +38,11 @@ const LastAppointment: FC<Props> = () => {
         <RNText style={styles.where}>רחובות, רחוב בילו 52</RNText>
       </View>
       <Button
-        onPress={() => {}}
+        onPress={goToChooseDate}
         text={t("home.reschedule")}
         textStyle={{fontSize: scale(10)}}
       />
-    </Pressable>
+    </View>
   );
 };
 

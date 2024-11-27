@@ -1,5 +1,5 @@
 import {library} from "@fortawesome/fontawesome-svg-core";
-import {faCcVisa, faWaze} from "@fortawesome/free-brands-svg-icons";
+import {faCcVisa, faReadme, faWaze} from "@fortawesome/free-brands-svg-icons";
 import {
   faBookmark as faBookmarkOutline,
   faCalendarPlus,
@@ -16,8 +16,10 @@ import {
   faChevronRight,
   faClose,
   faCoins,
+  faCreditCard,
   faGear,
   faHeart,
+  faImages,
   faInfo,
   faMars,
   faMedal,
@@ -67,5 +69,8 @@ library.add(
   faCcVisa,
   faSearch,
   faInfo,
-  faPalette
+  faPalette,
+  faImages,
+  faReadme,
+  faCreditCard
 );

@@ -8,10 +8,10 @@ import {
   AddEditCard,
   Delivery,
   OrderInfo,
-  PayLoading,
-  Payment
+  Payment,
+  SuccessSheet
 } from "./components";
-import {useData, usePay, usePayMethods, useStyle} from "./hooks";
+import {useData, usePayMethods, useSheet, useStyle} from "./hooks";
 
 /**
  * Checkout screen, containing the checkout form, payment methods, order info, and
@@ -23,7 +23,7 @@ import {useData, usePay, usePayMethods, useStyle} from "./hooks";
 const Checkout = () => {
   const {styles, colors} = useStyle();
   const dataProps = useData();
-  const {submitPay, showPayLoading, loading} = usePay();
+  const {isSuccessSheetOpen, openSuccessSheet, closeSuccessSheet} = useSheet();
   const payMethodsProps = usePayMethods();
 
   const {t} = useTranslation();
@@ -38,7 +38,7 @@ const Checkout = () => {
           <OrderInfo />
         </ScrollView>
         <Button
-          onPress={submitPay}
+          onPress={openSuccessSheet}
           text={t("checkout.pay")}
           style={styles.payButton}
         />
@@ -47,7 +47,9 @@ const Checkout = () => {
         ref={payMethodsProps.addEditCardSheetRef}
         {...payMethodsProps}
       />
-      {showPayLoading && <PayLoading loading={loading} />}
+      {isSuccessSheetOpen && (
+        <SuccessSheet closeSuccessSheet={closeSuccessSheet} />
+      )}
     </>
   );
 };

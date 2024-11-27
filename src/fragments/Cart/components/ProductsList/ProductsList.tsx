@@ -1,6 +1,7 @@
 import {FC, useContext} from "react";
 import {View} from "react-native";
 
+import {Text} from "@/components";
 import {ShoppingCartContext} from "@/context";
 
 import Product from "./components/Product/Product";
@@ -11,9 +12,13 @@ const ProductsList: FC = () => {
   const {styles} = useStyle();
   return (
     <View style={styles.mainWrapper}>
-      {cartItems.map(item => (
-        <Product {...item} key={item.id} id={item.id} onPress={() => {}} />
-      ))}
+      {cartItems.length > 0 ? (
+        cartItems.map(item => (
+          <Product {...item} key={item.id} id={item.id} onPress={() => {}} />
+        ))
+      ) : (
+        <Text style={styles.cartEmpty}>cart.empty</Text>
+      )}
     </View>
   );
 };

@@ -5,7 +5,7 @@ const lightTheme = {
   onAccent: "#ffffff",
   background: "#efefef",
   card: "#ffffff",
-  text: "#000",
+  text: "#000000",
   textSecondary: "#757575",
   placeholder: "#606060",
   border: "#b0b0b0",
@@ -25,7 +25,7 @@ const darkTheme = {
   textSecondary: "#c0c0c0",
   placeholder: "#a0a0a0",
   border: "#454545",
-  error: "#d02525",
+  error: "#e06060",
   success: "#25d025",
   notification: ""
 };

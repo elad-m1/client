@@ -9,7 +9,7 @@ const Loading: FC = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: colors.background,
+        backgroundColor: colors.card,
         justifyContent: "center",
         alignItems: "center"
       }}>

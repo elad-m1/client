@@ -58,6 +58,26 @@ const Profile = () => {
             }
           ]}
         />
+        <Section
+          title={t("profile.payment.title")}
+          settings={[
+            {
+              icon: "credit-card",
+              text: t("profile.payment.manage_payments"),
+              onPress: () => {}
+            }
+          ]}
+        />
+        <Section
+          title={t("profile.other.title")}
+          settings={[
+            {
+              icon: "fa-brands fa-readme",
+              text: t("profile.other.terms_conditions"),
+              onPress: () => {}
+            }
+          ]}
+        />
       </View>
     </View>
   );

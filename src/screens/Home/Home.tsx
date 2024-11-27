@@ -5,7 +5,13 @@ import {ScrollView, View} from "react-native";
 import {Button, Header} from "@/components";
 import {scale} from "@/utils/sizing";
 
-import {Appointments, Greeting, RecommendedProducts} from "./components";
+import {
+  Appointments,
+  Greeting,
+  NextApt,
+  RecommendedProducts
+} from "./components";
+import {useSheet} from "./hooks";
 import useNav from "./hooks/useNav";
 import useStyle from "./hooks/useStyle";
 
@@ -17,32 +23,36 @@ import useStyle from "./hooks/useStyle";
  * @returns A JSX element representing the Home screen.
  */
 const Home: FC = () => {
-  const {styles, colors, bottom, isDark, toggleTheme} = useStyle();
+  const {styles, bottom} = useStyle();
   const {goToChooseDate} = useNav();
+  const {nextAptSheetRef, openNextAptSheet} = useSheet();
   const {t} = useTranslation();
 
   return (
-    <View style={styles.mainWrapper}>
-      <Header />
-      <ScrollView
-        contentContainerStyle={{
-          paddingBottom: bottom * 1.5
-        }}
-        showsVerticalScrollIndicator={false}>
-        <Greeting />
-        <Button
-          text={t("home.make_appointment")}
-          onPress={goToChooseDate}
-          style={{
-            width: "65%",
-            marginVertical: scale(16),
-            alignSelf: "center"
+    <>
+      <View style={styles.mainWrapper}>
+        <Header />
+        <ScrollView
+          contentContainerStyle={{
+            paddingBottom: bottom * 1.5
           }}
-        />
-        <Appointments />
-        <RecommendedProducts />
-      </ScrollView>
-    </View>
+          showsVerticalScrollIndicator={false}>
+          <Greeting />
+          <Button
+            text={t("home.make_appointment")}
+            onPress={goToChooseDate}
+            style={{
+              width: "65%",
+              marginVertical: scale(16),
+              alignSelf: "center"
+            }}
+          />
+          <Appointments openNextAptSheet={openNextAptSheet} />
+          <RecommendedProducts />
+        </ScrollView>
+      </View>
+      <NextApt ref={nextAptSheetRef} />
+    </>
   );
 };
 
