@@ -3,6 +3,7 @@ import {Image, View} from "react-native";
 
 import {Button, IconButton} from "@/components";
 import {ShoppingCartContext} from "@/context";
+import {scale} from "@/utils/sizing";
 
 import useNav from "./hooks/useNav";
 import useStyle from "./hooks/useStyle";
@@ -10,7 +11,7 @@ import useStyle from "./hooks/useStyle";
 const Header: FC = () => {
   const {cartItems, openShoppingCart} = useContext(ShoppingCartContext);
   const {styles, colors} = useStyle();
-  const {goToBadge} = useNav();
+  const {goToRank} = useNav();
 
   return (
     <View style={[styles.mainWrapper, {direction: "ltr"}]}>
@@ -30,6 +31,7 @@ const Header: FC = () => {
           onPress={() => {}}
           iconColor={colors.text}
           backgroundColor={colors.card}
+          innerStyle={{paddingVertical: scale(6)}}
           textStyle={{color: colors.text}}
         />
         <IconButton
@@ -42,7 +44,7 @@ const Header: FC = () => {
         <IconButton
           mode="contained"
           icon="medal"
-          onPress={goToBadge}
+          onPress={goToRank}
           elevation={false}
           style={styles.button}
         />

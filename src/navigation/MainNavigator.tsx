@@ -5,7 +5,14 @@ import {
 import {FC} from "react";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
 
-import {Badge, Checkout, ChooseDate, ChooseService} from "@/screens";
+import {
+  Checkout,
+  ChooseDate,
+  ChooseService,
+  EditProfile,
+  Rank,
+  TermsConditions
+} from "@/screens";
 
 import AuthNavigator from "./AuthNavigator";
 import BottomNavigator from "./BottomNavigator/BottomNavigator";
@@ -18,7 +25,9 @@ export type MainStackParamList = {
   ChooseService: undefined;
   ChooseDate: {barber: string; services: string[]};
   Checkout: undefined;
-  Badge: undefined;
+  Rank: undefined;
+  TermsConditions: undefined;
+  EditProfile: undefined;
 };
 
 export type MainNavigationProp = NativeStackNavigationProp<MainStackParamList>;
@@ -37,8 +46,8 @@ const MainNavigator: FC = () => {
         <Stack.Screen name="ChooseService" component={ChooseService} />
         <Stack.Screen name="Checkout" component={Checkout} />
         <Stack.Screen
-          name="Badge"
-          component={Badge}
+          name="Rank"
+          component={Rank}
           options={{
             animation: "slide_from_bottom",
             gestureDirection: "vertical",
@@ -46,6 +55,8 @@ const MainNavigator: FC = () => {
             animationMatchesGesture: true
           }}
         />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="TermsConditions" component={TermsConditions} />
       </Stack.Navigator>
     </>
   );

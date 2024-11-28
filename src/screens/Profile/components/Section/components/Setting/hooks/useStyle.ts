@@ -9,6 +9,7 @@ const useStyle = () => {
 
   const styles = StyleSheet.create({
     mainWrapper: {
+      height: scale(42),
       backgroundColor: colors.card,
       flexDirection: "row",
       justifyContent: "space-between",
@@ -26,7 +27,8 @@ const useStyle = () => {
       color: colors.text,
       fontSize: scale(14),
       fontWeight: "bold",
-      textAlign: "left"
+      textAlign: "left",
+      textAlignVertical: "center"
     }
   });
 

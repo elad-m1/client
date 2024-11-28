@@ -5,11 +5,6 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {ThemeContext} from "@/context";
 import {scale} from "@/utils/sizing";
 
-/**
- * Provides styling and colors for the ChooseDate screen.
- *
- * @returns {{styles: Record<string, ViewStyle>, colors: ThemeColors}}
- */
 const useStyle = () => {
   const {colors} = useContext(ThemeContext);
 
@@ -19,10 +14,15 @@ const useStyle = () => {
     mainWrapper: {
       flex: 1,
       backgroundColor: colors.background
+    },
+    text: {
+      color: colors.text,
+      fontSize: scale(16),
+      marginHorizontal: scale(16)
     }
   });
 
-  return {styles, colors};
+  return {styles, colors, bottom};
 };
 
 export default useStyle;

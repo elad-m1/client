@@ -7,31 +7,32 @@ import {scale} from "@/utils/sizing";
 
 const useStyle = () => {
   const {colors} = useContext(ThemeContext);
+
   const {bottom} = useSafeAreaInsets();
 
   const styles = StyleSheet.create({
     mainWrapper: {
       flex: 1,
-      backgroundColor: colors.card,
-      borderTopStartRadius: scale(12),
-      borderTopEndRadius: scale(12),
-      paddingTop: scale(8)
+      backgroundColor: colors.background
     },
-    optionWrapper: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-      paddingHorizontal: scale(24),
-      paddingVertical: scale(16)
+    formWrapper: {
+      flex: 1,
+      paddingBottom: bottom * 1.5 || scale(20)
     },
-    text: {
-      color: colors.text,
-      fontSize: scale(18),
-      fontWeight: "bold"
+    profileImage: {
+      width: scale(120),
+      height: scale(120),
+      borderRadius: scale(60),
+      alignSelf: "center",
+      marginVertical: scale(16)
+    },
+    saveButton: {
+      width: "85%",
+      alignSelf: "center"
     }
   });
 
-  return {styles, colors};
+  return {styles, colors, bottom};
 };
 
 export default useStyle;

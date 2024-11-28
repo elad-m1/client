@@ -46,7 +46,7 @@ const FormInput: FC<Props & TextInputProps> = memo(
     return (
       <Pressable
         onPress={onPress}
-        disabled={!onPress || !editable}
+        disabled={!onPress || editable === false}
         style={({pressed}) => [style, {opacity: pressed ? 0.5 : 1}]}>
         <View
           style={styles.mainWrapper}
@@ -61,9 +61,8 @@ const FormInput: FC<Props & TextInputProps> = memo(
             style={[
               styles.inputWrapper,
               {
-                backgroundColor: !editable
-                  ? `${colors.placeholder}35`
-                  : colors.card
+                backgroundColor:
+                  editable === false ? `${colors.placeholder}35` : colors.card
               }
             ]}>
             <Input
@@ -73,7 +72,7 @@ const FormInput: FC<Props & TextInputProps> = memo(
               style={[
                 styles.input,
                 inputStyle,
-                {color: !editable ? colors.placeholder : colors.text}
+                {color: editable === false ? colors.placeholder : colors.text}
               ]}
             />
             {endIcon && (

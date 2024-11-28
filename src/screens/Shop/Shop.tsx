@@ -4,7 +4,7 @@ import {ScrollView} from "react-native-gesture-handler";
 
 import {ProductHList} from "@/components";
 
-import {Categories, Header} from "./components";
+import {Categories, Header, Sales} from "./components";
 import {useData, useScroll, useStyle} from "./hooks";
 
 const Shop = () => {
@@ -19,6 +19,7 @@ const Shop = () => {
       <Header searchQuery={searchQuery} onChangeSearch={onChangeSearch} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
+        <Sales />
         <ProductHList title={t("shop.trending_products")} products={products} />
         <ProductHList
           title={t("shop.recommended_products")}

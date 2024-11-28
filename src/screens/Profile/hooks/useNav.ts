@@ -5,9 +5,11 @@ import {MainNavigationProp} from "@/navigation/MainNavigator";
 const useNav = () => {
   const navigation = useNavigation<MainNavigationProp>();
 
-  const goToRank = () => navigation.navigate("Rank");
+  const goToEditProfile = () => navigation.navigate("EditProfile");
 
-  return {goToRank};
+  const goToTermsConditions = () => navigation.navigate("TermsConditions");
+
+  return {goToTermsConditions, goToEditProfile};
 };
 
 export default useNav;

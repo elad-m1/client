@@ -14,8 +14,8 @@ export default function useStyle() {
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
-      paddingHorizontal: scale(10),
-      paddingVertical: scale(6),
+      paddingHorizontal: scale(12),
+      paddingVertical: scale(8),
       gap: scale(4)
     },
     disabled: {

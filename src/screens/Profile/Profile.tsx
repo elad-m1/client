@@ -8,10 +8,11 @@ import {ThemeContext} from "@/context";
 import {scale} from "@/utils/sizing";
 
 import {ProfileCard, Section} from "./components";
-import {useStyle} from "./hooks";
+import {useNav, useStyle} from "./hooks";
 
 const Profile = () => {
   const {styles, colors} = useStyle();
+  const {goToTermsConditions, goToEditProfile} = useNav();
   const {isDark, toggleTheme} = useContext(ThemeContext);
   const {t} = useTranslation();
   return (
@@ -34,7 +35,7 @@ const Profile = () => {
             {
               icon: "user",
               text: t("profile.account.edit_profile"),
-              onPress: () => {}
+              onPress: goToEditProfile
             }
           ]}
         />
@@ -72,9 +73,10 @@ const Profile = () => {
           title={t("profile.other.title")}
           settings={[
             {
+              // @ts-ignore
               icon: "fa-brands fa-readme",
               text: t("profile.other.terms_conditions"),
-              onPress: () => {}
+              onPress: goToTermsConditions
             }
           ]}
         />

@@ -42,8 +42,8 @@ const PickPicture: ForwardRefExoticComponent<
             styles.optionWrapper,
             {opacity: pressed ? 0.5 : 1}
           ]}>
-          <FontAwesomeIcon icon="images" color={colors.text} size={scale(18)} />
           <Text style={styles.text}>pick_picture.pick_picture</Text>
+          <FontAwesomeIcon icon="images" color={colors.text} size={scale(18)} />
         </Pressable>
         <Pressable
           onPress={removeImage}
@@ -51,14 +51,14 @@ const PickPicture: ForwardRefExoticComponent<
             styles.optionWrapper,
             {opacity: pressed ? 0.5 : 1}
           ]}>
+          <Text style={[styles.text, {color: colors.error}]}>
+            pick_picture.remove_picture
+          </Text>
           <FontAwesomeIcon
             icon="remove"
             color={colors.error}
             size={scale(18)}
           />
-          <Text style={[styles.text, {color: colors.error}]}>
-            pick_picture.remove_picture
-          </Text>
         </Pressable>
       </BottomSheetView>
     </BottomSheetModal>

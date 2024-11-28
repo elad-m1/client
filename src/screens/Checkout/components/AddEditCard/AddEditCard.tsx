@@ -86,9 +86,7 @@ const AddEditCard: FC<Props & RefAttributes<BottomSheet>> = forwardRef(
                   onPress={props.handleSubmit}
                   text={t(shownCardData ? "general.remove" : "general.confirm")}
                   style={styles.submitButton}
-                  disabled={
-                    Object.values(props.errors).length !== 0 && !shownCardData
-                  }
+                  disabled={!props.isValid && !shownCardData}
                   backgroundColor={shownCardData ? colors.error : undefined}
                 />
               </>

@@ -24,6 +24,7 @@ interface Props {
   text: string;
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
+  innerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
 }
 
@@ -37,6 +38,7 @@ const Button: FC<Props> = memo(
     text,
     disabled,
     style,
+    innerStyle,
     textStyle
   }) => {
     const {styles, colors} = useStyle();
@@ -56,7 +58,7 @@ const Button: FC<Props> = memo(
               : [colors.primary, colors.accent]
           }
           style={styles.mainWrapper}>
-          <View style={styles.contentWrapper}>
+          <View style={[styles.contentWrapper, innerStyle]}>
             <Text style={[styles.text, textStyle]}>{text}</Text>
             {icon && (
               <FontAwesomeIcon

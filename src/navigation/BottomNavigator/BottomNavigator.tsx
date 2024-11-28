@@ -10,7 +10,7 @@ import {View} from "react-native";
 
 import {IconButton, Text} from "@/components";
 import {ThemeContext} from "@/context";
-import {ChooseService, Profile, Shop} from "@/screens";
+import {Profile, Shop} from "@/screens";
 import Home from "@/screens/Home/Home";
 import {scale} from "@/utils/sizing";
 
@@ -42,19 +42,24 @@ const BottomNavigator = () => {
         options={{
           title: t("bottom_nav.make_apt"),
           tabBarButton: () => (
-            <IconButton
-              icon="plus"
-              mode="contained"
-              onPress={() => navigation.navigate("ChooseService")}
-              elevation={false}
-              size={scale(14)}
-              color={colors.onPrimary}
-              style={{
-                backgroundColor: colors.primary,
-                alignSelf: "center",
-                marginTop: scale(4)
-              }}
-            />
+            <View style={{alignItems: "center"}}>
+              <IconButton
+                icon="plus"
+                mode="contained"
+                onPress={() => navigation.navigate("ChooseService")}
+                elevation={false}
+                size={scale(12)}
+                color={colors.onPrimary}
+                style={{
+                  backgroundColor: colors.primary,
+                  marginTop: scale(4),
+                  padding: scale(6)
+                }}
+              />
+              <Text style={{color: colors.primary, fontSize: scale(8)}}>
+                bottom_nav.make_apt
+              </Text>
+            </View>
           )
         }}
       />
@@ -63,7 +68,7 @@ const BottomNavigator = () => {
         component={Home}
         options={{
           title: t("bottom_nav.home"),
-          tabBarIcon: ({color, focused, size}) => (
+          tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon
               // @ts-ignore
               icon="fa-regular fa-calendar-plus"
@@ -78,7 +83,7 @@ const BottomNavigator = () => {
         component={Shop}
         options={{
           title: t("bottom_nav.shop"),
-          tabBarIcon: ({color, focused, size}) => (
+          tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon icon="cart-shopping" color={color} size={size} />
           )
         }}
@@ -88,7 +93,7 @@ const BottomNavigator = () => {
         component={Profile}
         options={{
           title: t("bottom_nav.profile"),
-          tabBarIcon: ({color, focused, size}) => (
+          tabBarIcon: ({color, size}) => (
             <FontAwesomeIcon icon="gear" color={color} size={size} />
           )
         }}

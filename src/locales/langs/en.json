@@ -3,6 +3,7 @@
     "next": "Next",
     "done": "Done",
     "submit": "Submit",
+    "save": "Save",
     "confirm": "Confirm",
     "remove": "Remove",
     "rank": {
@@ -130,6 +131,29 @@
     "new_products": "New Products On The Shelf",
     "top_rated_products": "Top Rated Products"
   },
+  "rank": {
+    "header": "Kali Rank",
+    "junior": {
+      "title": "מנהל",
+      "subtitle": "מנהל"
+    },
+    "rising_star": {
+      "title": "מנהל ראשי",
+      "description": "מנהל ראשי"
+    },
+    "stylist": {
+      "title": "מנהל ראשי",
+      "description": "מנהל ראשי"
+    },
+    "professional": {
+      "title": "מנהל ראשי",
+      "description": "מנהל ראשי"
+    },
+    "kali_king": {
+      "title": "מנהל ראשי",
+      "description": "מנהל ראשי"
+    }
+  },
   "profile": {
     "header": "My Account",
     "account": {
@@ -151,7 +175,16 @@
     }
   },
   "pick_picture": {
-    "pick_picture": "Pick a Profile Picture",
-    "remove_picture": "Remove a Profile Picture"
+    "pick_picture": "Change Profile Picture",
+    "remove_picture": "Remove Profile Picture"
+  },
+  "edit_profile": {
+    "header": "Edit Profile",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "date_of_birth": "Date Of Birth"
+  },
+  "terms_conditions": {
+    "header": "Terms & Conditions"
   }
 }

@@ -33,6 +33,7 @@ const BasicInfo: FC<
         onPress={formikProps.handleSubmit}
         text={t("general.next")}
         icon={I18nManager.isRTL ? "chevron-left" : "chevron-right"}
+        disabled={!formikProps.isValid}
         style={{width: "80%", alignSelf: "center"}}
       />
     </View>
